@@ -1,0 +1,47 @@
+<Button @action={{this.push}}>
+  log me
+</Button>
+
+<Button @action={{this.compoundPush}}>
+  Compouned Action
+</Button>
+
+<Button @action={{this.bananaAction}}>
+  Banana Action
+</Button>
+
+<Button @action={{this.bananaCommander}}>
+  Banana Commander
+</Button>
+
+<hr>
+
+Counter: {{this.counterValue}}
+
+<Button @action={{this.incrementCounter}}>+</Button>
+<Button @action={{this.decrementCounter}}>-</Button>
+
+<hr>
+
+Cook a curry:
+
+<Button @action={{fn @cookCurry 'green'}}>
+  green
+</Button>
+
+<Button @action={{fn @cookCurry 'yellow'}}>
+  yellow
+</Button>
+
+<Button @action={{fn @cookCurry 'red'}}>
+  red
+</Button>
+
+<hr>
+
+Links to:
+
+<Button @action={{link route="route-a"}}>Route A</Button> -
+<Button @action={{link route="route-b"}}>Route B</Button> -
+<Button @action={{this.navigateToC}}>Route C</Button> -
+<Button @action={{this.logWhileNavigate}}>Route C + log</Button>

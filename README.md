@@ -1,38 +1,33 @@
-ember-actionables
-==============================================================================
+# Actionables (that ember could get used to)
 
-[Short description of the addon.]
+Actionables is a concept to technically **model an action a user can perform**:
 
+- An actionable is a primitive to be passed around
+- An actionable is just a function
+- An actionable is composable of many actions (but stays a function)
+- An actionable can have a link (but stays a function)
+- Use actionables with `(fn)` and enjoy partial applications (because it stayed
+  a function)
 
-Compatibility
-------------------------------------------------------------------------------
+What to do with them?
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
+- Throw the actionable at `<Actionable>` component and let it be rendered
+- Throw any `@action` or `(link)` at `<Actionable>` and it will be rendered
 
+Oh: `Actionables` are _commands_ in [C-Q-S](https://en.wikipedia.org/wiki/Command–query_separation)
 
-Installation
-------------------------------------------------------------------------------
+Open questions:
 
-```
-ember install ember-actionables
-```
+- Integration done properly?
+- DAT NAME 😡 !§)$%/"=§$
+  - Best name is clearly: `Action` - but, but ... ember? 😪
+  - Alternative: `Command` as in the
+    [Command](https://refactoring.guru/design-patterns/command) design pattern
 
-
-Usage
-------------------------------------------------------------------------------
-
-[Longer description of how to use the addon in apps.]
-
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).

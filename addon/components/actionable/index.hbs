@@ -1,0 +1,12 @@
+{{#let (element (if this.link 'a' 'button')) as |Element|}}
+  <Element
+    href={{if this.link this.link.url}}
+    type={{unless this.link 'button'}}
+
+    {{on "click" this.invoke}}
+
+    ...attributes
+  >
+    {{yield}}
+  </Element>
+{{/let}}
