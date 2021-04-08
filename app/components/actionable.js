@@ -1,1 +1,1 @@
-export { default } from 'ember-actionables/components/actionable';
+export { default } from 'ember-command/components/actionable';

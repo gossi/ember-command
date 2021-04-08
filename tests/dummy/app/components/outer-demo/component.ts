@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
-import CurryCookAction from './curry-cook-action';
-import { actionable } from 'ember-actionables';
+import CurryCookCommand from './curry-cook-command';
+import { command } from 'ember-command';
 
 export default class OuterDemoComponent extends Component {
-  @actionable cookTheCurry = new CurryCookAction();
+  @command cookTheCurry = new CurryCookCommand();
 }

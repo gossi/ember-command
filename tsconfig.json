@@ -28,16 +28,16 @@
         "tests/dummy/app/*",
         "app/*"
       ],
-      "ember-actionables": [
+      "ember-command": [
         "addon"
       ],
-      "ember-actionables/*": [
+      "ember-command/*": [
         "addon/*"
       ],
-      "ember-actionables/test-support": [
+      "ember-command/test-support": [
         "addon-test-support"
       ],
-      "ember-actionables/test-support/*": [
+      "ember-command/test-support/*": [
         "addon-test-support/*"
       ],
       "*": [

@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { Actionable } from '../../index';
+import { Action } from '../../index';
 import { UILink } from 'ember-link';
 
 interface ActionableArgs {
-  action: Actionable;
+  action: Action;
 }
 
 export default class ActionableComponent extends Component<ActionableArgs> {
