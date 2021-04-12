@@ -1,28 +1,30 @@
-# Actionables (that ember could get used to)
+# Commands for Ember
 
-Actionables is a concept to technically **model an action a user can perform**:
+Implementation of the
+[Command](https://refactoring.guru/design-patterns/command) design pattern from
+[C-Q-S](https://en.wikipedia.org/wiki/Command–query_separation) for ember.
 
-- An actionable is a primitive to be passed around
-- An actionable is just a function
-- An actionable is composable of many actions (but stays a function)
-- An actionable can have a link (but stays a function)
-- Use actionables with `(fn)` and enjoy partial applications (because it stayed
-  a function)
+- Commands are a primitives to be passed around
+- Commands are just functions
+- Commands are composable of many functions (but stays a function)
+- Commands can have/be a link (but stays a function)
+- Use commands with `(fn)` and enjoiy partial applications (because it stayed a
+  function)
 
-What to do with them?
+What you'll get:
+
+- A `Command` class to extend from for your implementation
+- A `LinkCommand` as syntactic sugar for creating a link (through
+  [`ember-link`](https://github.com/buschtoens/ember-link))
+- A `@command` decorator to connect your component with your command
+- A `<Commander>` component which you can use to attach your command to the UI
+- The `<Commander>` will accept a `Command`, an `@action` or a `(link)`
 
 - Throw the actionable at `<Actionable>` component and let it be rendered
 - Throw any `@action` or `(link)` at `<Actionable>` and it will be rendered
 
-Oh: `Actionables` are _commands_ in [C-Q-S](https://en.wikipedia.org/wiki/Command–query_separation)
-
-Open questions:
-
-- Integration done properly?
-- DAT NAME 😡 !§)$%/"=§$
-  - Best name is clearly: `Action` - but, but ... ember? 😪
-  - Alternative: `Command` as in the
-    [Command](https://refactoring.guru/design-patterns/command) design pattern
+... more docs to come. Curious people want to check the dummy app, which
+contains a demo.
 
 ## Contributing
 

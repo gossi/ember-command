@@ -13,6 +13,7 @@ export default class CurriedButtonComponent extends Component {
   @service declare linkManager: LinkManagerService;
   @service declare counter: CounterService;
 
+  // how you'd do it in regular ember
   @action
   bananaAction() {
     console.log('banana');
@@ -22,22 +23,18 @@ export default class CurriedButtonComponent extends Component {
     return this.linkManager.createUILink({ route: 'route-c' });
   }
 
-  // with actionables
-
+  // commands
   @command push = commandFor(new PushLogCommand());
   @command compoundPush = [new PushLogCommand(), new FooBarAction()];
 
-  // actionables with a link
-
+  // links as commands
   @command navigateToC = this.linkToC;
   @command navigateToB = new LinkCommand({ route: 'route-b' });
 
-  // actionable link + function
-
+  // command composed of link and function
   @command logWhileNavigate = [new PushLogCommand(), this.linkToC];
 
-  // running in a shared service
-
+  // commands with a shared service
   @command incrementCounter = new CounterIncrementCommand();
   @command decrementCounter = new CounterDecrementCommand();
 
@@ -45,6 +42,7 @@ export default class CurriedButtonComponent extends Component {
     return this.counter.counter;
   }
 
+  // calling a command from a regular ember action
   @action
   bananaCommander() {
     this.push();
