@@ -3,23 +3,23 @@ import { action } from '@ember/object';
 import { Action } from '../../index';
 import { UILink } from 'ember-link';
 
-interface ActionableArgs {
-  action: Action;
+interface CommanderArgs {
+  command: Action;
 }
 
-export default class ActionableComponent extends Component<ActionableArgs> {
+export default class CommanderComponent extends Component<CommanderArgs> {
   get link(): UILink | undefined {
-    if (this.args.action instanceof UILink) {
-      return this.args.action;
+    if (this.args.command instanceof UILink) {
+      return this.args.command;
     }
 
-    return this.args.action.link;
+    return this.args.command.link;
   }
 
   @action
   invoke(event: Event) {
-    if (typeof this.args.action === 'function') {
-      this.args.action();
+    if (typeof this.args.command === 'function') {
+      this.args.command();
     }
 
     if (this.link) {
