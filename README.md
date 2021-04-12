@@ -14,14 +14,10 @@ Implementation of the
 What you'll get:
 
 - A `Command` class to extend from for your implementation
-- A `LinkCommand` as syntactic sugar for creating a link (through
-  [`ember-link`](https://github.com/buschtoens/ember-link))
+- A `LinkCommand` as syntactic sugar for creating a link (through [`ember-link`](https://github.com/buschtoens/ember-link))
 - A `@command` decorator to connect your component with your command
-- A `<Commander>` component which you can use to attach your command to the UI
+- A `<Commander>` component as your building block to attach your command to the UI
 - The `<Commander>` will accept a `Command`, an `@action` or a `(link)`
-
-- Throw the actionable at `<Actionable>` component and let it be rendered
-- Throw any `@action` or `(link)` at `<Actionable>` and it will be rendered
 
 ... more docs to come. Curious people want to check the dummy app, which
 contains a demo.
