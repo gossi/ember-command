@@ -1,6 +1,7 @@
 import { getOwner, setOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 
+import { Commandable, Invocable } from 'ember-command/-private/commandables';
 import { UILink } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
 
@@ -9,9 +10,7 @@ import { LinkCommand } from './-private/link-command';
 
 export { Command, LinkCommand };
 
-type Commandable = (
-  ...args: unknown[]
-) => void | Command | LinkCommand | UILink;
+type InvocableCommandable = Command | Invocable;
 
 export interface CommandAction {
   (...args: unknown[]): void;
@@ -26,22 +25,20 @@ export function makeAction(
     ? [composition]
     : composition;
 
-  // find the link
+  // find the (first) link
   const link = (commandables.find(
     commandable =>
       commandable instanceof UILink || commandable instanceof LinkCommand
   ) as unknown) as UILink | LinkCommand;
 
-  // and remove it
-  if (link) {
-    commandables.splice(
-      commandables.indexOf((link as unknown) as Commandable),
-      1
-    );
-  }
+  // keep remaining invocables
+  const invocables = commandables.filter(
+    commandable =>
+      commandable instanceof Command || typeof commandable === 'function'
+  ) as InvocableCommandable[];
 
   // set owner to commands
-  commandables.map(commandable => {
+  invocables.map(commandable => {
     if (commandable instanceof Command) {
       setOwner(commandable, owner);
     }
@@ -50,7 +47,7 @@ export function makeAction(
   });
 
   const action = (...args: unknown[]) => {
-    for (const fn of commandables) {
+    for (const fn of invocables) {
       if (fn instanceof Command) {
         fn.execute(...args);
       } else {

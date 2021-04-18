@@ -3,7 +3,7 @@
     (element this.tagName)
     (if @element
       @element
-      (element 'div')
+      (element 'span')
     )
   ) as |Element|}}
   <Element href={{if this.link this.link.url}} type={{unless this.link 'button' }} {{on "click" this.invoke}}

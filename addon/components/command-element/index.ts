@@ -6,16 +6,18 @@ import { UILink } from 'ember-link';
 import { Invocable } from '../../-private/commandables';
 import { CommandAction } from '../../index';
 
-interface CommanderArgs {
-  command: CommandAction;
+export type Command = Invocable | UILink | CommandAction;
+
+interface CommandElementArgs {
+  command: Command;
   /**
-   * Pass in a `(element)` as fallback when `@command` is empty. Anyway a '<div>'
+   * Pass in a `(element)` as fallback when `@command` is empty. Anyway a `<span>`
    * is used.
    */
   element?: Component;
 }
 
-export default class CommanderComponent extends Component<CommanderArgs> {
+export default class CommandElementComponent extends Component<CommandElementArgs> {
   get tagName(): 'a' | 'button' | undefined {
     if (this.link) {
       return 'a';
@@ -43,7 +45,7 @@ export default class CommanderComponent extends Component<CommanderArgs> {
       return this.args.command;
     }
 
-    return this.args.command?.link;
+    return (this.args.command as CommandAction)?.link;
   }
 
   @action
