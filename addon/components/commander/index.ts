@@ -1,23 +1,53 @@
-import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { Action } from '../../index';
+import Component from '@glimmer/component';
+
 import { UILink } from 'ember-link';
 
+import { Invocable } from '../../-private/commandables';
+import { CommandAction } from '../../index';
+
 interface CommanderArgs {
-  command: Action;
+  command: CommandAction;
+  /**
+   * Pass in a `(element)` as fallback when `@command` is empty. Anyway a '<div>'
+   * is used.
+   */
+  element?: Component;
 }
 
 export default class CommanderComponent extends Component<CommanderArgs> {
-  get link(): UILink | undefined {
+  get tagName(): 'a' | 'button' | undefined {
+    if (this.link) {
+      return 'a';
+    }
+
+    if (this.command) {
+      return 'button';
+    }
+
+    // eslint-disable-next-line unicorn/no-useless-undefined
+    return undefined;
+  }
+
+  get command(): Invocable | undefined {
+    if (typeof this.args.command === 'function') {
+      return this.args.command;
+    }
+
+    // eslint-disable-next-line unicorn/no-useless-undefined
+    return undefined;
+  }
+
+  get link(): UILink | undefined {
     if (this.args.command instanceof UILink) {
       return this.args.command;
     }
 
-    return this.args.command.link;
+    return this.args.command?.link;
   }
 
   @action
-  invoke(event: Event) {
+  invoke(event: Event): void {
     if (typeof this.args.command === 'function') {
       this.args.command();
     }

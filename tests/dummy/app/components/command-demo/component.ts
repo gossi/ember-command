@@ -1,26 +1,30 @@
-import Component from '@glimmer/component';
-import PushLogCommand from './push-log-command';
-import FooBarAction from './foobar-log-command';
-import { command, commandFor, LinkCommand } from 'ember-command';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import LinkManagerService from 'ember-link/services/link-manager';
-import CounterService from 'dummy/tests/dummy/app/services/counter';
-import CounterIncrementCommand from './counter-increment-command';
-import CounterDecrementCommand from './counter-decrement-command';
+import Component from '@glimmer/component';
 
-export default class CurriedButtonComponent extends Component {
+import { command, commandFor, LinkCommand } from 'ember-command';
+import { UILink } from 'ember-link';
+import LinkManagerService from 'ember-link/services/link-manager';
+
+import CounterService from 'dummy/tests/dummy/app/services/counter';
+
+import CounterDecrementCommand from './counter-decrement-command';
+import CounterIncrementCommand from './counter-increment-command';
+import FooBarAction from './foobar-log-command';
+import PushLogCommand from './push-log-command';
+
+export default class CommandDemoComponent extends Component {
   @service declare linkManager: LinkManagerService;
   @service declare counter: CounterService;
 
   // how you'd do it in regular ember
   @action
-  bananaAction() {
+  bananaAction(): void {
     console.log('banana');
   }
 
-  get linkToC() {
-    return this.linkManager.createUILink({ route: 'route-c' });
+  get linkToC(): UILink {
+    return this.linkManager.createUILink({ route: 'route-c' }) as UILink;
   }
 
   // commands
@@ -38,13 +42,13 @@ export default class CurriedButtonComponent extends Component {
   @command incrementCounter = new CounterIncrementCommand();
   @command decrementCounter = new CounterDecrementCommand();
 
-  get counterValue() {
+  get counterValue(): number {
     return this.counter.counter;
   }
 
   // calling a command from a regular ember action
   @action
-  bananaCommander() {
+  bananaCommander(): void {
     this.push();
   }
 }

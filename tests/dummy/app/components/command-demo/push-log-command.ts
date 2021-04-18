@@ -1,7 +1,7 @@
 import { Command } from 'ember-command';
 
 export default class PushLogCommand extends Command {
-  execute() {
+  execute(): void {
     console.log('puuuushed');
   }
 }

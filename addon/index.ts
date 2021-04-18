@@ -1,31 +1,43 @@
 import { getOwner, setOwner } from '@ember/application';
 import { assert } from '@ember/debug';
+
 import { UILink } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
+
 import { Command } from './-private/command';
 import { LinkCommand } from './-private/link-command';
 
 export { Command, LinkCommand };
 
-type Commandable = (...args: unknown[]) => void | Command | LinkCommand | UILink;
+type Commandable = (
+  ...args: unknown[]
+) => void | Command | LinkCommand | UILink;
 
-// or maybe CommandAction ?
-export interface Action {
+export interface CommandAction {
   (...args: unknown[]): void;
   link?: UILink;
 }
 
-export function makeAction(owner: unknown, composition: Commandable | Commandable[]) {
-  const commandables = !Array.isArray(composition) ? [composition] : composition;
+export function makeAction(
+  owner: unknown,
+  composition: Commandable | Commandable[]
+): CommandAction {
+  const commandables = !Array.isArray(composition)
+    ? [composition]
+    : composition;
 
   // find the link
-  const link = commandables.find(commandable =>
-    commandable instanceof UILink || commandable instanceof LinkCommand
-  ) as unknown as UILink | LinkCommand;
+  const link = (commandables.find(
+    commandable =>
+      commandable instanceof UILink || commandable instanceof LinkCommand
+  ) as unknown) as UILink | LinkCommand;
 
   // and remove it
   if (link) {
-    commandables.splice(commandables.indexOf(link as unknown as Commandable), 1);
+    commandables.splice(
+      commandables.indexOf((link as unknown) as Commandable),
+      1
+    );
   }
 
   // set owner to commands
@@ -45,11 +57,14 @@ export function makeAction(owner: unknown, composition: Commandable | Commandabl
         fn(...args);
       }
     }
-  }
+  };
 
   if (link instanceof LinkCommand) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const linkManager = owner.lookup('service:link-manager') as LinkManagerService;
+    const linkManager = owner.lookup(
+      'service:link-manager'
+    ) as LinkManagerService;
     assert(`missing 'service:link-manager' for 'LinkCommand'`, linkManager);
     action.link = linkManager.createUILink(link.params) as UILink;
   } else if (link instanceof UILink) {
@@ -59,31 +74,40 @@ export function makeAction(owner: unknown, composition: Commandable | Commandabl
   return action;
 }
 
-export function commandFor(commandable: unknown | unknown[]): Action {
-  const isCommandable = (commandable: unknown) => {
-    return typeof commandable === 'function'
-      || commandable instanceof Command
-      || commandable instanceof LinkCommand
-      || commandable instanceof UILink;
-  }
+function isCommandable(commandable: unknown) {
+  return (
+    typeof commandable === 'function' ||
+    commandable instanceof Command ||
+    commandable instanceof LinkCommand ||
+    commandable instanceof UILink
+  );
+}
 
+export function commandFor(commandAction: unknown | unknown[]): CommandAction {
   assert(
-    `${commandable} do not appear to be a command`,
-    commandable && Array.isArray(commandable) ? commandable.every(isCommandable) : isCommandable(commandable)
+    `${commandAction} do not appear to be a command`,
+    commandAction && Array.isArray(commandAction)
+      ? commandAction.every(commandable => isCommandable(commandable))
+      : isCommandable(commandAction)
   );
 
-  return commandable as unknown as Action;
+  return (commandAction as unknown) as CommandAction;
 }
 
 interface DecoratorPropertyDescriptor extends PropertyDescriptor {
   initializer?(): unknown;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typings are weird for that case. That's the best to make it work
-// as expression - ie. ignoring was easier than to construct a factory 😱
-const command: PropertyDecorator = function (_prototype: unknown, key: string | symbol, desc: PropertyDescriptor) {
-  let actions = new WeakMap();
-  let { initializer } = desc as DecoratorPropertyDescriptor;
+// as expression - ie. ignoring was easier than to change the code to a factory 😱
+const command: PropertyDecorator = function (
+  _prototype: unknown,
+  key: string | symbol,
+  desc: PropertyDescriptor
+) {
+  const actions = new WeakMap();
+  const { initializer } = desc as DecoratorPropertyDescriptor;
 
   return {
     get() {
@@ -101,6 +125,6 @@ const command: PropertyDecorator = function (_prototype: unknown, key: string | 
       return action;
     }
   };
-}
+};
 
 export { command };

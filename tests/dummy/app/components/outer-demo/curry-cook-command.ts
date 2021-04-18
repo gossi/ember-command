@@ -1,4 +1,4 @@
-import { Command } from 'ember-command'
+import { Command } from 'ember-command';
 
 export default class CurryCookCommand extends Command {
   execute(curry: string) {

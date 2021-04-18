@@ -1,0 +1,15 @@
+{
+  "printWidth": 80,
+  "singleQuote": true,
+
+  "overrides": [
+    {
+      "files": ["*.yml", "*.hbs"],
+      "options": {
+        "singleQuote": false,
+        "htmlWhitespaceSensitivity": "ignore",
+        "proseWrap": "never"
+      }
+    }
+  ]
+}

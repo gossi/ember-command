@@ -1,12 +1,13 @@
-{{#let (element (if this.link 'a' 'button')) as |Element|}}
-  <Element
-    href={{if this.link this.link.url}}
-    type={{unless this.link 'button'}}
-
-    {{on "click" this.invoke}}
-
-    ...attributes
-  >
+{{#let
+  (if this.tagName
+    (element this.tagName)
+    (if @element
+      @element
+      (element 'div')
+    )
+  ) as |Element|}}
+  <Element href={{if this.link this.link.url}} type={{unless this.link 'button' }} {{on "click" this.invoke}}
+    data-test-commander ...attributes>
     {{yield}}
   </Element>
 {{/let}}
