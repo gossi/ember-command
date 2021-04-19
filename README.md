@@ -18,9 +18,26 @@ What you'll get:
 - A `@command` decorator to connect your component with your command
 - A `<CommandElement>` component as your building block to attach your command to the UI
 - The `<CommandElement>` will accept a `Command`, an `@action` or a `(link)`
-- The `<CommandElement>` will render the correct HTML element to take care of accessibility
+- The `<CommandElement>` will render the correct HTML element to take care of
+  accessibility
+
+## Installation
+
+```bash
+ember install ember-command
+```
 
 ## Documentation
+
+- [Preparing UI Components](#preparing-ui-components)
+- [Writing Commands](#writing-commands)
+  - [Ember Actions as Commands](#ember-actions-as-commands)
+  - [Self-Contained Commands](#self-contained-commands)
+  - [Seeding Commands](#seeding-commands)
+  - [Compound Commands](#compound-commands)
+  - [Link Commands](#link-commands)
+- [Attaching Commands to your UI](#attaching-commands-to-your-ui)
+- [Testing Commands](#testing-commands)
 
 This section will teach on **preparing** your UI components, **writing
 commands**, **attaching** them your UI and **testing** them.
@@ -28,21 +45,25 @@ commands**, **attaching** them your UI and **testing** them.
 This documentation is guided by product development and engineering for _Super
 Rentals Inc_ with CPO _Tomster_ and Frontend Engineer _Zoey_.
 
-> _Tomster_ realized a cohort of customer that are interested in seeing
+_These passages are optional, you are free to skip - but may feel very much
+related to your daily work._
+
+> _Tomster_ realized a cohort of customers that are interested in seeing
 > personalized recommendations for rentals and put together a specification for
 > the feature.
 > Super Rentals shall be extended with a _recommendation_ section offering
 > personalized exposé to customers. Customers can _request offers_ and _learn
 > more_ about the object.
-
+>
 > _Tomster_ and _Zoey_ underlined the relevant nouns and verbs in the feature
 > specification to draw the domain terminology from it. The _recommendation_ is
 > the new aggregate and _request offer_ and _learn more_ are the actions upon
 > that.
-
+>
 > Meanwhile the backend developers were busy delievering an endpoint that
-> implements the business logic. Now _Zoey's_ job is to connect the UI to reach
-> this endpoint. To dispatch the request, the `data` service is used.
+> implements the business logic for these actions. Now _Zoey's_ job is to
+> connect the UI to these endpoints. To dispatch the request, the `data`
+> service is used.
 
 ### Preparing UI Components
 
@@ -98,7 +119,7 @@ your button component the best styling it deserves ;)
 
 This section focusses on writing commands in various formats.
 
-#### Ember Recommendations as Commands
+#### Ember Actions as Commands
 
 Ember recommends to use `@action` decorator for writing functions that can be
 invoked from UI elements. `ember-command` is built to work with these existing
@@ -144,7 +165,7 @@ class RecommendationComponent extends Component {
 ```
 
 Extracting into functions is a good step to write maintainable code by
-applying separation of concerns. Functions are nice in a way thy are isolated and
+applying separation of concerns. Functions are nice in a way they are isolated and
 work only with the parameters passed into them (unless the outer scope is
 accessed or a function is run within a specific object - yes `EmberRouter` I
 mean your parameter to
@@ -193,13 +214,16 @@ class RecommendationComponent extends Component {
 ```
 
 We connect the command to our component by using the `@command` decorator, which
-attaches the owner to the command and enables dependency injection onto it and
+attaches the _owner_ to the command and enables dependency injection onto it and
 wraps the command in a function that, when invoked, will call the `execute()`
 method of the command.
 
-#### Setup Commands
+You may realize, this is an implementation of the [command design
+pattern](https://refactoring.guru/design-patterns/command).
 
-To parametrize commands, the constructor can be used. We extend our component
+#### Seeding Commands
+
+To seed commands, the constructor can be used. We extend our component
 with an argument and pass it down to the command:
 
 ```ts
@@ -238,7 +262,9 @@ export default class RequestOfferCommand extends Command {
 }
 ```
 
-#### Multiple Commands
+Now the command can operate on the _recommendation_ aggregate.
+
+#### Compound Commands
 
 > Hello _Zoey_? It's _Tomster_, our data and analytics team entered a late
 > change to the original feature, they want to add tracking onto the link to
@@ -249,7 +275,7 @@ export default class RequestOfferCommand extends Command {
 > separation. For tracking purposes, she knows, there is a `tracking` service
 > to use.
 
-We can have multiple commands executed when a UI element is invoked, each in its
+We can have compound commands executed when a UI element is invoked, each in its
 own class. Let's add the tracking command:
 
 ```ts
@@ -274,7 +300,8 @@ export default class TrackRequestOfferCommand extends Command {
 }
 ```
 
-And the only change need to make to our existing code to hook tracking in:
+And the only change need to make to our existing code to integrate the
+tracking command:
 
 ```diff
 // components/recommendation
@@ -303,8 +330,8 @@ class RecommendationComponent extends Component<RecommendationArgs> {
 
 Commands can also be links, which the `<CommandElement>` will render as `<a>`
 element. The best solution for creating links is the
-[`ember-link`](https://github.com/buschtoens/ember-link) addon, which is
-utilized. Programmatically creating links with ember-link is a bit of a
+[`ember-link`](https://github.com/buschtoens/ember-link) addon.
+Programmatically creating links with ember-link is a bit of a
 mouthful, like so:
 
 ```ts
@@ -352,7 +379,26 @@ all successive ones will be dropped.
 
 ### Attaching Commands to your UI
 
-tbd.
+This is straight forward. Let's take our recommendation component, which has a
+`requestOffer` and a `learnMore` action to attach to the UI:
+
+```hbs
+<Button @push={{this.requestOffer}}>Request offer</Button>
+
+.. and somewhere else ..
+
+<Button @push={{this.learnMore}}>Learn more</Button>
+```
+
+Of course, `requestOffer` can be any format mentioned under [writing
+commands](#writing-commands) section. Also for links, you have a chance to do
+this in a template-only style:
+
+```hbs
+<Button @push={{link "recommendation.details"}}>Learn more</Button>
+```
+
+Just use the flavor you like the most.
 
 ### Testing Commands
 
