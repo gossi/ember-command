@@ -1,16 +1,19 @@
 {
   "name": "ember-command",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Commands for Ember",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "command",
+    "link",
+    "action",
+    "cqs"
   ],
-  "repository": "",
   "license": "MIT",
-  "author": "",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
+  "author": "Thomas Gossmann",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gossi/ember-command.git"
   },
   "scripts": {
     "build": "ember build --environment=production",
