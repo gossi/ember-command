@@ -26,10 +26,10 @@ export function makeAction(
     : composition;
 
   // find the (first) link
-  const link = commandables.find(
+  const link = (commandables.find(
     commandable =>
       commandable instanceof UILink || commandable instanceof LinkCommand
-  ) as unknown as UILink | LinkCommand;
+  ) as unknown) as UILink | LinkCommand;
 
   // keep remaining invocables
   const invocables = commandables.filter(
@@ -88,7 +88,7 @@ export function commandFor(commandAction: unknown | unknown[]): CommandAction {
       : isCommandable(commandAction)
   );
 
-  return commandAction as unknown as CommandAction;
+  return (commandAction as unknown) as CommandAction;
 }
 
 interface DecoratorPropertyDescriptor extends PropertyDescriptor {
@@ -104,7 +104,8 @@ const command: PropertyDecorator = function (
   desc: PropertyDescriptor
 ) {
   const actions = new WeakMap();
-  const { initializer } = desc as DecoratorPropertyDescriptor;
+  const { initializer, get } = desc as DecoratorPropertyDescriptor;
+  const invoker = initializer ?? get;
 
   return {
     get() {
@@ -113,9 +114,9 @@ const command: PropertyDecorator = function (
       if (!action) {
         assert(
           `Missing initializer for '${String(key)}'.`,
-          typeof initializer === 'function'
+          typeof invoker === 'function'
         );
-        action = makeAction(getOwner(this), initializer.call(this));
+        action = makeAction(getOwner(this), invoker.call(this));
         actions.set(this, action);
       }
 
