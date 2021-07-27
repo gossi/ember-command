@@ -26,10 +26,10 @@ export function makeAction(
     : composition;
 
   // find the (first) link
-  const link = (commandables.find(
+  const link = commandables.find(
     commandable =>
       commandable instanceof UILink || commandable instanceof LinkCommand
-  ) as unknown) as UILink | LinkCommand;
+  ) as unknown as UILink | LinkCommand;
 
   // keep remaining invocables
   const invocables = commandables.filter(
@@ -88,7 +88,7 @@ export function commandFor(commandAction: unknown | unknown[]): CommandAction {
       : isCommandable(commandAction)
   );
 
-  return (commandAction as unknown) as CommandAction;
+  return commandAction as unknown as CommandAction;
 }
 
 interface DecoratorPropertyDescriptor extends PropertyDescriptor {
