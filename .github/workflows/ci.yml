@@ -43,7 +43,7 @@ jobs:
       - name: Lint Handlebars
         run: yarn lint:hbs
       - name: Browser Tests
-        run: yarn test
+        run: yarn test:ember
 
   test-old-dependencies:
     name: Oldest Supported Env
@@ -58,7 +58,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Browser Tests
-        run: yarn test
+        run: yarn test:ember
 
   test-try:
     name: Ember Try
