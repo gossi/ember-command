@@ -60,7 +60,7 @@ jobs:
   test-try:
     name: Ember Try
     runs-on: ubuntu-20.04
-    needs: [test-locked-deps]
+    needs: [test-floating-deps]
     strategy:
       matrix:
         scenario:
