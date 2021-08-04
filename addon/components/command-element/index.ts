@@ -4,12 +4,10 @@ import Component from '@glimmer/component';
 import { UILink } from 'ember-link';
 
 import { Invocable } from '../../-private/commandables';
-import { CommandAction } from '../../index';
-
-export type Command = Invocable | UILink | CommandAction;
+import { CommandAction, CommandInstance } from '../../index';
 
 interface CommandElementArgs {
-  command: Command;
+  command: CommandAction;
   /**
    * Pass in a `(element)` as fallback when `@command` is empty. Anyway a `<span>`
    * is used.
@@ -45,7 +43,7 @@ export default class CommandElementComponent extends Component<CommandElementArg
       return this.args.command;
     }
 
-    return (this.args.command as CommandAction)?.link;
+    return (this.args.command as CommandInstance)?.link;
   }
 
   @action

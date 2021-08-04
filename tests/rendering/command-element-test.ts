@@ -6,8 +6,7 @@ import { module, test } from 'qunit';
 import Route from '@ember/routing/route';
 
 import { hbs } from 'ember-cli-htmlbars';
-import { LinkCommand } from 'ember-command';
-import { Command } from 'ember-command/components/command-element';
+import { LinkCommand, CommandAction } from 'ember-command';
 import { prepareCommandAction } from 'ember-command/test-support';
 import { UILink } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
@@ -19,7 +18,7 @@ import FooBarLogCommand from 'dummy/components/command-demo/foobar-log-command';
 import PushLogCommand from 'dummy/components/command-demo/push-log-command';
 
 interface TestContext extends BaseTestContext {
-  command: Command;
+  command: CommandAction;
 }
 
 module('Rendering | Component | <CommandElement>', function (hooks) {
