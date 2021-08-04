@@ -12,15 +12,17 @@ export { Command, LinkCommand };
 
 type InvocableCommandable = Command | Invocable;
 
-export interface CommandAction {
+export interface CommandInstance {
   (...args: unknown[]): void;
   link?: UILink;
 }
 
+export type CommandAction = Invocable | UILink | CommandInstance;
+
 export function makeAction(
   owner: unknown,
   composition: Commandable | Commandable[]
-): CommandAction {
+): CommandInstance {
   const commandables = !Array.isArray(composition)
     ? [composition]
     : composition;
@@ -80,15 +82,15 @@ function isCommandable(commandable: unknown) {
   );
 }
 
-export function commandFor(commandAction: unknown | unknown[]): CommandAction {
+export function commandFor(commands: unknown | unknown[]): CommandInstance {
   assert(
-    `${commandAction} do not appear to be a command`,
-    commandAction && Array.isArray(commandAction)
-      ? commandAction.every(commandable => isCommandable(commandable))
-      : isCommandable(commandAction)
+    `${commands} do not appear to be a command`,
+    commands && Array.isArray(commands)
+      ? commands.every(commandable => isCommandable(commandable))
+      : isCommandable(commands)
   );
 
-  return commandAction as unknown as CommandAction;
+  return commands as unknown as CommandInstance;
 }
 
 interface DecoratorPropertyDescriptor extends PropertyDescriptor {
