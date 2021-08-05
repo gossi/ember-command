@@ -10,6 +10,7 @@ import { LinkCommand, CommandAction } from 'ember-command';
 import { prepareCommandAction } from 'ember-command/test-support';
 import { UILink } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
+import { setupLink, linkFor, TestLink } from 'ember-link/test-support';
 import { TestContext as BaseTestContext } from 'ember-test-helpers';
 
 import sinon, { SinonSpy } from 'sinon';
@@ -19,10 +20,12 @@ import PushLogCommand from 'dummy/components/command-demo/push-log-command';
 
 interface TestContext extends BaseTestContext {
   command: CommandAction;
+  link: TestLink;
 }
 
 module('Rendering | Component | <CommandElement>', function (hooks) {
   setupRenderingTest(hooks);
+  setupLink(hooks);
 
   test('it renders "blank"', async function (assert) {
     await render(hbs`<CommandElement/>`);
@@ -146,5 +149,16 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
     await click('[data-test-commander]');
     assert.ok(stub.calledOnce);
+  });
+
+  test('invoke link', async function (this: TestContext, assert) {
+    this.link = linkFor('some.route');
+    this.link.onTransitionTo = () => {
+      assert.step('link clicked');
+    };
+    await render(hbs`<CommandElement @command={{this.link}}/>`);
+
+    await click('[data-test-commander]');
+    assert.verifySteps(['link clicked']);
   });
 });
