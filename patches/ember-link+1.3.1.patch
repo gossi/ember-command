@@ -1,0 +1,22 @@
+diff --git a/node_modules/ember-link/test-support/test-link.d.ts b/node_modules/ember-link/test-support/test-link.d.ts
+index 4f6bcca..1c0421e 100644
+--- a/node_modules/ember-link/test-support/test-link.d.ts
++++ b/node_modules/ember-link/test-support/test-link.d.ts
+@@ -1,11 +1,17 @@
+ import Transition from '@ember/routing/-private/transition';
+ import { Link } from 'ember-link';
+ export default class TestLink extends Link {
++    // @ts-expect-error
+     isActive: boolean;
++    // @ts-expect-error
+     isActiveWithoutQueryParams: boolean;
++    // @ts-expect-error
+     isActiveWithoutModels: boolean;
++    // @ts-expect-error
+     isEntering: boolean;
++    // @ts-expect-error
+     isExiting: boolean;
++    // @ts-expect-error
+     url: string;
+     onTransitionTo?(): void;
+     onReplaceWith?(): void;

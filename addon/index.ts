@@ -2,7 +2,7 @@ import { getOwner, setOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 
 import { Commandable, Invocable } from 'ember-command/-private/commandables';
-import { UILink } from 'ember-link';
+import { UILink, Link } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
 
 import { Command } from './-private/command';
@@ -66,7 +66,7 @@ export function makeAction(
     ) as LinkManagerService;
     assert(`missing 'service:link-manager' for 'LinkCommand'`, linkManager);
     action.link = linkManager.createUILink(link.params) as UILink;
-  } else if (link instanceof UILink) {
+  } else if (link instanceof Link) {
     action.link = link;
   }
 
@@ -78,7 +78,7 @@ function isCommandable(commandable: unknown) {
     typeof commandable === 'function' ||
     commandable instanceof Command ||
     commandable instanceof LinkCommand ||
-    commandable instanceof UILink
+    commandable instanceof Link
   );
 }
 

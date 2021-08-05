@@ -1,7 +1,7 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
-import { UILink } from 'ember-link';
+import { UILink, Link } from 'ember-link';
 
 import { Invocable } from '../../-private/commandables';
 import { CommandAction, CommandInstance } from '../../index';
@@ -38,8 +38,8 @@ export default class CommandElementComponent extends Component<CommandElementArg
     return undefined;
   }
 
-  get link(): UILink | undefined {
-    if (this.args.command instanceof UILink) {
+  get link(): Link | undefined {
+    if (this.args.command instanceof Link) {
       return this.args.command;
     }
 
@@ -53,7 +53,7 @@ export default class CommandElementComponent extends Component<CommandElementArg
     }
 
     if (this.link) {
-      this.link.transitionTo(event);
+      (this.link as UILink).transitionTo(event);
     }
   }
 }
