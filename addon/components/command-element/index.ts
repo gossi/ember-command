@@ -53,11 +53,7 @@ export default class CommandElementComponent extends Component<CommandElementArg
     }
 
     if (this.link) {
-      if (this.link instanceof UILink) {
-        this.link.transitionTo(event);
-      } else {
-        this.link.transitionTo();
-      }
+      (this.link as UILink).transitionTo(event);
     }
   }
 }
