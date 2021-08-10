@@ -1,5 +1,14 @@
 
 
+
+## v0.2.3 (2021-08-10)
+
+#### :house: Internal
+* [#10](https://github.com/gossi/ember-command/pull/10) Patch packages only for dev ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.2.2 (2021-08-10)
 
 #### :bug: Bug Fix
