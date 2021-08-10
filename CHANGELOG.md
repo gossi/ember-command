@@ -1,4 +1,13 @@
 
+
+## v0.2.2 (2021-08-10)
+
+#### :bug: Bug Fix
+* [#9](https://github.com/gossi/ember-command/pull/9) Fix package install ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.2.1 (2021-08-05)
 
 #### :bug: Bug Fix
