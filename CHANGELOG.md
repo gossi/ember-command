@@ -1,6 +1,15 @@
 
 
 
+
+## v0.2.4 (2021-08-10)
+
+#### :house: Internal
+* [#11](https://github.com/gossi/ember-command/pull/11) Move patch-package from deps to devDeps ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.2.3 (2021-08-10)
 
 #### :house: Internal
