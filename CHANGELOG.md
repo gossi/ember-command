@@ -2,6 +2,15 @@
 
 
 
+
+## v0.2.5 (2021-08-11)
+
+#### :house: Internal
+* [#12](https://github.com/gossi/ember-command/pull/12) Remove patch package, skip lib check ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.2.4 (2021-08-10)
 
 #### :house: Internal
