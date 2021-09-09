@@ -3,6 +3,15 @@
 
 
 
+
+## v0.3.0 (2021-09-09)
+
+#### :rocket: Enhancement
+* [#13](https://github.com/gossi/ember-command/pull/13) Add Async Behavior ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.2.5 (2021-08-11)
 
 #### :house: Internal
