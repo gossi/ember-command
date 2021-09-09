@@ -49,13 +49,16 @@ export function makeAction(
   });
 
   const action = (...args: unknown[]) => {
+    const invocations = [];
     for (const fn of invocables) {
       if (fn instanceof Command) {
-        fn.execute(...args);
+        invocations.push(fn.execute(...args));
       } else {
-        fn(...args);
+        invocations.push(fn(...args));
       }
     }
+
+    return Promise.all(invocations);
   };
 
   if (link instanceof LinkCommand) {
