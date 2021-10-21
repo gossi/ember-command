@@ -1,7 +1,7 @@
-import { UILink } from 'ember-link';
+import { Link } from 'ember-link';
 
 import { Command } from './command';
 import { LinkCommand } from './link-command';
 
 export type Invocable = (...args: unknown[]) => void;
-export type Commandable = Invocable | Command | LinkCommand | UILink;
+export type Commandable = Invocable | Command | LinkCommand | Link;

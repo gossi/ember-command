@@ -2,22 +2,23 @@ import { getOwner, setOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 
 import { Commandable, Invocable } from 'ember-command/-private/commandables';
-import { UILink, Link } from 'ember-link';
+import { Link } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
 
 import { Command } from './-private/command';
 import { LinkCommand } from './-private/link-command';
 
 export { Command, LinkCommand };
+export { command };
 
 type InvocableCommandable = Command | Invocable;
 
 export interface CommandInstance {
   (...args: unknown[]): void;
-  link?: UILink;
+  link?: Link;
 }
 
-export type CommandAction = Invocable | UILink | CommandInstance;
+export type CommandAction = Invocable | Link | CommandInstance;
 
 export function makeAction(
   owner: unknown,
@@ -30,8 +31,8 @@ export function makeAction(
   // find the (first) link
   const link = commandables.find(
     commandable =>
-      commandable instanceof UILink || commandable instanceof LinkCommand
-  ) as unknown as UILink | LinkCommand;
+      commandable instanceof Link || commandable instanceof LinkCommand
+  ) as unknown as Link | LinkCommand;
 
   // keep remaining invocables
   const invocables = commandables.filter(
@@ -68,7 +69,7 @@ export function makeAction(
       'service:link-manager'
     ) as LinkManagerService;
     assert(`missing 'service:link-manager' for 'LinkCommand'`, linkManager);
-    action.link = linkManager.createUILink(link.params) as UILink;
+    action.link = linkManager.createUILink(link.params) as Link;
   } else if (link instanceof Link) {
     action.link = link;
   }
@@ -129,5 +130,3 @@ const command: PropertyDecorator = function (
     }
   };
 };
-
-export { command };

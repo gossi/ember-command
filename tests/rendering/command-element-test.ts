@@ -60,6 +60,11 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
+
+    this.link = linkFor('test-route');
+    await render(hbs`<CommandElement @command={{this.link}}/>`);
+    assert.dom('[data-test-commander]').hasTagName('a');
+    assert.dom('[data-test-commander]').hasAttribute('href');
   });
 
   test('it renders for a command', async function (this: TestContext, assert) {
@@ -114,6 +119,15 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     this.owner.register('route:test-route', class extends Route {});
     this.command = prepareCommandAction(this, [
       new LinkCommand({ route: 'test-route' }),
+      new FooBarLogCommand()
+    ]);
+    await render(hbs`<CommandElement @command={{this.command}}/>`);
+
+    assert.dom('[data-test-commander]').hasTagName('a');
+    assert.dom('[data-test-commander]').hasAttribute('href');
+
+    this.command = prepareCommandAction(this, [
+      linkFor('test-route'),
       new FooBarLogCommand()
     ]);
     await render(hbs`<CommandElement @command={{this.command}}/>`);
