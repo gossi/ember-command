@@ -4,6 +4,15 @@
 
 
 
+
+## v0.3.1 (2021-10-21)
+
+#### :bug: Bug Fix
+* [#14](https://github.com/gossi/ember-command/pull/14) Fix usage for `TestLink` to write tests ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.3.0 (2021-09-09)
 
 #### :rocket: Enhancement
