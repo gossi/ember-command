@@ -1,4 +1,8 @@
-import { click, render } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  TestContext as BaseTestContext
+} from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
@@ -9,7 +13,6 @@ import { LinkCommand } from 'ember-command';
 import { Commandable } from 'ember-command/-private/commandables';
 import { prepareCommandable } from 'ember-command/test-support';
 import { linkFor, setupLink, TestLink } from 'ember-link/test-support';
-import { TestContext as BaseTestContext } from 'ember-test-helpers';
 
 import sinon, { SinonSpy } from 'sinon';
 

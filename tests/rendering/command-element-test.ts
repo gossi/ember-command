@@ -1,5 +1,8 @@
-import { render } from '@ember/test-helpers';
-import click from '@ember/test-helpers/dom/click';
+import {
+  click,
+  render,
+  TestContext as BaseTestContext
+} from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
@@ -11,7 +14,6 @@ import { prepareCommandAction } from 'ember-command/test-support';
 import { UILink } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
 import { setupLink, linkFor, TestLink } from 'ember-link/test-support';
-import { TestContext as BaseTestContext } from 'ember-test-helpers';
 
 import sinon, { SinonSpy } from 'sinon';
 
