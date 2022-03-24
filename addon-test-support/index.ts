@@ -1,8 +1,9 @@
 import { setOwner } from '@ember/application';
 
-import { Command, CommandAction, makeAction } from 'ember-command';
-import { Commandable } from 'ember-command/-private/commandables';
+import { CommandAction, makeAction } from 'ember-command';
 import { TestContext } from 'ember-test-helpers';
+
+import { Commandable } from '../addon/-private/commandables';
 
 /**
  * Use this to prepare a command for a rendering test putting that command into
@@ -36,8 +37,8 @@ export function prepareCommandAction(
  */
 export function prepareCommand(
   context: TestContext,
-  command: Command
-): Command {
+  command: Commandable
+): Commandable {
   setOwner(command, context.owner);
   return command;
 }
