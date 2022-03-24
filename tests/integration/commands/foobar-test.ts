@@ -1,8 +1,8 @@
+import { TestContext } from '@ember/test-helpers';
 import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
 import { prepareCommand } from 'ember-command/test-support';
-import { TestContext } from 'ember-test-helpers';
 
 import sinon from 'sinon';
 

@@ -1,8 +1,9 @@
+import { TestContext } from '@ember/test-helpers';
+
 import { setOwner } from '@ember/application';
 
 import { CommandAction, makeAction } from 'ember-command';
 import { Command } from 'ember-command/-private/command';
-import { TestContext } from 'ember-test-helpers';
 
 import { Commandable } from '../addon/-private/commandables';
 

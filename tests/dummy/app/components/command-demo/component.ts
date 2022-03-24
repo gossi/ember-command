@@ -20,6 +20,7 @@ export default class CommandDemoComponent extends Component {
   // how you'd do it in regular ember
   @action
   bananaAction(): void {
+    // eslint-disable-next-line no-console
     console.log('banana');
   }
 

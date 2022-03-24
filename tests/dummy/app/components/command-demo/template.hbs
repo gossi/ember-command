@@ -18,22 +18,43 @@
 
 Counter: {{this.counterValue}}
 
-<Button @push={{this.incrementCounter}}>+</Button>
-<Button @push={{this.decrementCounter}}>-</Button>
+<Button @push={{this.incrementCounter}}>
+  +
+</Button>
+<Button @push={{this.decrementCounter}}>
+  -
+</Button>
 
 <hr />
 
 Cook a curry:
 
-<Button @push={{fn @cookCurry 'green' }}>green</Button>
-<Button @push={{fn @cookCurry 'yellow' }}>yellow</Button>
-<Button @push={{fn @cookCurry 'red' }}>red</Button>
+<Button @push={{fn @cookCurry "green"}}>
+  green
+</Button>
+<Button @push={{fn @cookCurry "yellow"}}>
+  yellow
+</Button>
+<Button @push={{fn @cookCurry "red"}}>
+  red
+</Button>
 
 <hr />
 
 Links to:
 
-<Button @push={{link route='route-a' }}>Route A</Button> -
-<Button @push={{this.navigateToB}}>Route B</Button> -
-<Button @push={{this.navigateToC}}>Route C</Button> -
-<Button @push={{this.logWhileNavigate}}>Route C + log</Button>
+<Button @push={{link route="route-a"}}>
+  Route A
+</Button>
+-
+<Button @push={{this.navigateToB}}>
+  Route B
+</Button>
+-
+<Button @push={{this.navigateToC}}>
+  Route C
+</Button>
+-
+<Button @push={{this.logWhileNavigate}}>
+  Route C and log
+</Button>
