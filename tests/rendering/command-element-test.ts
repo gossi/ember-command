@@ -33,12 +33,14 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     await render(hbs`<CommandElement/>`);
 
     assert.dom('[data-test-commander]').hasTagName('span');
+    assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
   });
 
   test('it renders @element', async function (assert) {
     await render(hbs`<CommandElement @element={{element "abbr"}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('abbr');
+    assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
   });
 
   test('it renders for a function', async function (this: TestContext, assert) {
@@ -61,11 +63,13 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
+    assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
     assert.dom('[data-test-commander]').hasAttribute('href');
 
     this.link = linkFor('test-route');
     await render(hbs`<CommandElement @command={{this.link}}/>`);
     assert.dom('[data-test-commander]').hasTagName('a');
+    assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
     assert.dom('[data-test-commander]').hasAttribute('href');
   });
 
