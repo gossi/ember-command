@@ -1,8 +1,10 @@
 import { setOwner } from '@ember/application';
 
-import { Command, CommandAction, makeAction } from 'ember-command';
-import { Commandable } from 'ember-command/-private/commandables';
+import { CommandAction, makeAction } from 'ember-command';
+import { Command } from 'ember-command/-private/command';
 import { TestContext } from 'ember-test-helpers';
+
+import { Commandable } from '../addon/-private/commandables';
 
 /**
  * Use this to prepare a command for a rendering test putting that command into
@@ -40,4 +42,20 @@ export function prepareCommand(
 ): Command {
   setOwner(command, context.owner);
   return command;
+}
+
+/**
+ * Use this to prepare a command for integration testing by assigning the
+ * owner to the command.
+ *
+ * @param context the test context
+ * @param commandable Any commandable
+ * @returns The commandable with an assigned owner
+ */
+export function prepareCommandable(
+  context: TestContext,
+  commandable: Commandable
+): Commandable {
+  setOwner(commandable, context.owner);
+  return commandable;
 }
