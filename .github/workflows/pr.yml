@@ -59,8 +59,7 @@ jobs:
           - ember-lts-3.24
           - ember-release
           - ember-beta
-          # https://github.com/emberjs/ember-test-helpers/pull/1066
-          # - ember-canary
+          - ember-canary
           - embroider-safe
           - embroider-optimized
     steps:
