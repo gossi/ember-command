@@ -2,7 +2,7 @@ import { TestContext } from '@ember/test-helpers';
 import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-import { prepareCommand } from 'ember-command/test-support';
+import { arrangeCommand } from 'ember-command/test-support';
 
 import sinon from 'sinon';
 
@@ -13,7 +13,7 @@ module('Integration | Command | FooBar', function (hooks) {
 
   test('it logs "foobar"', async function (this: TestContext, assert) {
     const stub = sinon.stub(console, 'log');
-    const cmd = prepareCommand(this, new FooBarLogCommand());
+    const cmd = arrangeCommand(new FooBarLogCommand());
 
     cmd.execute();
 

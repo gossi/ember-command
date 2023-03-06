@@ -10,7 +10,7 @@ import Route from '@ember/routing/route';
 
 import { hbs } from 'ember-cli-htmlbars';
 import { LinkCommand, CommandAction } from 'ember-command';
-import { prepareCommandAction } from 'ember-command/test-support';
+import { arrangeCommandInstance } from 'ember-command/test-support';
 import { UILink } from 'ember-link';
 import LinkManagerService from 'ember-link/services/link-manager';
 import { setupLink, linkFor, TestLink } from 'ember-link/test-support';
@@ -74,7 +74,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   });
 
   test('it renders for a command', async function (this: TestContext, assert) {
-    this.command = prepareCommandAction(this, new PushLogCommand());
+    this.command = arrangeCommandInstance(new PushLogCommand());
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
@@ -84,10 +84,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('it renders for a link command', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
-    this.command = prepareCommandAction(
-      this,
-      new LinkCommand({ route: 'test-route' })
-    );
+    this.command = arrangeCommandInstance(new LinkCommand({ route: 'test-route' }));
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
@@ -97,7 +94,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   // compounds
 
   test('it renders for compound command', async function (this: TestContext, assert) {
-    this.command = prepareCommandAction(this, [
+    this.command = arrangeCommandInstance([
       new PushLogCommand(),
       new FooBarLogCommand()
     ]);
@@ -111,7 +108,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   test('it renders for compound link', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
     this.owner.register('route:test-route2', class extends Route {});
-    this.command = prepareCommandAction(this, [
+    this.command = arrangeCommandInstance([
       new LinkCommand({ route: 'test-route' }),
       new LinkCommand({ route: 'test-route2' })
     ]);
@@ -123,7 +120,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('it renders for compound command + link', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
-    this.command = prepareCommandAction(this, [
+    this.command = arrangeCommandInstance([
       new LinkCommand({ route: 'test-route' }),
       new FooBarLogCommand()
     ]);
@@ -132,7 +129,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
 
-    this.command = prepareCommandAction(this, [
+    this.command = arrangeCommandInstance([
       linkFor('test-route'),
       new FooBarLogCommand()
     ]);
@@ -150,7 +147,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     await click('[data-test-commander]');
     assert.ok((this.command as SinonSpy).calledOnce);
 
-    this.command = prepareCommandAction(this, [
+    this.command = arrangeCommandInstance([
       new PushLogCommand(),
       new FooBarLogCommand()
     ]);
@@ -164,7 +161,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   test('invoke command', async function (this: TestContext, assert) {
     const foo = new FooBarLogCommand();
     const stub = sinon.stub(foo, 'execute');
-    this.command = prepareCommandAction(this, foo);
+    this.command = arrangeCommandInstance(foo);
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 
     await click('[data-test-commander]');

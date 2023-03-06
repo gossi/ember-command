@@ -11,7 +11,7 @@ import Route from '@ember/routing/route';
 import { hbs } from 'ember-cli-htmlbars';
 import { LinkCommand } from 'ember-command';
 import { Commandable } from 'ember-command/-private/commandables';
-import { prepareCommandable } from 'ember-command/test-support';
+import { arrangeCommand } from 'ember-command/test-support';
 import { linkFor, setupLink, TestLink } from 'ember-link/test-support';
 
 import sinon, { SinonSpy } from 'sinon';
@@ -55,7 +55,7 @@ module('Integration | Helper | command', function (hooks) {
   });
 
   test('it renders for a command', async function (this: TestContext, assert) {
-    this.command = prepareCommandable(this, new PushLogCommand());
+    this.command = arrangeCommand(new PushLogCommand());
     await render(hbs`<CommandElement @command={{command this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
@@ -65,10 +65,7 @@ module('Integration | Helper | command', function (hooks) {
 
   test('it renders for a link command', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
-    this.command = prepareCommandable(
-      this,
-      new LinkCommand({ route: 'test-route' })
-    );
+    this.command = arrangeCommand(new LinkCommand({ route: 'test-route' }));
     await render(hbs`<CommandElement @command={{command this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
@@ -78,8 +75,8 @@ module('Integration | Helper | command', function (hooks) {
   // compounds
 
   test('it renders for compound command', async function (this: TestContext, assert) {
-    this.commandA = prepareCommandable(this, new PushLogCommand());
-    this.commandB = prepareCommandable(this, new FooBarLogCommand());
+    this.commandA = arrangeCommand(new PushLogCommand());
+    this.commandB = arrangeCommand(new FooBarLogCommand());
     await render(
       hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
     );
@@ -92,14 +89,8 @@ module('Integration | Helper | command', function (hooks) {
   test('it renders for compound link', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
     this.owner.register('route:test-route2', class extends Route {});
-    this.commandA = prepareCommandable(
-      this,
-      new LinkCommand({ route: 'test-route' })
-    );
-    this.commandB = prepareCommandable(
-      this,
-      new LinkCommand({ route: 'test-route2' })
-    );
+    this.commandA = arrangeCommand(new LinkCommand({ route: 'test-route' }));
+    this.commandB = arrangeCommand(new LinkCommand({ route: 'test-route2' }));
     await render(
       hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
     );
@@ -110,11 +101,8 @@ module('Integration | Helper | command', function (hooks) {
 
   test('it renders for compound command + link', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
-    this.commandA = prepareCommandable(
-      this,
-      new LinkCommand({ route: 'test-route' })
-    );
-    this.commandB = prepareCommandable(this, new FooBarLogCommand());
+    this.commandA = arrangeCommand(new LinkCommand({ route: 'test-route' }));
+    this.commandB = arrangeCommand(new FooBarLogCommand());
     await render(
       hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
     );
@@ -122,8 +110,8 @@ module('Integration | Helper | command', function (hooks) {
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
 
-    this.commandA = prepareCommandable(this, linkFor('test-route'));
-    this.commandB = prepareCommandable(this, new FooBarLogCommand());
+    this.commandA = arrangeCommand(linkFor('test-route'));
+    this.commandB = arrangeCommand(new FooBarLogCommand());
 
     await render(
       hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
@@ -141,8 +129,8 @@ module('Integration | Helper | command', function (hooks) {
     await click('[data-test-commander]');
     assert.ok((this.command as SinonSpy).calledOnce);
 
-    this.commandA = prepareCommandable(this, new PushLogCommand());
-    this.commandB = prepareCommandable(this, new FooBarLogCommand());
+    this.commandA = arrangeCommand(new PushLogCommand());
+    this.commandB = arrangeCommand(new FooBarLogCommand());
     await render(
       hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
     );
@@ -155,7 +143,7 @@ module('Integration | Helper | command', function (hooks) {
   test('invoke command', async function (this: TestContext, assert) {
     const foo = new FooBarLogCommand();
     const stub = sinon.stub(foo, 'execute');
-    this.command = prepareCommandable(this, foo);
+    this.command = arrangeCommand(foo);
     await render(hbs`<CommandElement @command={{command this.command}}/>`);
 
     await click('[data-test-commander]');

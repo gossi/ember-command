@@ -2,7 +2,7 @@ import { TestContext } from '@ember/test-helpers';
 import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-import { prepareCommand } from 'ember-command/test-support';
+import { arrangeCommand } from 'ember-command/test-support';
 
 import CounterDecrementCommand from 'dummy/components/command-demo/counter-decrement-command';
 import CounterIncrementCommand from 'dummy/components/command-demo/counter-increment-command';
@@ -16,8 +16,8 @@ module('Integration | Command | Counter', function (hooks) {
     const counterService = this.owner.lookup('service:counter');
 
     assert.equal(counterService.counter, 0);
-    const inc = prepareCommand(this, new CounterIncrementCommand());
-    const dec = prepareCommand(this, new CounterDecrementCommand());
+    const inc = arrangeCommand(new CounterIncrementCommand());
+    const dec = arrangeCommand(new CounterDecrementCommand());
 
     inc.execute();
     assert.equal(counterService.counter, 1);
