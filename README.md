@@ -294,7 +294,7 @@ export default class TrackRequestOfferCommand extends Command {
 
   execute(): void {
     this.tracking.track('recommendations.request-offer', {
-      recommendation: this.#recommendation,
+      recommendation: this.#recommendation
     });
   }
 }
@@ -368,7 +368,7 @@ above with multiple commands:
 class RecommendationComponent extends Component {
   @command leanMoreLink = [
     new LinkCommand({ route: 'recommendation.details' }),
-    new TrackLearnMoreCommand(this.args.recommendation),
+    new TrackLearnMoreCommand(this.args.recommendation)
   ];
 }
 ```
@@ -411,14 +411,14 @@ our service:
 import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-import { prepareCommand } from 'ember-command/test-support';
+import { arrangeCommand } from 'ember-command/test-support';
 import { TestContext } from 'ember-test-helpers';
 
 import sinon from 'sinon';
 
 import TrackingRequestOfferCommand from 'our-module';
 
-module('Integration | Command | TrackingRequestOfferCommand', function (hooks) {
+module('Unit | Command | TrackingRequestOfferCommand', function (hooks) {
   setupTest(hooks);
 
   test('it tracks', async function (this: TestContext, assert) {
@@ -426,7 +426,7 @@ module('Integration | Command | TrackingRequestOfferCommand', function (hooks) {
     const trackingService = this.owner.lookup('service:tracking');
 
     const stub = sinon.stub(trackingService, 'track');
-    const cmd = prepareCommand(this, new TrackingRequestOfferCommand());
+    const cmd = arrangeCommand(new TrackingRequestOfferCommand());
 
     cmd.execute();
 
@@ -435,8 +435,43 @@ module('Integration | Command | TrackingRequestOfferCommand', function (hooks) {
 });
 ```
 
-The `prepareCommand` is the testing equivalent to the `@command` decorator to
-attach the owner and wires up dependency injection.
+The `arrangeCommand` attach the owner and wires up dependency injection. There
+is also `arrangeCommandInstance` which is is the testing equivalent to the
+`@command` decorator rsp `(command)` helper to turn anything
+commandable into an instance. You can pass a `CommandInstance` to components
+expecting a command to be passed in:
+
+```ts
+import { click, render } from '@ember/test-helpers';
+import { setupTest } from 'ember-qunit';
+import { module, test } from 'qunit';
+
+import { hbs } from 'ember-cli-htmlbars';
+import { arrangeCommand } from 'ember-command/test-support';
+import { TestContext } from 'ember-test-helpers';
+
+import sinon from 'sinon';
+
+import TrackingRequestOfferCommand from 'our-module';
+
+module('Rendering | Component | <Recommendation>', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it tracks', async function (this: TestContext, assert) {
+    this.owner.register('service:tracking', TrackingService);
+    const trackingService = this.owner.lookup('service:tracking');
+
+    const stub = sinon.stub(trackingService, 'track');
+    this.command = arrangeCommand(new TrackingRequestOfferCommand());
+
+    await render(hbs`<Recommendation @requestOffer={{this.command}}/>`);
+
+    await click('[data-test-recommendation]');
+
+    assert.ok(stub.calledOnce);
+  });
+});
+```
 
 ## Contributing
 
