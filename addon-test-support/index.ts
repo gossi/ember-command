@@ -1,20 +1,25 @@
-import { assert, deprecate } from '@ember/debug';
-import { setOwner } from '@ember/application';
-import { getContext as upstreamGetContext, TestContext } from '@ember/test-helpers';
+import {
+  getContext as upstreamGetContext,
+  TestContext
+} from '@ember/test-helpers';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { isTestContext } from '@ember/test-helpers/setup-context';
+
+import { setOwner } from '@ember/application';
+import { assert, deprecate } from '@ember/debug';
 
 import { CommandAction, makeAction, CommandInstance } from 'ember-command';
 import { Command } from 'ember-command/-private/command';
 
 import { Commandable } from '../addon/-private/commandables';
 
-
 function getContext(): TestContext {
   const context = upstreamGetContext();
 
   assert(
     'Please setup test context, with either `setupText()`, `setupRenderingTest()` or `setupApplicationTest()`.',
+    // eslint-disable-next-line @typescript-eslint/ban-types
     isTestContext(context as object)
   );
 
@@ -35,7 +40,9 @@ function getContext(): TestContext {
  * @param commandable The commandable(s)
  * @returns the prepare command action
  */
-export function arrangeCommandInstance(commandable: Commandable | Commandable[]): CommandInstance {
+export function arrangeCommandInstance(
+  commandable: Commandable | Commandable[]
+): CommandInstance {
   const context = getContext();
 
   return makeAction((context as TestContext).owner, commandable);
@@ -76,15 +83,19 @@ export function prepareCommandAction(
   context: TestContext,
   commandable: Commandable | Commandable[]
 ): CommandAction {
-  deprecate('`prepareCommandAction()` is deprecated. Use `arrangeCommandInstance()` instead.', false, {
-    id: 'ember-command.test-support',
-    until: '2.0.0',
-    for: 'ember-command',
-    since: {
-      available: '1.1.0',
-      enabled: '1.1.0'
+  deprecate(
+    '`prepareCommandAction()` is deprecated. Use `arrangeCommandInstance()` instead.',
+    false,
+    {
+      id: 'ember-command.test-support',
+      until: '2.0.0',
+      for: 'ember-command',
+      since: {
+        available: '1.1.0',
+        enabled: '1.1.0'
+      }
     }
-  });
+  );
   return makeAction(context.owner, commandable);
 }
 
@@ -97,16 +108,23 @@ export function prepareCommandAction(
  * @returns The command with an assigned owner
  * @deprecated use `arrangeCommand()` instead
  */
-export function prepareCommand(context: TestContext, command: Command): Command {
-  deprecate('`prepareCommand()` is deprecated. Use `arrangeCommand()` instead.', false, {
-    id: 'ember-command.test-support',
-    until: '2.0.0',
-    for: 'ember-command',
-    since: {
-      available: '1.1.0',
-      enabled: '1.1.0'
+export function prepareCommand(
+  context: TestContext,
+  command: Command
+): Command {
+  deprecate(
+    '`prepareCommand()` is deprecated. Use `arrangeCommand()` instead.',
+    false,
+    {
+      id: 'ember-command.test-support',
+      until: '2.0.0',
+      for: 'ember-command',
+      since: {
+        available: '1.1.0',
+        enabled: '1.1.0'
+      }
     }
-  });
+  );
 
   setOwner(command, context.owner);
 
@@ -122,16 +140,23 @@ export function prepareCommand(context: TestContext, command: Command): Command 
  * @returns The commandable with an assigned owner
  * @deprecated use `arrangeCommand()` instead
  */
-export function prepareCommandable(context: TestContext, commandable: Commandable): Commandable {
-  deprecate('`prepareCommandable()` is deprecated. Use `arrangeCommand()` instead.', false, {
-    id: 'ember-command.test-support',
-    until: '2.0.0',
-    for: 'ember-command',
-    since: {
-      available: '1.1.0',
-      enabled: '1.1.0'
+export function prepareCommandable(
+  context: TestContext,
+  commandable: Commandable
+): Commandable {
+  deprecate(
+    '`prepareCommandable()` is deprecated. Use `arrangeCommand()` instead.',
+    false,
+    {
+      id: 'ember-command.test-support',
+      until: '2.0.0',
+      for: 'ember-command',
+      since: {
+        available: '1.1.0',
+        enabled: '1.1.0'
+      }
     }
-  });
+  );
 
   setOwner(commandable, context.owner);
 

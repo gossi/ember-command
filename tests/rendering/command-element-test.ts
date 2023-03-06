@@ -84,7 +84,9 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('it renders for a link command', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
-    this.command = arrangeCommandInstance(new LinkCommand({ route: 'test-route' }));
+    this.command = arrangeCommandInstance(
+      new LinkCommand({ route: 'test-route' })
+    );
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
