@@ -1,0 +1,14 @@
+{{#let
+  (if this.tagName (element this.tagName) (if @element @element (element "span")))
+  as |Element|
+}}
+  <Element
+    href={{if this.link this.link.url}}
+    type={{if this.command "button"}}
+    {{on "click" this.invoke}}
+    data-test-commander
+    ...attributes
+  >
+    {{yield}}
+  </Element>
+{{/let}}
