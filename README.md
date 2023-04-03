@@ -447,7 +447,7 @@ import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
 import { hbs } from 'ember-cli-htmlbars';
-import { arrangeCommand } from 'ember-command/test-support';
+import { arrangeCommandInstance } from 'ember-command/test-support';
 import { TestContext } from 'ember-test-helpers';
 
 import sinon from 'sinon';
@@ -462,7 +462,7 @@ module('Rendering | Component | <Recommendation>', function (hooks) {
     const trackingService = this.owner.lookup('service:tracking');
 
     const stub = sinon.stub(trackingService, 'track');
-    this.command = arrangeCommand(new TrackingRequestOfferCommand());
+    this.command = arrangeCommandInstance(new TrackingRequestOfferCommand());
 
     await render(hbs`<Recommendation @requestOffer={{this.command}}/>`);
 

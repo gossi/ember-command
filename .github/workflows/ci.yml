@@ -32,7 +32,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 14
       - name: Install Dependencies
         run: yarn install
       - name: Lint JS
@@ -51,7 +51,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Browser Tests
@@ -64,8 +64,8 @@ jobs:
     strategy:
       matrix:
         scenario:
-          # - ember-lts-3.20
-          # - ember-lts-3.24
+          - ember-lts-3.20
+          - ember-lts-3.24
           - ember-lts-3.28
           - ember-4.0.0
           - ember-release
@@ -79,7 +79,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Try Scenario
