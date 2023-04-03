@@ -52,6 +52,13 @@ export function arrangeCommandInstance(
  * Use this to prepare a command for integration testing by assigning the
  * owner to the command.
  *
+ * @example
+ *
+ * ```ts
+ * const cmd = arrangeCommand(new TaskCommand(bag));
+ * await cmd.execute();
+ * ```
+ *
  * @param command The command
  * @returns The command with an assigned owner
  */
@@ -70,7 +77,7 @@ export function arrangeCommand<C extends Commandable>(command: C): C {
  * @example
  *
  * ```ts
- * this.command = setupCommandAction(this, new FooBarCommand());
+ * this.command = prepareCommandAction(this, new FooBarCommand());
  * await render(hbs`<CommandElement @command={{this.command}}/>`);
  * ```
  *
