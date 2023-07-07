@@ -114,7 +114,7 @@
     "ember-link": "2.0.1"
   },
   "engines": {
-    "node": "12.* || >= 14"
+    "node": ">= 16"
   },
   "ember": {
     "edition": "octane"
@@ -142,6 +142,7 @@
     }
   },
   "volta": {
-    "node": "14.17.3"
+    "node": "16.20.1",
+    "yarn": "1.22.19"
   }
 }
