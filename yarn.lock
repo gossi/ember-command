@@ -7713,10 +7713,20 @@ ember-export-application-global@^2.0.1:
   resolved "https://registry.yarnpkg.com/ember-export-application-global/-/ember-export-application-global-2.0.1.tgz#b120a70e322ab208defc9e2daebe8d0dfc2dcd46"
   integrity sha512-B7wiurPgsxsSGzJuPFkpBWnaeuCu2PGpG2BjyrfA1VcL7//o+5RSnZqiCEY326y7qmxb2GoCgo0ft03KBU0rRw==
 
-ember-link@2.0.1, "ember-link@^1.3.1 || ^2":
+ember-link@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-link/-/ember-link-2.0.1.tgz#095f57d2fcf51b3a2ec350ec0c220273e2dd52ce"
   integrity sha512-M4RypknF/4EOtigGtWyfaajmGyPl4hpdU4CuiVbX6lOSqRv17w25+n7anrDD/uh6yk6LqkQw7FoAcBwRPBM4xw==
+  dependencies:
+    "@glimmer/tracking" "^1.0.3"
+    ember-cli-babel "^7.23.0"
+    ember-cli-htmlbars "^6.0.0"
+    ember-cli-typescript "^4.1.0"
+
+"ember-link@^1.3.1 || ^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ember-link/-/ember-link-2.1.0.tgz#eb38577e14d2a58041fa5311eacd3b38b18df782"
+  integrity sha512-j2huXQzWrlj8LtslWuoqsgT0/dUtASxtGtCQqd8XdXLoMyN8JYYRifNpp/iFmsxPyYuRMIaokfXSB00+Ztmofw==
   dependencies:
     "@glimmer/tracking" "^1.0.3"
     ember-cli-babel "^7.23.0"
