@@ -18,10 +18,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Install Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
+      - uses: volta-cli/action@v4
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint JS
@@ -39,10 +36,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Install Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
+      - uses: volta-cli/action@v4
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Browser Tests
@@ -67,10 +61,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Install Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
+      - uses: volta-cli/action@v4
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Try Scenario
