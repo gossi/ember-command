@@ -1,10 +1,9 @@
 import Helper from '@ember/component/helper';
 import { getOwner } from '@ember/owner';
 
-import { makeAction } from '../-private/utils';
+import { createCommandInstance } from '../-private/instance';
 
-import type { CommandInstance } from '../';
-import type { Commandable } from '../-private/commandables';
+import type { Commandable, CommandInstance } from '../-private/instance';
 import type Owner from '@ember/owner';
 
 export interface CommandHelperSignature {
@@ -16,6 +15,6 @@ export interface CommandHelperSignature {
 
 export default class CommandHelper extends Helper<CommandHelperSignature> {
   compute(commands: Commandable[]): CommandInstance {
-    return makeAction(getOwner(this) as Owner, commands);
+    return createCommandInstance(getOwner(this) as Owner, commands);
   }
 }

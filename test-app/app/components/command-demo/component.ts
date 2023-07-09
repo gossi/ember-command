@@ -10,7 +10,7 @@ import FooBarAction from './foobar-log-command';
 import PushLogCommand from './push-log-command';
 
 import type CounterService from '../../services/counter';
-import type { UILink } from 'ember-link';
+import type { Link } from 'ember-link';
 import type LinkManagerService from 'ember-link/services/link-manager';
 
 export default class CommandDemoComponent extends Component {
@@ -24,8 +24,8 @@ export default class CommandDemoComponent extends Component {
     console.log('banana');
   }
 
-  get linkToC(): UILink {
-    return this.linkManager.createUILink({ route: 'route-c' }) as UILink;
+  get linkToC(): Link {
+    return this.linkManager.createLink({ route: 'route-c' }) as Link;
   }
 
   // commands

@@ -1,0 +1,15 @@
+{
+  "[glimmer-ts]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ]
+  // [
+  //   "ember-command",
+  //   "test-app"
+  // ]
+}

@@ -13,7 +13,6 @@ import PushLogCommand from 'test-app/components/command-demo/push-log-command';
 
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import type { CommandAction } from 'ember-command';
-import type { UILink } from 'ember-link';
 import type LinkManagerService from 'ember-link/services/link-manager';
 import type { TestLink } from 'ember-link/test-support';
 import type { SinonSpy } from 'sinon';
@@ -55,9 +54,9 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
     const linkService = this.owner.lookup('service:link-manager') as LinkManagerService;
 
-    this.command = linkService.createUILink({
+    this.command = linkService.createLink({
       route: 'test-route'
-    }) as UILink;
+    });
 
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 

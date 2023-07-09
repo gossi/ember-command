@@ -3,11 +3,10 @@ import { setOwner } from '@ember/owner';
 import { getContext as upstreamGetContext } from '@ember/test-helpers';
 import { isTestContext } from '@ember/test-helpers/setup-context';
 
-import { makeAction } from '../-private/utils';
+import { createCommandInstance } from '../-private/instance';
 
 import type { Command, CommandAction } from '../';
-import type { Commandable } from '../-private/commandables';
-import type { CommandInstance } from '../-private/utils';
+import type { Commandable, CommandInstance } from '../-private/instance';
 import type { TestContext } from '@ember/test-helpers';
 
 function getContext(): TestContext {
@@ -38,7 +37,7 @@ function getContext(): TestContext {
 export function arrangeCommandInstance(commandable: Commandable | Commandable[]): CommandInstance {
   const context = getContext();
 
-  return makeAction((context as TestContext).owner, commandable);
+  return createCommandInstance((context as TestContext).owner, commandable);
 }
 
 /**
@@ -48,7 +47,7 @@ export function arrangeCommandInstance(commandable: Commandable | Commandable[])
  * @param command The command
  * @returns The command with an assigned owner
  */
-export function arrangeCommand(command: Command): Command {
+export function arrangeCommand<C extends Commandable>(command: C): C {
   const context = getContext();
 
   setOwner(command, context.owner);
@@ -76,7 +75,7 @@ export function prepareCommandAction(
   context: TestContext,
   commandable: Commandable | Commandable[]
 ): CommandAction {
-  return makeAction(context.owner, commandable);
+  return createCommandInstance(context.owner, commandable);
 }
 
 /**

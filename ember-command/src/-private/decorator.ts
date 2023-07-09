@@ -1,7 +1,7 @@
 import { assert } from '@ember/debug';
 import { getOwner } from '@ember/owner';
 
-import { makeAction } from './utils';
+import { createCommandInstance } from './instance';
 
 import type Owner from '@ember/owner';
 
@@ -27,7 +27,7 @@ const decorator: PropertyDecorator = function (
 
       if (!action) {
         assert(`Missing initializer for '${String(key)}'.`, typeof invoker === 'function');
-        action = makeAction(getOwner(this) as Owner, invoker.call(this));
+        action = createCommandInstance(getOwner(this) as Owner, invoker.call(this));
         actions.set(this, action);
       }
 

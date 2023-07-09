@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-import { prepareCommand } from 'ember-command/test-support';
+import { arrangeCommand } from 'ember-command/test-support';
 
 import TaskCommand from './task-command';
 
@@ -17,7 +17,7 @@ module('Integration | Command | Task', function (hooks) {
 
     assert.notOk(bag.carry);
 
-    const cmd = prepareCommand(this, new TaskCommand(bag));
+    const cmd = arrangeCommand(new TaskCommand(bag));
 
     await cmd.execute();
 

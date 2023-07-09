@@ -4,10 +4,10 @@ import { setupTest } from 'ember-qunit';
 
 import { LinkCommand } from 'ember-command';
 import { arrangeCommandInstance } from 'ember-command/test-support';
-import setupLink from 'ember-link/test-support/setup-link';
+import { setupLink } from 'ember-link/test-support';
 
 import type { TestContext } from '@ember/test-helpers';
-import type { UILink } from 'ember-link';
+import type { Link } from 'ember-link';
 import type LinkManagerService from 'ember-link/services/link-manager';
 
 module('Unit | Identify command instances', function (hooks) {
@@ -19,9 +19,9 @@ module('Unit | Identify command instances', function (hooks) {
 
     const linkService = this.owner.lookup('service:link-manager') as LinkManagerService;
 
-    const link = linkService.createUILink({
+    const link = linkService.createLink({
       route: 'test-route'
-    }) as UILink;
+    }) as Link;
 
     const command = arrangeCommandInstance(link);
 

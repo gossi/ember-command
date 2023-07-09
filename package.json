@@ -11,10 +11,9 @@
   ],
   "scripts": {},
   "devDependencies": {
-    "concurrently": "^7.6.0",
-    "prettier": "^2.6.0"
+    "concurrently": "^7.6.0"
   },
   "volta": {
-    "node": "18.14.2"
+    "node": "18.16.1"
   }
 }

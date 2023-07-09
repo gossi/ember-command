@@ -1,27 +1,26 @@
 import { Command } from 'ember-command';
-import { timeout } from 'ember-concurrency';
-import { dropTask } from 'ember-concurrency-decorators';
-import { taskFor } from 'ember-concurrency-ts';
+import { timeout, dropTask } from 'ember-concurrency';
 
 interface Bag {
   carry: boolean;
 }
 
 export default class TaskCommand extends Command {
-  #bag: Bag;
+  private bag: Bag;
+
   constructor(bag: Bag) {
     super();
-    this.#bag = bag;
+    this.bag = bag;
   }
 
   async execute(): Promise<void> {
-    await taskFor(this.changeBag).perform();
+    await this.changeBag.perform();
   }
 
   @dropTask
-  *changeBag(): Generator {
-    yield timeout(500);
+  changeBag = dropTask(async () => {
+    await timeout(500);
 
-    this.#bag.carry = true;
-  }
+    this.bag.carry = true;
+  });
 }

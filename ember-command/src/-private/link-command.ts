@@ -1,8 +1,8 @@
-import type { LinkParams, UILinkParams } from 'ember-link';
+import type { LinkParams } from 'ember-link';
 
 export class LinkCommand {
-  params: LinkParams & UILinkParams;
-  constructor(params: LinkParams & UILinkParams) {
+  params: LinkParams;
+  constructor(params: LinkParams) {
     this.params = params;
   }
 }

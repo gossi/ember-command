@@ -1,13 +1,20 @@
-import typescript from 'rollup-plugin-ts';
-import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
+
+import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { defineConfig } from 'rollup';
+import copy from 'rollup-plugin-copy';
+import { glimmerTemplateTag } from 'rollup-plugin-glimmer-template-tag';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist'
 });
 
-export default {
+// Add extensions here, such as ts, gjs, etc that you may import
+const extensions = ['.js', '.ts'];
+
+export default defineConfig({
   // This provides defaults that work well alongside `publicEntrypoints` below.
   // You can augment this if you need to.
   output: addon.output(),
@@ -16,8 +23,10 @@ export default {
     // These are the modules that users should be able to import from your
     // addon. Anything not listed here may get optimized away.
     addon.publicEntrypoints([
-      'index.js', 'test-support/index.js',
-      'components/command-element.js', 'helpers/command.js'
+      'index.js',
+      'test-support/index.js',
+      'components/command-element.js',
+      'helpers/command.js'
     ]),
 
     // These are the modules that should get reexported into the traditional
@@ -30,11 +39,15 @@ export default {
     // package names.
     addon.dependencies(),
 
+    glimmerTemplateTag(),
+
+    // Allows rollup to resolve imports of files with the specified extensions
+    nodeResolve({ extensions }),
+
     // compile TypeScript to latest JavaScript, including Babel transpilation
-    typescript({
-      transpiler: 'babel',
-      browserslist: false,
-      transpileOnly: false
+    babel({
+      extensions,
+      babelHelpers: 'bundled'
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
@@ -55,4 +68,4 @@ export default {
       ]
     })
   ]
-};
+});

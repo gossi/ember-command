@@ -5,18 +5,24 @@ import { Link } from 'ember-link';
 
 import type { CommandAction, CommandInstance } from '../';
 import type { Invocable } from '../-private/commandables';
-import type { UILink } from 'ember-link';
+import type ElementHelper from 'ember-element-helper/helpers/element';
 
-interface CommandElementArgs {
-  command: CommandAction;
-  /**
-   * Pass in a `(element)` as fallback when `@command` is empty. Anyway a `<span>`
-   * is used.
-   */
-  element?: Component;
+interface CommandSignature {
+  Element: HTMLButtonElement | HTMLAnchorElement | HTMLSpanElement;
+  Args: {
+    command: CommandAction;
+    /**
+     * Pass in a `(element)` as fallback when `@command` is empty. Anyway a `<span>`
+     * is used.
+     */
+    element?: typeof ElementHelper;
+  };
+  Blocks: {
+    default: [];
+  };
 }
 
-export default class CommandElementComponent extends Component<CommandElementArgs> {
+export default class CommandElementComponent extends Component<CommandSignature> {
   get tagName(): 'a' | 'button' | undefined {
     if (this.link) {
       return 'a';
@@ -52,7 +58,7 @@ export default class CommandElementComponent extends Component<CommandElementArg
     }
 
     if (this.link) {
-      (this.link as UILink).transitionTo(event);
+      (this.link as Link).transitionTo(event);
     }
   }
 }

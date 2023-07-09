@@ -8,7 +8,7 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "module": "es6",
-    "moduleResolution": "node16",
+    "moduleResolution": "nodenext",
     "noEmit": true,
     "noEmitOnError": false,
     "noFallthroughCasesInSwitch": true,
