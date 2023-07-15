@@ -12,7 +12,8 @@
       "*": [
         "types/*"
       ]
-    }
+    },
+    "skipLibCheck": true
   },
   "include": [
     "app/**/*",
