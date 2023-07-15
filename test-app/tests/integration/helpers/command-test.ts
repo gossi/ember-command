@@ -1,8 +1,8 @@
 import Route from '@ember/routing/route';
 import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 
 import { LinkCommand } from 'ember-command';
 import { arrangeCommand } from 'ember-command/test-support';
@@ -13,9 +13,8 @@ import PushLogCommand from 'test-app/components/command-demo/push-log-command';
 
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import type { Commandable } from 'ember-command';
-import { TestInstrumentedLinkManagerService, TestLink } from 'ember-link/test-support';
+import { TestLink } from 'ember-link/test-support';
 import type { SinonSpy } from 'sinon';
-import { Link, LinkManagerService } from 'ember-link';
 
 interface TestContext extends BaseTestContext {
   command: Commandable;
@@ -39,14 +38,10 @@ module('Integration | Helper | command', function (hooks) {
 
   test('it renders for a link', async function (this: TestContext, assert) {
     this.link = linkFor('some.route');
-    const service = this.owner.lookup('service:link-manager') as LinkManagerService;
-    // this.link = new Link(service, { route: 'some-route' });
-    console.log('T', this.link, this.link instanceof Link);
+    await render(hbs`<CommandElement @command={{command this.link}}/>`);
 
-    // await render(hbs`<CommandElement @command={{command this.link}}/>`);
-
-    // assert.dom('[data-test-commander]').hasTagName('a');
-    // assert.dom('[data-test-commander]').hasAttribute('href');
+    assert.dom('[data-test-commander]').hasTagName('a');
+    assert.dom('[data-test-commander]').hasAttribute('href');
 
     await render(hbs`<CommandElement @command={{this.link}}/>`);
     assert.dom('[data-test-commander]').hasTagName('a');
@@ -142,7 +137,6 @@ module('Integration | Helper | command', function (hooks) {
 
   test('invoke link', async function (this: TestContext, assert) {
     this.link = linkFor('some.route');
-
     this.link.onTransitionTo = () => {
       assert.step('link clicked');
     };

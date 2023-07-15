@@ -28,8 +28,6 @@ interface CommandSignature {
 
 export default class CommandElementComponent extends Component<CommandSignature> {
   get tagName(): 'a' | 'button' | undefined {
-    console.log('tagName', this.link);
-
     if (this.link) {
       return 'a';
     }
@@ -50,7 +48,7 @@ export default class CommandElementComponent extends Component<CommandSignature>
   }
 
   get link(): Link | undefined {
-    return getLink(this.args.command);
+    return this.args.command && getLink(this.args.command);
   }
 
   @action
@@ -60,7 +58,7 @@ export default class CommandElementComponent extends Component<CommandSignature>
     }
 
     if (this.link) {
-      (this.link as Link).transitionTo(event);
+      (this.link as Link).open(event);
     }
   }
 

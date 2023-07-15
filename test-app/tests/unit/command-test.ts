@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
 import { LinkCommand } from 'ember-command';
-import { arrangeCommandInstance } from 'ember-command/test-support';
+import { arrangeCommand, arrangeCommandInstance } from 'ember-command/test-support';
 import { setupLink } from 'ember-link/test-support';
 
 import type { TestContext } from '@ember/test-helpers';
@@ -28,11 +28,15 @@ module('Unit | Identify command instances', function (hooks) {
     assert.ok(command.link);
   });
 
+  /**
+   * This tests only exists because of:
+   * https://github.com/embroider-build/ember-auto-import/issues/588
+   */
   test('a link command is a link', function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
 
-    const command = arrangeCommandInstance(new LinkCommand({ route: 'test-route' }));
+    const command = arrangeCommand(new LinkCommand({ route: 'test-route' }));
 
-    assert.ok(command.link);
+    assert.ok(LinkCommand.isLinkCommand(command));
   });
 });

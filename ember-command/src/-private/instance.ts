@@ -9,7 +9,9 @@ import { LinkCommand } from './link-command';
 import type Owner from '@ember/owner';
 import type { LinkManagerService } from 'ember-link';
 
-const INVOCABLES = Symbol('INVOCABLES');
+// see: https://github.com/embroider-build/ember-auto-import/issues/588
+// const INVOCABLES = Symbol('INVOCABLES');
+const INVOCABLES = '__INVOCABLES__';
 
 export type Function = (...args: unknown[]) => void;
 type Invocable = Command | Function;
@@ -23,16 +25,54 @@ export interface CommandInstance {
 export type Commandable = Function | Command | LinkCommand | Link | CommandInstance;
 export type CommandAction = Function | Link | CommandInstance;
 
-function isLink(commandable: Commandable) {
-  return commandable instanceof Link || commandable instanceof LinkCommand;
+const LINK_PROPERTIES = [
+  'active',
+  'activeWithoutModels',
+  'activeWithoutQueryParams',
+  'entering',
+  'exiting',
+  'open',
+  'transitionTo',
+  'replaceWith',
+  'qualifiedRouteName',
+  'url',
+  'models',
+  'queryParams'
+];
+
+function getAllPropertyNames(obj: object) {
+  let names: string[] = [];
+
+  do {
+    names.push(...Object.getOwnPropertyNames(obj));
+    obj = Object.getPrototypeOf(obj);
+  } while (obj !== Object.prototype);
+
+  return names.filter((name) => name !== 'constructor');
+}
+
+function isLink(commandable: Commandable): commandable is Link {
+  // `instanceOf` is not a reliable check, only when the host app runs with
+  // embroider. In classic mode, the ember-link instance in the host app and in
+  // ember-command addon are different and the check will fail, so this performs
+  // some duck-type check
+  const props = getAllPropertyNames(commandable);
+
+  // the first check should be sufficient enough, but isn't due to:
+  // https://github.com/embroider-build/ember-auto-import/issues/588
+  // so, there is another duck-type check for the link
+  return commandable instanceof Link || LINK_PROPERTIES.every((prop) => props.includes(prop));
 }
 
 function isCommandInstance(commandable: Commandable): commandable is CommandInstance {
-  return Object.getOwnPropertySymbols(commandable).includes(INVOCABLES);
+  return Object.getOwnPropertyNames(commandable).includes(INVOCABLES);
 }
 
 function containsLink(commandable: Commandable) {
-  if (isLink(commandable)) {
+  // the correct check would be, the first commented out one, but can't be due to:
+  // https://github.com/embroider-build/ember-auto-import/issues/588
+  // if (commandable instanceof Link || commandable instanceof LinkCommand) {
+  if (isLink(commandable) || LinkCommand.isLinkCommand(commandable)) {
     return true;
   }
 
@@ -55,6 +95,12 @@ export function getLink(commandable: Commandable) {
   }
 }
 
+function getLinkCommand(commandable: Commandable) {
+  if (LinkCommand.isLinkCommand(commandable)) {
+    return commandable;
+  }
+}
+
 export function createCommandInstance(
   owner: Owner,
   composition: Commandable | Commandable[]
@@ -63,18 +109,9 @@ export function createCommandInstance(
 
   // find the (first) link
   const potentialLink = commandables.find((commandable) => {
-    console.log(
-      commandable,
-      Object.getPrototypeOf(commandable),
-      commandable instanceof Link,
-      commandable instanceof Object,
-      Object.getPrototypeOf(commandable) === Link.prototype,
-      Link.prototype
-    );
-
     return containsLink(commandable);
   });
-  const link = potentialLink ? getLink(potentialLink) : undefined;
+  const link = potentialLink ? getLink(potentialLink) ?? getLinkCommand(potentialLink) : undefined;
 
   // keep remaining invocables
   const invocables = commandables.filter(
@@ -83,6 +120,7 @@ export function createCommandInstance(
 
   // set owner to commands
   invocables.flatMap((commandable) => {
+    // this is failing due to: https://github.com/embroider-build/ember-auto-import/issues/588
     if (commandable instanceof Command) {
       setOwner(commandable, owner);
     }
@@ -95,7 +133,7 @@ export function createCommandInstance(
   });
 
   const action = function (this: CommandInstance, ...args: unknown[]) {
-    for (const fn of this[INVOCABLES]) {
+    for (const fn of invocables) {
       if (fn instanceof Command) {
         fn.execute(...args);
       } else {
@@ -106,18 +144,14 @@ export function createCommandInstance(
 
   (action as CommandInstance)[INVOCABLES] = invocables;
 
-  if (link instanceof LinkCommand) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+  if (link && LinkCommand.isLinkCommand(link)) {
     const linkManager = owner.lookup('service:link-manager') as LinkManagerService;
 
     assert(`missing 'service:link-manager' for 'LinkCommand'`, linkManager);
-    action.link = linkManager.createLink(link.params) as Link;
-  } else if (link instanceof Link) {
+    action.link = linkManager.createLink(link.params);
+  } else if (link && isLink(link)) {
     action.link = link;
   }
-
-  console.log(potentialLink, link);
 
   return action as CommandInstance;
 }
