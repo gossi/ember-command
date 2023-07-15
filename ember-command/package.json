@@ -46,7 +46,7 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "tsc --noEmit",
+    "lint:types": "glint",
     "prepack": "rollup --config",
     "release": "release-it",
     "start": "concurrently 'npm:start:*'",

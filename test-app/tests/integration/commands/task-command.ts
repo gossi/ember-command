@@ -1,5 +1,5 @@
 import { Command } from 'ember-command';
-import { timeout, dropTask } from 'ember-concurrency';
+import { dropTask, timeout } from 'ember-concurrency';
 
 interface Bag {
   carry: boolean;
@@ -17,8 +17,7 @@ export default class TaskCommand extends Command {
     await this.changeBag.perform();
   }
 
-  @dropTask
-  changeBag = dropTask(async () => {
+  @dropTask changeBag = dropTask(async () => {
     await timeout(500);
 
     this.bag.carry = true;

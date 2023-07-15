@@ -3,6 +3,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
 import { LinkCommand } from 'ember-command';
+
 import { arrangeCommand, arrangeCommandInstance } from 'ember-command/test-support';
 import { setupLink } from 'ember-link/test-support';
 

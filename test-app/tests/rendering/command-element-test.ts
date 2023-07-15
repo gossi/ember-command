@@ -5,11 +5,12 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 
 import { LinkCommand } from 'ember-command';
-import { arrangeCommandInstance } from 'ember-command/test-support';
-import { linkFor, setupLink } from 'ember-link/test-support';
 import sinon from 'sinon';
 import FooBarLogCommand from 'test-app/components/command-demo/foobar-log-command';
 import PushLogCommand from 'test-app/components/command-demo/push-log-command';
+
+import { arrangeCommandInstance } from 'ember-command/test-support';
+import { linkFor, setupLink } from 'ember-link/test-support';
 
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import type { CommandAction } from 'ember-command';

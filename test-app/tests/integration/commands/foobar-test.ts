@@ -1,9 +1,10 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-import { arrangeCommand } from 'ember-command/test-support';
 import sinon from 'sinon';
 import FooBarLogCommand from 'test-app/components/command-demo/foobar-log-command';
+
+import { arrangeCommand } from 'ember-command/test-support';
 
 import type { TestContext } from '@ember/test-helpers';
 

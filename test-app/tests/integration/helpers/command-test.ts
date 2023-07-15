@@ -1,19 +1,20 @@
 import Route from '@ember/routing/route';
 import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
 
 import { LinkCommand } from 'ember-command';
-import { arrangeCommand } from 'ember-command/test-support';
-import { linkFor, setupLink } from 'ember-link/test-support';
 import sinon from 'sinon';
 import FooBarLogCommand from 'test-app/components/command-demo/foobar-log-command';
 import PushLogCommand from 'test-app/components/command-demo/push-log-command';
 
+import { arrangeCommand } from 'ember-command/test-support';
+import { linkFor, setupLink } from 'ember-link/test-support';
+
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import type { Commandable } from 'ember-command';
-import { TestLink } from 'ember-link/test-support';
+import type { TestLink } from 'ember-link/test-support';
 import type { SinonSpy } from 'sinon';
 
 interface TestContext extends BaseTestContext {
@@ -137,6 +138,7 @@ module('Integration | Helper | command', function (hooks) {
 
   test('invoke link', async function (this: TestContext, assert) {
     this.link = linkFor('some.route');
+
     this.link.onTransitionTo = () => {
       assert.step('link clicked');
     };

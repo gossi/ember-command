@@ -1,10 +1,11 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-import { arrangeCommand } from 'ember-command/test-support';
 import CounterDecrementCommand from 'test-app/components/command-demo/counter-decrement-command';
 import CounterIncrementCommand from 'test-app/components/command-demo/counter-increment-command';
 import CounterService from 'test-app/services/counter';
+
+import { arrangeCommand } from 'ember-command/test-support';
 
 import type { TestContext } from '@ember/test-helpers';
 
