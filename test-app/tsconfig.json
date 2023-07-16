@@ -13,7 +13,10 @@
         "types/*"
       ]
     },
-    "skipLibCheck": true
+    // make type checking work:
+    "skipLibCheck": true,
+    // allow tests to compile for ember versions below v3
+    "noEmitOnError": false
   },
   "include": [
     "app/**/*",
