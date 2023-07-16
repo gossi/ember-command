@@ -67,7 +67,23 @@ module.exports = async function () {
         }
       },
       embroiderSafe(),
-      embroiderOptimized()
+      embroiderOptimized(),
+      {
+        name: 'ember-link-v1',
+        npm: {
+          devDependencies: {
+            'ember-link': '^1.3.1'
+          }
+        }
+      },
+      {
+        name: 'ember-link-v2',
+        npm: {
+          devDependencies: {
+            'ember-link': '^2.1.0'
+          }
+        }
+      }
     ]
   };
 };
