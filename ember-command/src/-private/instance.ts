@@ -31,7 +31,7 @@ const LINK_PROPERTIES = [
   'activeWithoutQueryParams',
   'entering',
   'exiting',
-  'open',
+  // 'open', // as of `ember-link@3`
   'transitionTo',
   'replaceWith',
   'qualifiedRouteName',
