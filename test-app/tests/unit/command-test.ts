@@ -31,7 +31,7 @@ module('Unit | Identify command instances', function (hooks) {
 
   /**
    * This tests only exists because of:
-   * https://github.com/embroider-build/ember-auto-import/issues/588
+   * https://github.com/gossi/ember-command/issues/23
    */
   test('a link command is a link', function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});

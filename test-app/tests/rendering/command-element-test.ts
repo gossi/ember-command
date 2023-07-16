@@ -151,13 +151,20 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('invoke command', async function (this: TestContext, assert) {
     const foo = new FooBarLogCommand();
-    const stub = sinon.stub(foo, 'execute');
+    const spy = sinon.spy();
+    foo.execute = spy;
+    // const stub = sinon.stub(foo, 'execute');
+
+
+
 
     this.command = arrangeCommandInstance(foo);
+
+    console.log(this.command, foo);
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 
     await click('[data-test-commander]');
-    assert.ok(stub.calledOnce);
+    assert.ok(spy.calledOnce);
   });
 
   test('invoke link', async function (this: TestContext, assert) {

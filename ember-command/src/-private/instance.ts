@@ -9,7 +9,7 @@ import { LinkCommand } from './link-command';
 import type Owner from '@ember/owner';
 import type { LinkManagerService } from 'ember-link';
 
-// see: https://github.com/embroider-build/ember-auto-import/issues/588
+// see: https://github.com/gossi/ember-command/issues/23
 // const INVOCABLES = Symbol('INVOCABLES');
 const INVOCABLES = '__INVOCABLES__';
 
@@ -59,7 +59,7 @@ function isLink(commandable: Commandable): commandable is Link {
   const props = getAllPropertyNames(commandable);
 
   // the first check should be sufficient enough, but isn't due to:
-  // https://github.com/embroider-build/ember-auto-import/issues/588
+  // https://github.com/gossi/ember-command/issues/23
   // so, there is another duck-type check for the link
   return commandable instanceof Link || LINK_PROPERTIES.every((prop) => props.includes(prop));
 }
@@ -68,9 +68,16 @@ function isCommandInstance(commandable: Commandable): commandable is CommandInst
   return Object.getOwnPropertyNames(commandable).includes(INVOCABLES);
 }
 
+export function isCommand(commandable: unknown): commandable is Command {
+  return (
+    (commandable as Command).execute !== undefined &&
+    typeof (commandable as Command).execute === 'function'
+  );
+}
+
 function containsLink(commandable: Commandable) {
   // the correct check would be, the first commented out one, but can't be due to:
-  // https://github.com/embroider-build/ember-auto-import/issues/588
+  // https://github.com/gossi/ember-command/issues/23
   // if (commandable instanceof Link || commandable instanceof LinkCommand) {
   if (isLink(commandable) || LinkCommand.isLinkCommand(commandable)) {
     return true;
@@ -115,13 +122,14 @@ export function createCommandInstance(
 
   // keep remaining invocables
   const invocables = commandables.filter(
-    (commandable) => commandable instanceof Command || typeof commandable === 'function'
+    (commandable) => isCommand(commandable) || typeof commandable === 'function'
   ) as Invocable[];
 
   // set owner to commands
   invocables.flatMap((commandable) => {
-    // this is failing due to: https://github.com/embroider-build/ember-auto-import/issues/588
-    if (commandable instanceof Command) {
+    // this is failing due to: https://github.com/gossi/ember-command/issues/23
+    // if (commandable instanceof Command) {
+    if (isCommand(commandable)) {
       setOwner(commandable, owner);
     }
 
@@ -134,7 +142,7 @@ export function createCommandInstance(
 
   const action = function (this: CommandInstance, ...args: unknown[]) {
     for (const fn of invocables) {
-      if (fn instanceof Command) {
+      if (isCommand(fn)) {
         fn.execute(...args);
       } else {
         fn(...args);
@@ -160,8 +168,11 @@ function isCommandable(commandable: unknown): commandable is Commandable {
   return (
     typeof commandable === 'function' ||
     commandable instanceof Command ||
+    isCommand(commandable) ||
     commandable instanceof LinkCommand ||
-    commandable instanceof Link
+    LinkCommand.isLinkCommand(commandable) ||
+    commandable instanceof Link ||
+    isLink(commandable as Commandable)
   );
 }
 
