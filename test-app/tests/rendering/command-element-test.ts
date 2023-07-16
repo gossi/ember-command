@@ -152,6 +152,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   test('invoke command', async function (this: TestContext, assert) {
     const foo = new FooBarLogCommand();
     const spy = sinon.spy();
+
     foo.execute = spy;
     this.command = arrangeCommandInstance(foo);
 
