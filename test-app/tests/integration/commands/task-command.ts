@@ -17,7 +17,7 @@ export default class TaskCommand extends Command {
     await this.changeBag.perform();
   }
 
-  @dropTask changeBag = dropTask(async () => {
+  changeBag = dropTask(async () => {
     await timeout(500);
 
     this.bag.carry = true;

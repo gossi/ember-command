@@ -153,14 +153,8 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     const foo = new FooBarLogCommand();
     const spy = sinon.spy();
     foo.execute = spy;
-    // const stub = sinon.stub(foo, 'execute');
-
-
-
-
     this.command = arrangeCommandInstance(foo);
 
-    console.log(this.command, foo);
     await render(hbs`<CommandElement @command={{this.command}}/>`);
 
     await click('[data-test-commander]');
