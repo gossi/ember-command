@@ -117,7 +117,7 @@ jobs:
       - name: Setup
         uses: wyvox/action@v1
       - name: Build package
-        run: pnpm --filter ember-link build
+        run: pnpm --filter ember-command build
       - name: Try Scenario
         run: pnpm exec ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         working-directory: test-app
