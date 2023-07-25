@@ -61,18 +61,18 @@ jobs:
       - name: Tests
         run: pnpm run -r --parallel --aggregate-output test
 
-  # test-floating-deps:
-  #   name: Floating Deps
-  #   runs-on: ubuntu-lates
-  #   steps:
-  #     - name: Setup
-  #       uses: wyvox/action@v1
-  #       with:
-  #         pnpm-args: --no-frozen-lockfile
-  #     - name: Build package
-  #       run: pnpm --filter ember-command build
-  #     - name: Tests
-  #       run: pnpm run -r --parallel --aggregate-output test
+  test-floating-deps:
+    name: Floating Deps
+    runs-on: ubuntu-lates
+    steps:
+      - name: Setup
+        uses: wyvox/action@v1
+        with:
+          pnpm-args: --no-frozen-lockfile
+      - name: Build package
+        run: pnpm --filter ember-command build
+      - name: Tests
+        run: pnpm run -r --parallel --aggregate-output test
 
   test-ember-link:
     name: Ember Link
