@@ -63,7 +63,7 @@ jobs:
 
   test-floating-deps:
     name: Floating Deps
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: Setup
         uses: wyvox/action@v1
