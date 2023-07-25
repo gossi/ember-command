@@ -17,9 +17,6 @@ importers:
       '@embroider/addon-shim':
         specifier: ^1.8.6
         version: 1.8.6
-      ember-element-helper:
-        specifier: '>=0.6.1'
-        version: 0.6.1(@glint/template@1.0.2)(ember-source@4.12.0)
     devDependencies:
       '@babel/core':
         specifier: ^7.22.9
@@ -93,6 +90,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^5.62.0
         version: 5.62.0(eslint@8.45.0)(typescript@5.1.6)
+      ember-element-helper:
+        specifier: ^0.6.1
+        version: 0.6.1(@glint/template@1.0.2)(ember-source@4.12.0)
       ember-link:
         specifier: ^3.0.0
         version: 3.0.0(@ember/test-helpers@3.2.0)(@glimmer/tracking@1.1.2)(@glint/template@1.0.2)
@@ -501,6 +501,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.22.5
+    dev: true
 
   /@babel/helper-module-imports@7.22.5:
     resolution: {integrity: sha512-8Dl6+HD/cKifutF5qGd/8ZJi84QeAKh+CEe1sBzz8UayBBGg1dAIJrdHOcOM5b2MpzWL2yuotJTtGjETq0qjXg==}
@@ -1995,7 +1996,7 @@ packages:
       ember-source: 4.12.0(@babel/core@7.22.9)(@glimmer/component@1.1.2)(webpack@5.88.2)
     transitivePeerDependencies:
       - supports-color
-    dev: false
+    dev: true
 
   /@embroider/util@1.10.0(ember-source@4.12.3):
     resolution: {integrity: sha512-utAFKoq6ajI27jyqjvX3PiGL4m+ZyGVlVNbSbE/nOqi2llRyAkh5ltH1WkIK7jhdwQFJouo1NpOSj9J3/HDa3A==}
@@ -6724,7 +6725,7 @@ packages:
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
-    dev: false
+    dev: true
 
   /ember-element-helper@0.6.1(ember-source@4.12.3):
     resolution: {integrity: sha512-YiOdAMlzYul4ulkIoNp8z7iHDfbT1fbut/9xGFRfxDwU/FmF8HtAUB2f1veu/w50HTeZNopa1OV2PCloZ76XlQ==}
@@ -6907,6 +6908,7 @@ packages:
       - '@babel/core'
       - supports-color
       - webpack
+    dev: true
 
   /ember-source@4.12.3(@babel/core@7.22.9)(@glimmer/component@1.1.2)(webpack@5.88.2):
     resolution: {integrity: sha512-UuFpMWf931pEWBPuujkaMYhsoPvFyZc+tMYjlUn7um20uL+hWs+k2n/TxMVuxydSzJLnxrXz81nTwbYIlgRWdw==}
@@ -12183,6 +12185,7 @@ packages:
       is-core-module: 2.12.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
+    dev: true
 
   /resolve@1.22.2:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
@@ -12506,6 +12509,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.5.4:
     resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
