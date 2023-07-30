@@ -1,8 +1,8 @@
 import { assert } from '@ember/debug';
-import { setOwner } from '@ember/owner';
 import { getContext as upstreamGetContext } from '@ember/test-helpers';
 import { isTestContext } from '@ember/test-helpers/setup-context';
 
+import { setOwner } from '../-private/-owner';
 import { createCommandInstance } from '../-private/instance';
 
 import type { Command, CommandAction } from '../';

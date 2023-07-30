@@ -1,6 +1,6 @@
 import { assert } from '@ember/debug';
-import { getOwner } from '@ember/owner';
 
+import { getOwner } from './-owner';
 import { createCommandInstance } from './instance';
 
 import type Owner from '@ember/owner';

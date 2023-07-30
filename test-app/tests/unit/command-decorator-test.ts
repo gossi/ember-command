@@ -1,10 +1,11 @@
-import { setOwner } from '@ember/owner';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
 import { command } from 'ember-command';
 import CounterDecrementCommand from 'test-app/components/command-demo/counter-decrement-command';
 import CounterIncrementCommand from 'test-app/components/command-demo/counter-increment-command';
+
+import { setOwner } from '../-owner';
 
 class CommandAggregator {
   @command inc = new CounterIncrementCommand();

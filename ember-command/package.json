@@ -54,7 +54,8 @@
     "start:types": "glint --declaration --watch"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.8.6"
+    "@embroider/addon-shim": "^1.8.6",
+    "@embroider/macros": "^1.11.1"
   },
   "peerDependencies": {
     "@ember/test-helpers": ">=2.9.0",
