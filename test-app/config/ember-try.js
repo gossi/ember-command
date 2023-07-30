@@ -12,7 +12,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             '@ember/test-helpers': '^2.9.3',
-            'ember-source': '~3.28.0',
+            'ember-source': '~3.28.12',
             'ember-qunit': '^6.2.0'
           }
         }
@@ -67,7 +67,23 @@ module.exports = async function () {
         }
       },
       embroiderSafe(),
-      embroiderOptimized()
+      embroiderOptimized(),
+      {
+        name: 'ember-link-v1',
+        npm: {
+          devDependencies: {
+            'ember-link': '^1.3.1'
+          }
+        }
+      },
+      {
+        name: 'ember-link-v2',
+        npm: {
+          devDependencies: {
+            'ember-link': '^2.1.0'
+          }
+        }
+      }
     ]
   };
 };

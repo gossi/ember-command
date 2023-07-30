@@ -58,7 +58,11 @@ export default class CommandElementComponent extends Component<CommandSignature>
     }
 
     if (this.link) {
-      (this.link as Link).open(event);
+      if ((this.link as Link).open) {
+        (this.link as Link).open(event);
+      } else {
+        (this.link as Link).transitionTo(event);
+      }
     }
   }
 

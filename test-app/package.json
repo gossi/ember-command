@@ -13,7 +13,7 @@
   "author": "Thomas Gossmann",
   "scripts": {
     "dev": "concurrently 'npm:dev:*'",
-    "dev:test-app": "ember serve -e test -p 4300",
+    "dev:test-app": "concurrently 'ember serve -e test -p 4300' 'pnpm _syncPnpm --watch'",
     "dev:package": "pnpm run --filter='ember-command' start",
     "lint": "concurrently -g 'npm:lint:*(!fix)'",
     "lint:fix": "concurrently -g 'npm:lint:*:fix'",
@@ -22,10 +22,16 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "_lint:types": "tsc --noEmit",
+    "_syncPnpm": "pnpm sync-dependencies-meta-injected",
     "test": "ember test -tp 0"
   },
   "dependencies": {
     "ember-command": "workspace:*"
+  },
+  "dependenciesMeta": {
+    "ember-command": {
+      "injected": true
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
@@ -33,8 +39,9 @@
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^3.2.0",
     "@embroider/test-setup": "^3.0.1",
-    "@embroider/webpack": "^3.1.3",
-    "@embroider/compat": "^3.1.5",
+    "@embroider/webpack": "^3.1.4",
+    "@embroider/compat": "^3.2.0",
+    "@embroider/macros": "^1.11.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@gossi/config-eslint": "^0.4.1",
@@ -43,8 +50,8 @@
     "@tsconfig/ember": "^3.0.0",
     "@types/qunit": "^2.19.6",
     "@types/sinon": "^10.0.15",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.2.0",
     "ember-auto-import": "^2.6.3",
@@ -57,6 +64,7 @@
     "ember-cli-typescript": "^5.2.1",
     "ember-concurrency": "^3.0.0",
     "ember-disable-prototype-extensions": "^1.1.3",
+    "ember-element-helper": "^0.7.1",
     "ember-link": "^3.0.0",
     "ember-load-initializers": "^2.1.2",
     "ember-qunit": "^7.0.0",
@@ -64,17 +72,18 @@
     "ember-sinon-qunit": "^7.1.4",
     "ember-source": "~4.12.3",
     "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^5.11.0",
+    "ember-template-lint": "^5.11.1",
     "ember-try": "^2.0.0",
     "eslint": "^8.45.0",
     "eslint-plugin-ember": "^11.10.0",
     "loader.js": "^4.7.0",
+    "pnpm-sync-dependencies-meta-injected": "^0.0.8",
     "prettier": "^2.8.8",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
     "sinon": "^15.2.0",
     "typescript": "^5.1.6",
-    "webpack": "^5.88.1"
+    "webpack": "^5.88.2"
   },
   "ember": {
     "edition": "octane"

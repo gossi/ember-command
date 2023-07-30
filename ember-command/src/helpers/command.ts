@@ -1,6 +1,6 @@
 import Helper from '@ember/component/helper';
-import { getOwner } from '@ember/owner';
 
+import { getOwner } from '../-private/-owner';
 import { createCommandInstance } from '../-private/instance';
 
 import type { Commandable, CommandInstance } from '../-private/instance';
