@@ -118,6 +118,8 @@ jobs:
         uses: wyvox/action@v1
       - name: Build package
         run: pnpm --filter ember-command build
+      - name: Pnpm Sync Injected Deps
+        run: pnpm --filter test-app _syncPnpm
       - name: Try Scenario
         run: pnpm exec ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         working-directory: test-app
