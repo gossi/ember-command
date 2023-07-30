@@ -58,6 +58,8 @@ jobs:
         uses: wyvox/action@v1
       - name: Build package
         run: pnpm --filter ember-command build
+      - name: Pnpm Sync Injected Deps
+        run: pnpm --filter test-app _syncPnpm
       - name: Tests
         run: pnpm run -r --parallel --aggregate-output test
 
@@ -71,6 +73,8 @@ jobs:
           pnpm-args: --no-frozen-lockfile
       - name: Build package
         run: pnpm --filter ember-command build
+      - name: Pnpm Sync Injected Deps
+        run: pnpm --filter test-app _syncPnpm
       - name: Tests
         run: pnpm run -r --parallel --aggregate-output test
 
@@ -89,6 +93,8 @@ jobs:
         uses: wyvox/action@v1
       - name: Build package
         run: pnpm --filter ember-command build
+      - name: Pnpm Sync Injected Deps
+        run: pnpm --filter test-app _syncPnpm
       - name: Tests
         run: pnpm run -r --parallel --aggregate-output test
       - name: Try Scenario
