@@ -27,6 +27,11 @@
   "dependencies": {
     "ember-command": "workspace:*"
   },
+  "dependenciesMeta": {
+    "ember-command": {
+      "injected": true
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@ember/optional-features": "^2.0.0",
