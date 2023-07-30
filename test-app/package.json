@@ -13,7 +13,7 @@
   "author": "Thomas Gossmann",
   "scripts": {
     "dev": "concurrently 'npm:dev:*'",
-    "dev:test-app": "ember serve -e test -p 4300",
+    "dev:test-app": "concurrently 'ember serve -e test -p 4300' 'pnpm _syncPnpm --watch'",
     "dev:package": "pnpm run --filter='ember-command' start",
     "lint": "concurrently -g 'npm:lint:*(!fix)'",
     "lint:fix": "concurrently -g 'npm:lint:*:fix'",
