@@ -18,10 +18,7 @@ interface Args {
   named: object;
 }
 
-type CommandHelperSignature = (
-  commandables: Commandable | Commandable[],
-  owner: Owner
-) => CommandInstance;
+type CommandHelperSignature = (owner: Owner, ...commandables: Commandable[]) => CommandInstance;
 
 class CommandHelperManager {
   capabilities: HelperCapabilities = capabilities('3.23', {
@@ -35,7 +32,7 @@ class CommandHelperManager {
   }
 
   getValue({ fn, args }: { fn: CommandHelperSignature; args: Args }) {
-    return fn(args.positional as Commandable[], this.owner as Owner);
+    return fn(this.owner as Owner, ...(args.positional as Commandable[]));
   }
 }
 
