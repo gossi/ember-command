@@ -18,7 +18,10 @@ interface Args {
   named: object;
 }
 
-type CommandHelperSignature = (commandables: Commandable[], owner: Owner) => CommandInstance;
+type CommandHelperSignature = (
+  commandables: Commandable | Commandable[],
+  owner: Owner
+) => CommandInstance;
 
 class CommandHelperManager {
   capabilities: HelperCapabilities = capabilities('3.23', {
@@ -40,6 +43,8 @@ interface DecoratorPropertyDescriptor extends PropertyDescriptor {
   initializer?(): unknown;
 }
 
+export default function command(commandables: Commandable | Commandable[]): CommandInstance;
+
 /**
  * The `@use` decorator can be used to use a Resource in javascript classes
  *
@@ -57,8 +62,6 @@ export default function command<Prototype, Key>(
   key: DecoratorKey<Key>,
   descriptor?: DecoratorPropertyDescriptor
 ): void;
-
-export default function command(commandables: Commandable[]): CommandInstance;
 
 export default function command(
   commandables: Commandable[] | object,

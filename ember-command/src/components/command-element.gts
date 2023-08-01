@@ -26,7 +26,7 @@ interface CommandSignature {
   };
 }
 
-export default class CommandElementComponent extends Component<CommandSignature> {
+export default class CommandElement extends Component<CommandSignature> {
   get tagName(): 'a' | 'button' | undefined {
     if (this.link) {
       return 'a';

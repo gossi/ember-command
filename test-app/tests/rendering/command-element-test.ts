@@ -27,15 +27,15 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   setupRenderingTest(hooks);
   setupLink(hooks);
 
-  test('it renders "blank"', async function (assert) {
-    await render(hbs`<CommandElement/>`);
+  test('it renders "blank"', async function (this: TestContext, assert) {
+    await render<TestContext>(hbs`<CommandElement/>`);
 
     assert.dom('[data-test-commander]').hasTagName('span');
     assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
   });
 
-  test('it renders @element', async function (assert) {
-    await render(hbs`<CommandElement @element={{element "abbr"}}/>`);
+  test('it renders @element', async function (this: TestContext, assert) {
+    await render<TestContext>(hbs`<CommandElement @element={{element "abbr"}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('abbr');
     assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
@@ -43,7 +43,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('it renders for a function', async function (this: TestContext, assert) {
     this.command = sinon.spy();
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -59,14 +59,14 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
       route: 'test-route'
     });
 
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
     assert.dom('[data-test-commander]').hasAttribute('href');
 
     this.link = linkFor('test-route');
-    await render(hbs`<CommandElement @command={{this.link}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.link}}/>`);
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -74,7 +74,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('it renders for a command', async function (this: TestContext, assert) {
     this.command = arrangeCommandInstance(new PushLogCommand());
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -85,7 +85,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     this.owner.register('route:test-route', class extends Route {});
     this.command = arrangeCommandInstance(new LinkCommand({ route: 'test-route' }));
 
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -95,7 +95,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('it renders for compound command', async function (this: TestContext, assert) {
     this.command = arrangeCommandInstance([new PushLogCommand(), new FooBarLogCommand()]);
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -109,7 +109,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
       new LinkCommand({ route: 'test-route' }),
       new LinkCommand({ route: 'test-route2' })
     ]);
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -121,13 +121,13 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
       new LinkCommand({ route: 'test-route' }),
       new FooBarLogCommand()
     ]);
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
 
     this.command = arrangeCommandInstance([linkFor('test-route'), new FooBarLogCommand()]);
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -136,13 +136,13 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   // invoke
   test('invoke function', async function (this: TestContext, assert) {
     this.command = sinon.spy();
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     await click('[data-test-commander]');
     assert.ok((this.command as SinonSpy).calledOnce);
 
     this.command = arrangeCommandInstance([new PushLogCommand(), new FooBarLogCommand()]);
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -156,7 +156,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
     foo.execute = spy;
     this.command = arrangeCommandInstance(foo);
 
-    await render(hbs`<CommandElement @command={{this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.command}}/>`);
 
     await click('[data-test-commander]');
     assert.ok(spy.calledOnce);
@@ -169,7 +169,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
       assert.step('link clicked');
     };
 
-    await render(hbs`<CommandElement @command={{this.link}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.link}}/>`);
 
     await click('[data-test-commander]');
     assert.verifySteps(['link clicked']);
