@@ -9,16 +9,13 @@ interface DecoratorPropertyDescriptor extends PropertyDescriptor {
   initializer?(): unknown;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore typings are weird for that case. That's the best to make it work
-// as expression - ie. ignoring was easier than to change the code to a factory 😱
-const decorator: PropertyDecorator = function (
+export function decorate(
   _prototype: unknown,
   key: string | symbol,
-  desc: PropertyDescriptor
+  desc: DecoratorPropertyDescriptor
 ) {
   const actions = new WeakMap();
-  const { initializer, get } = desc as DecoratorPropertyDescriptor;
+  const { initializer, get } = desc;
   const invoker = initializer ?? get;
 
   return {
@@ -34,6 +31,4 @@ const decorator: PropertyDecorator = function (
       return action;
     }
   };
-};
-
-export { decorator };
+}

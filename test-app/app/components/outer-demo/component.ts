@@ -1,9 +1,16 @@
 import Component from '@glimmer/component';
 
-import { command } from 'ember-command';
+import { command, commandFor } from 'ember-command';
 
-import CurryCookCommand from './curry-cook-command';
+import CookCurryCommand from './cook-curry-command';
 
-export default class OuterDemoComponent extends Component {
-  @command cookTheCurry = new CurryCookCommand();
+export default class OuterDemo extends Component {
+  @command cookTheCurry = commandFor(new CookCurryCommand());
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    OuterDemo: typeof OuterDemo;
+  }
 }

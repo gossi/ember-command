@@ -30,7 +30,7 @@ module('Integration | Helper | command', function (hooks) {
 
   test('it renders for a function', async function (this: TestContext, assert) {
     this.command = sinon.spy();
-    await render(hbs`<CommandElement @command={{command this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{command this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -39,19 +39,19 @@ module('Integration | Helper | command', function (hooks) {
 
   test('it renders for a link', async function (this: TestContext, assert) {
     this.link = linkFor('some.route');
-    await render(hbs`<CommandElement @command={{command this.link}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{command this.link}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
 
-    await render(hbs`<CommandElement @command={{this.link}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{this.link}}/>`);
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
   });
 
   test('it renders for a command', async function (this: TestContext, assert) {
     this.command = arrangeCommand(new PushLogCommand());
-    await render(hbs`<CommandElement @command={{command this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{command this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -61,7 +61,7 @@ module('Integration | Helper | command', function (hooks) {
   test('it renders for a link command', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
     this.command = arrangeCommand(new LinkCommand({ route: 'test-route' }));
-    await render(hbs`<CommandElement @command={{command this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{command this.command}}/>`);
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -72,7 +72,9 @@ module('Integration | Helper | command', function (hooks) {
   test('it renders for compound command', async function (this: TestContext, assert) {
     this.commandA = arrangeCommand(new PushLogCommand());
     this.commandB = arrangeCommand(new FooBarLogCommand());
-    await render(hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`);
+    await render<TestContext>(
+      hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
+    );
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -84,7 +86,9 @@ module('Integration | Helper | command', function (hooks) {
     this.owner.register('route:test-route2', class extends Route {});
     this.commandA = arrangeCommand(new LinkCommand({ route: 'test-route' }));
     this.commandB = arrangeCommand(new LinkCommand({ route: 'test-route2' }));
-    await render(hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`);
+    await render<TestContext>(
+      hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
+    );
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -94,7 +98,9 @@ module('Integration | Helper | command', function (hooks) {
     this.owner.register('route:test-route', class extends Route {});
     this.commandA = arrangeCommand(new LinkCommand({ route: 'test-route' }));
     this.commandB = arrangeCommand(new FooBarLogCommand());
-    await render(hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`);
+    await render<TestContext>(
+      hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
+    );
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -102,7 +108,9 @@ module('Integration | Helper | command', function (hooks) {
     this.commandA = arrangeCommand(linkFor('test-route'));
     this.commandB = arrangeCommand(new FooBarLogCommand());
 
-    await render(hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`);
+    await render<TestContext>(
+      hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
+    );
 
     assert.dom('[data-test-commander]').hasTagName('a');
     assert.dom('[data-test-commander]').hasAttribute('href');
@@ -111,14 +119,16 @@ module('Integration | Helper | command', function (hooks) {
   // invoke
   test('invoke function', async function (this: TestContext, assert) {
     this.command = sinon.spy();
-    await render(hbs`<CommandElement @command={{command this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{command this.command}}/>`);
 
     await click('[data-test-commander]');
     assert.ok((this.command as SinonSpy).calledOnce);
 
     this.commandA = arrangeCommand(new PushLogCommand());
     this.commandB = arrangeCommand(new FooBarLogCommand());
-    await render(hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`);
+    await render<TestContext>(
+      hbs`<CommandElement @command={{command this.commandA this.commandB}}/>`
+    );
 
     assert.dom('[data-test-commander]').hasTagName('button');
     assert.dom('[data-test-commander]').hasAttribute('type');
@@ -130,7 +140,7 @@ module('Integration | Helper | command', function (hooks) {
     const stub = sinon.stub(foo, 'execute');
 
     this.command = arrangeCommand(foo);
-    await render(hbs`<CommandElement @command={{command this.command}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{command this.command}}/>`);
 
     await click('[data-test-commander]');
     assert.ok(stub.calledOnce);
@@ -143,7 +153,7 @@ module('Integration | Helper | command', function (hooks) {
       assert.step('link clicked');
     };
 
-    await render(hbs`<CommandElement @command={{command this.link}}/>`);
+    await render<TestContext>(hbs`<CommandElement @command={{command this.link}}/>`);
 
     await click('[data-test-commander]');
     assert.verifySteps(['link clicked']);

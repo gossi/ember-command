@@ -23,7 +23,7 @@ export interface CommandInstance {
 }
 
 export type Commandable = Function | Command | LinkCommand | Link | CommandInstance;
-export type CommandAction = Function | Link | CommandInstance;
+export type CommandAction = Function | Link | LinkCommand | Command | CommandInstance;
 
 const LINK_PROPERTIES = [
   'active',
