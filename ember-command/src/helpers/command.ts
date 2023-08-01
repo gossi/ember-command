@@ -43,7 +43,7 @@ interface DecoratorPropertyDescriptor extends PropertyDescriptor {
   initializer?(): unknown;
 }
 
-export default function command(commandables: Commandable | Commandable[]): CommandInstance;
+export default function command(...commandables: Commandable[]): CommandInstance;
 
 /**
  * The `@use` decorator can be used to use a Resource in javascript classes
@@ -63,16 +63,32 @@ export default function command<Prototype, Key>(
   descriptor?: DecoratorPropertyDescriptor
 ): void;
 
+// commandables: Commandable[] | object,
+//   key?: string | symbol | Owner,
+//   desc?: DecoratorPropertyDescriptor
+
 export default function command(
-  commandables: Commandable[] | object,
-  key?: string | symbol | Owner,
-  desc?: DecoratorPropertyDescriptor
+  ...args: Parameters<typeof decorate> | [Owner, ...Commandable[]] | Commandable[]
 ): void | CommandInstance {
-  if (key && desc && (desc.get || desc.initializer)) {
-    return decorate(undefined, key as string | symbol, desc) as unknown as void;
+  if (
+    args.length === 3 &&
+    ((args[2] as DecoratorPropertyDescriptor).get ||
+      (args[2] as DecoratorPropertyDescriptor).initializer)
+  ) {
+    return decorate(
+      args[0],
+      args[1] as string | symbol,
+      args[2] as DecoratorPropertyDescriptor
+    ) as unknown as void;
   }
 
-  return createCommandInstance(key as Owner, commandables as Commandable[]);
+  return createCommandInstance(args[0] as Owner, args.slice(1) as Commandable[]);
+
+  // if (key && desc && (desc.get || desc.initializer)) {
+  //   return decorate(undefined, key as string | symbol, desc) as unknown as void;
+  // }
+
+  // return createCommandInstance(key as Owner, commandables as Commandable[]);
 }
 
 setHelperManager((owner) => new CommandHelperManager(owner as Owner), command);

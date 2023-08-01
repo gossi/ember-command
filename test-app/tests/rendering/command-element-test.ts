@@ -28,14 +28,20 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   setupLink(hooks);
 
   test('it renders "blank"', async function (this: TestContext, assert) {
-    await render<TestContext>(hbs`<CommandElement/>`);
+    await render<TestContext>(hbs`
+      {{!@glint-expect-error}}
+      <CommandElement/>
+    `);
 
     assert.dom('[data-test-commander]').hasTagName('span');
     assert.dom('[data-test-commander]').doesNotHaveAttribute('type');
   });
 
   test('it renders @element', async function (this: TestContext, assert) {
-    await render<TestContext>(hbs`<CommandElement @element={{element "abbr"}}/>`);
+    await render<TestContext>(hbs`
+      {{!@glint-expect-error}}
+      <CommandElement @element={{element "abbr"}}/>
+    `);
 
     assert.dom('[data-test-commander]').hasTagName('abbr');
     assert.dom('[data-test-commander]').doesNotHaveAttribute('type');

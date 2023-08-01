@@ -4,9 +4,10 @@ import '@glint/environment-ember-loose';
 import '@glint/environment-ember-template-imports';
 
 import type EmberCommandRegistry from 'ember-command/template-registry';
+import type EmberLinkRegistry from 'ember-link/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry extends EmberCommandRegistry {
+  export default interface Registry extends EmberCommandRegistry, EmberLinkRegistry {
     // local entries
   }
 }

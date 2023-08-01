@@ -14,7 +14,7 @@
       ]
     },
     // make type checking work:
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     // allow tests to compile for ember versions below v3
     "noEmitOnError": false
   },
