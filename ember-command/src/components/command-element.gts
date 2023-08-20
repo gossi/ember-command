@@ -2,24 +2,24 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 
-import element from 'ember-element-helper/helpers/element';
+import { element } from 'ember-element-helper';
 
 import { getLink } from '../-private/instance';
 
 import type { CommandAction } from '../';
 import type { Function } from '../-private/instance';
-import type { ElementSignature } from 'ember-element-helper/helpers/element';
+import type { ElementFromTagName, ElementSignature } from 'ember-element-helper';
 import type { Link } from 'ember-link';
 
-interface CommandSignature {
-  Element: HTMLButtonElement | HTMLAnchorElement | HTMLSpanElement;
+interface CommandSignature<T extends string = 'span'> {
+  Element: HTMLButtonElement | HTMLAnchorElement | ElementFromTagName<T>;
   Args: {
     command: CommandAction;
     /**
      * Pass in a `(element)` as fallback when `@command` is empty. Anyway a `<span>`
      * is used.
      */
-    element?: ElementSignature<'a' | 'button' | 'span'>['Return'];
+    element?: ElementSignature<'a' | 'button' | T>['Return'];
   };
   Blocks: {
     default: [];
