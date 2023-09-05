@@ -8,6 +8,9 @@ module.exports = function (defaults) {
     // Add options here
     autoImport: {
       watchDependencies: Object.keys(packageJson.dependencies)
+    },
+    babel: {
+      sourceMaps: 'inline'
     }
   });
 
