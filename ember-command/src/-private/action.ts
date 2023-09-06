@@ -1,5 +1,4 @@
 import { capabilities, setHelperManager } from '@ember/helper';
-import { next } from '@ember/runloop';
 
 import { sweetenOwner } from 'ember-sweet-owner';
 
@@ -8,7 +7,7 @@ import type { HelperCapabilities } from '@glimmer/interfaces';
 import type { SweetOwner } from 'ember-sweet-owner';
 
 interface Args {
-  positional: any[];
+  positional: never[];
   named: object;
 }
 
@@ -16,9 +15,8 @@ interface Args {
 type AnyFunction = (...args: any[]) => any;
 type ActionFactory<F extends AnyFunction> = (owner: SweetOwner) => F;
 type ActionInvoker<F extends AnyFunction> = (
-  owner: SweetOwner,
-  ...args: Parameters<F>
-) => ReturnType<F>;
+  owner: Owner
+) => (...args: Parameters<F>) => ReturnType<F>;
 
 class ActionFactoryManager<F extends AnyFunction> {
   capabilities: HelperCapabilities = capabilities('3.23', {
@@ -27,56 +25,43 @@ class ActionFactoryManager<F extends AnyFunction> {
 
   constructor(protected owner: Owner) {}
 
-  createHelper(fn: ActionInvoker<F>, args: Args) {
-    return { fn, args };
+  createHelper(invoker: ActionInvoker<F>, args: Args) {
+    return { fn: invoker(this.owner), args };
   }
 
-  getValue({ fn, args }: { fn: ActionInvoker<F>; args: Args }) {
-    const sweetOwner = sweetenOwner(this.owner);
+  getValue({ fn, args }: { fn: F; args: Args }) {
+    return (...params: never[]) => {
+      const parameters = [...args.positional, ...params] as unknown as Parameters<F>;
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const an = fn(sweetOwner);
-
-    console.log('ActionFactoryManager.getValue', fn, args, an);
-
-    return (...moreArgs: any[]) =>
-      next(this, function () {
-        an(...[...args.positional, ...moreArgs]);
-        // code to be executed in the next run loop,
-        // which will be scheduled after the current one
-      });
+      return fn(...parameters);
+    };
   }
 }
 
 // Provide a singleton manager.
-const ActionFactoryManagerInstance = (owner: any) => new ActionFactoryManager(owner as Owner);
+const ActionFactoryManagerInstance = (owner: Owner) => new ActionFactoryManager(owner);
 
 export function action<F extends AnyFunction>(
   factory: ActionFactory<F>
-): (...args: Parameters<F>) => () => ReturnType<F> {
-  // variant 1:
+): () => (...args: Parameters<F>) => ReturnType<F>;
+
+export function action<F extends AnyFunction>(
+  factory: ActionFactory<F>
+): (owner: Owner) => (...args: Parameters<F>) => ReturnType<F> {
+  const an =
+    (owner: Owner) =>
+    (...args: Parameters<F>) =>
+      factory(sweetenOwner(owner))(...args);
+
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  setHelperManager(ActionFactoryManagerInstance, factory);
+  setHelperManager(ActionFactoryManagerInstance, an);
 
-  return factory as unknown as (...args: Parameters<F>) => () => ReturnType<F>;
-
-  // variant 2:
-  // const an =
-  //   (...args: Parameters<F>) =>
-  //   (owner: SweetOwner) =>
-  //     factory(owner)(...args);
-
-  // // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // // @ts-ignore
-  // setHelperManager(ActionFactoryManagerInstance, an);
-
-  // return an as (...args: Parameters<F>) => () => ReturnType<F>;
+  return an;
 }
 
 // const testingTheTypes = action(({ services }) => {
-//   return (amount = 5) => {
+//   return (amount: number) => {
 //     // so smth
 //     console.log(amount);
 //   };
