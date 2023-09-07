@@ -6,15 +6,17 @@ import type Owner from '@ember/owner';
 import type { HelperCapabilities } from '@glimmer/interfaces';
 import type { SweetOwner } from 'ember-sweet-owner';
 
+export const ACTION = Symbol('action');
+
 interface Args {
   positional: never[];
   named: object;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyFunction = (...args: any[]) => any;
+export type AnyFunction = (...args: any[]) => any;
 type ActionFactory<F extends AnyFunction> = (owner: SweetOwner) => F;
-type ActionInvoker<F extends AnyFunction> = (
+export type Action<F extends AnyFunction> = (
   owner: Owner
 ) => (...args: Parameters<F>) => ReturnType<F>;
 
@@ -25,7 +27,7 @@ class ActionFactoryManager<F extends AnyFunction> {
 
   constructor(protected owner: Owner) {}
 
-  createHelper(invoker: ActionInvoker<F>, args: Args) {
+  createHelper(invoker: Action<F>, args: Args) {
     return { fn: invoker(this.owner), args };
   }
 
@@ -45,13 +47,15 @@ export function action<F extends AnyFunction>(
   factory: ActionFactory<F>
 ): () => (...args: Parameters<F>) => ReturnType<F>;
 
-export function action<F extends AnyFunction>(
-  factory: ActionFactory<F>
-): (owner: Owner) => (...args: Parameters<F>) => ReturnType<F> {
+export function action<F extends AnyFunction>(factory: ActionFactory<F>): Action<F> {
   const an =
     (owner: Owner) =>
     (...args: Parameters<F>) =>
       factory(sweetenOwner(owner))(...args);
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  an[ACTION] = ACTION;
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
