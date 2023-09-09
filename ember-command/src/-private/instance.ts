@@ -3,9 +3,11 @@ import { assert } from '@ember/debug';
 import { Link } from 'ember-link';
 
 import { setOwner } from './-owner';
+import { ACTION } from './action';
 import { Command } from './command';
 import { LinkCommand } from './link-command';
 
+import type { Action, AnyFunction } from './action';
 import type Owner from '@ember/owner';
 import type { LinkManagerService } from 'ember-link';
 
@@ -13,7 +15,7 @@ import type { LinkManagerService } from 'ember-link';
 // const INVOCABLES = Symbol('INVOCABLES');
 const INVOCABLES = '__INVOCABLES__';
 
-export type Function = (...args: unknown[]) => void;
+export type Function = (...args: never[]) => void;
 type Invocable = Command | Function;
 
 export interface CommandInstance {
@@ -22,8 +24,14 @@ export interface CommandInstance {
   [INVOCABLES]: Invocable[];
 }
 
-export type Commandable = Function | Command | LinkCommand | Link | CommandInstance;
-export type CommandAction = Function | Link | LinkCommand | Command | CommandInstance;
+export type Commandable =
+  | Function
+  | Command
+  | LinkCommand
+  | Link
+  | CommandInstance
+  | Action<AnyFunction>;
+export type CommandAction = Function | Command | LinkCommand | Link | CommandInstance;
 
 const LINK_PROPERTIES = [
   'active',
@@ -73,6 +81,10 @@ export function isCommand(commandable: unknown): commandable is Command {
     (commandable as Command).execute !== undefined &&
     typeof (commandable as Command).execute === 'function'
   );
+}
+
+function isAction(commandable: Commandable): commandable is Action<AnyFunction> {
+  return Object.prototype.hasOwnProperty.call(commandable, ACTION);
 }
 
 function containsLink(commandable: Commandable) {
@@ -140,28 +152,30 @@ export function createCommandInstance(
     return commandable;
   });
 
-  const action = function (this: CommandInstance, ...args: unknown[]) {
+  const instance = function (this: CommandInstance, ...args: never[]) {
     for (const fn of invocables) {
       if (isCommand(fn)) {
         fn.execute(...args);
+      } else if (isAction(fn)) {
+        (fn as Action<AnyFunction>)(owner)(...args);
       } else {
         fn(...args);
       }
     }
   };
 
-  (action as CommandInstance)[INVOCABLES] = invocables;
+  (instance as CommandInstance)[INVOCABLES] = invocables;
 
   if (link && LinkCommand.isLinkCommand(link)) {
     const linkManager = owner.lookup('service:link-manager') as LinkManagerService;
 
     assert(`missing 'service:link-manager' for 'LinkCommand'`, linkManager);
-    action.link = linkManager.createLink(link.params);
+    instance.link = linkManager.createLink(link.params);
   } else if (link && isLink(link)) {
-    action.link = link;
+    instance.link = link;
   }
 
-  return action as CommandInstance;
+  return instance as CommandInstance;
 }
 
 function isCommandable(commandable: unknown): commandable is Commandable {
