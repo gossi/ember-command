@@ -15,7 +15,7 @@ import type { LinkManagerService } from 'ember-link';
 // const INVOCABLES = Symbol('INVOCABLES');
 const INVOCABLES = '__INVOCABLES__';
 
-export type Function = (...args: unknown[]) => void;
+export type Function = (...args: never[]) => void;
 type Invocable = Command | Function;
 
 export interface CommandInstance {
@@ -152,7 +152,7 @@ export function createCommandInstance(
     return commandable;
   });
 
-  const instance = function (this: CommandInstance, ...args: unknown[]) {
+  const instance = function (this: CommandInstance, ...args: never[]) {
     for (const fn of invocables) {
       if (isCommand(fn)) {
         fn.execute(...args);

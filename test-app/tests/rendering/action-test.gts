@@ -24,7 +24,7 @@ const incOne = action(({ services }) => {
 
 interface StepSignature {
   Element: HTMLButtonElement;
-  Args: { push: (...args: never[]) => void; inc: number };
+  Args: { push: (...args: unknown[]) => void; inc: number };
   Blocks: {
     default: [];
   };

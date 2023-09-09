@@ -16,9 +16,18 @@ interface Args {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyFunction = (...args: any[]) => any;
 type ActionFactory<F extends AnyFunction> = (owner: SweetOwner) => F;
+
 export type Action<F extends AnyFunction> = (
   owner: Owner
 ) => (...args: Parameters<F>) => ReturnType<F>;
+
+type ActionHelper<F extends AnyFunction> = () => F;
+// a very naive extension to type currying:
+// type ActionHelper<F extends AnyFunction> = (...args: Parameters<F>) => F;
+
+// actually, to have more accurate types, this should something along the lines
+// (with pseudo types):
+// type ActionHelper<F extends AnyFunction> = (...args: PartialllyParameters<F>) => (...args: TheStillMissingParameters<F>) => ReturnType<F>;
 
 class ActionFactoryManager<F extends AnyFunction> {
   capabilities: HelperCapabilities = capabilities('3.23', {
@@ -45,9 +54,7 @@ const ActionFactoryManagerInstance = (owner: Owner) => new ActionFactoryManager(
 
 export function action<F extends AnyFunction>(
   factory: ActionFactory<F>
-): () => (...args: Parameters<F>) => ReturnType<F>;
-
-export function action<F extends AnyFunction>(factory: ActionFactory<F>): Action<F> {
+): Action<F> | ActionHelper<F> {
   const an =
     (owner: Owner) =>
     (...args: Parameters<F>) =>
