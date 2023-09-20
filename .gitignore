@@ -31,3 +31,8 @@ declarations/
 
 # broccoli-debug
 /DEBUG/
+
+#vitepress
+/docs/.vitepress/dist/
+/docs/.vitepress/cache/
+/docs/api

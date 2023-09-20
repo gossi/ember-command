@@ -5,13 +5,16 @@
   "repository": "",
   "license": "MIT",
   "author": "",
-  "workspaces": [
-    "ember-command",
-    "test-app"
-  ],
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "docs:api": "pnpm --filter ember-command api",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "vitepress": "^1.0.0-rc.10"
   },
   "volta": {
     "node": "18.17.1",
