@@ -10,13 +10,13 @@ mouthful, like so:
 class RecommendationComponent extends Component {
   @service declare linkManager: LinkManagerService;
 
-  get learnMoreLink() {
+  get learnMore() {
     return this.linkManager.createUILink({ route: 'recommendation.details' });
   }
 }
 ```
 
-Passing `learnMoreLink` to `@push` at our button would work straight ahead.
+Passing `learnMore` to your UI element would work straight ahead.
 `ember-command` comes with a more friendly syntax to create links
 programmatically for commands, which is the `LinkCommand` and be used as:
 
@@ -24,7 +24,7 @@ programmatically for commands, which is the `LinkCommand` and be used as:
 import { command, LinkCommand } from 'ember-command';
 
 class RecommendationComponent extends Component {
-  @command leanMoreLink = new LinkCommand({ route: 'recommendation.details' });
+  @command leanMore = new LinkCommand({ route: 'recommendation.details' });
 }
 ```
 
