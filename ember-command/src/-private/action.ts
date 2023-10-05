@@ -17,17 +17,7 @@ interface Args {
 export type AnyFunction = (...args: any[]) => any;
 type ActionFactory<F extends AnyFunction> = (owner: SweetOwner) => F;
 
-export type Action<F extends AnyFunction> = (
-  owner: Owner
-) => (...args: Parameters<F>) => ReturnType<F>;
-
-type ActionHelper<F extends AnyFunction> = () => F;
-// a very naive extension to type currying:
-// type ActionHelper<F extends AnyFunction> = (...args: Parameters<F>) => F;
-
-// actually, to have more accurate types, this should something along the lines
-// (with pseudo types):
-// type ActionHelper<F extends AnyFunction> = (...args: PartialllyParameters<F>) => (...args: TheStillMissingParameters<F>) => ReturnType<F>;
+export type Action<F extends AnyFunction> = ((owner: Owner) => F) & (() => F);
 
 class ActionFactoryManager<F extends AnyFunction> {
   capabilities: HelperCapabilities = capabilities('3.23', {
@@ -52,9 +42,7 @@ class ActionFactoryManager<F extends AnyFunction> {
 // Provide a singleton manager.
 const ActionFactoryManagerInstance = (owner: Owner) => new ActionFactoryManager(owner);
 
-export function action<F extends AnyFunction>(
-  factory: ActionFactory<F>
-): Action<F> | ActionHelper<F> {
+export function action<F extends AnyFunction>(factory: ActionFactory<F>): Action<F> {
   const an =
     (owner: Owner) =>
     (...args: Parameters<F>) =>
@@ -68,14 +56,5 @@ export function action<F extends AnyFunction>(
   // @ts-ignore
   setHelperManager(ActionFactoryManagerInstance, an);
 
-  return an;
+  return an as unknown as Action<F>;
 }
-
-// const testingTheTypes = action(({ services }) => {
-//   return (amount: number) => {
-//     // so smth
-//     console.log(amount);
-//   };
-// });
-
-// const tst = testingTheTypes();
