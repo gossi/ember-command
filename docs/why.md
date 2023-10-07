@@ -26,7 +26,7 @@ Ember provides two libraries to connect your pure business logic:
 write resilient business logic, properly backed up by unit tests. When composing
 things together:
 
-- Commands are a primitives to be passed around
+- Commands are primitives to be passed around
 - Commands are just functions
 - Commands are composable of many functions (but stays a function)
 - Commands can have/be a link (but stays a function)

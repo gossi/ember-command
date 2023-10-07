@@ -27,7 +27,7 @@ function getContext(): TestContext {
  * @example
  *
  * ```ts
- * this.command = arrangeCommandAction(new FooBarCommand());
+ * this.command = arrangeCommandInstance(new FooBarCommand());
  * await render(hbs`<CommandElement @command={{this.command}}/>`);
  * ```
  *

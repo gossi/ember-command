@@ -11,7 +11,7 @@ class RecommendationComponent extends Component {
   @service declare linkManager: LinkManagerService;
 
   get learnMore() {
-    return this.linkManager.createUILink({ route: 'recommendation.details' });
+    return this.linkManager.createLink({ route: 'recommendation.details' });
   }
 }
 ```
@@ -27,11 +27,6 @@ class RecommendationComponent extends Component {
   @command leanMore = new LinkCommand({ route: 'recommendation.details' });
 }
 ```
-
-so much more lean :)
-
-> Hey _Zoey_, it's _Tomster_ again - can you also add tracking to the learn more
-> link?
 
 Compound commands work with links, too. Constructed as an array, as already used
 above with multiple commands:

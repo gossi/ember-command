@@ -41,7 +41,7 @@ export default defineConfig({
           text: 'Using Commands',
           items: [
             { text: 'Composing', link: '/composing' },
-            { text: 'Attaching to UI', link: '/attaching-ui' },
+            { text: 'Attaching to UI', link: '/ui' },
             { text: 'Testing', link: '/testing' }
           ]
         }

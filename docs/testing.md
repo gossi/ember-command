@@ -1,54 +1,94 @@
 # Testing
 
-ember-link has testing support on board to give you great DX for writing tests.
+As commands are isolated and self-containing a business logic, we can write for
+this. There are integration tests, to test the commands itself and you can use
+instances of commands to test your UIs
 
-## Application Tests
+## Integration Tests
 
-In [acceptance / application tests (`setupApplicationTest(hooks)`)](https://guides.emberjs.com/release/testing/testing-application/)
-your app boots with a fully-fledged router, so `ember-link` just works normally.
+At first the `TrackingCommand` as a subject we want to test:
+
+```ts
+import { service } from '@ember/service';
+import { Command } from 'ember-command';
+import type TrackingService from '<your-app>/services/tracking';
+
+export default class TrackCommand extends Command {
+  @service declare tracking: TrackingService;
+
+  execute(event: string, data?: unknown): void {
+    this.tracking.track(event, data);
+  }
+}
+```
+
+Let's test the tracking command using
+[`ember-sinon-qunit`](https://github.com/elwayman02/ember-sinon-qunit) to stub
+the `tracking` service:
+
+```ts
+import { setupTest } from 'ember-qunit';
+import { module, test } from 'qunit';
+
+import { arrangeCommand } from 'ember-command/test-support';
+import { TestContext } from 'ember-test-helpers';
+
+import sinon from 'sinon';
+
+import TrackingCommand from '<somewhere-in-your-module>';
+
+module('Integration | Command | TrackingCommand', function (hooks) {
+  setupTest(hooks);
+
+  test('it tracks', async function (this: TestContext, assert) {
+    this.owner.register('service:tracking', TrackingService);
+    const trackingService = this.owner.lookup('service:tracking');
+
+    const stub = sinon.stub(trackingService, 'track');
+    const cmd = arrangeCommand(new TrackingCommand());
+
+    cmd.execute('hello');
+
+    assert.ok(stub.calledOnceWith('hello'));
+  });
+});
+```
+
+The `arrangeCommand` is the testing equivalent to the `@command` decorator to
+attach the owner and wires up dependency injection.
 
 ## Rendering Tests
 
-In [integration / render tests (`setupRenderingTest(hooks)`)](https://guides.emberjs.com/release/testing/testing-components/) the
-router is not initialized, so `ember-link` can't operate normally. To still
-support using `(link)` & friends in render tests, you can use the
-[`setupLink(hooks)` test helper](./api/modules/ember_link_test_support.md#setuplink).
+When your components accept commands as arguments, here is how to test them:
 
-```ts
-import { click, render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+```gts
+import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 
-import { linkFor, setupLink } from 'ember-link/test-support';
+import { arrangeCommandInstance } from 'ember-command/test-support';
+import { TestContext } from 'ember-test-helpers';
 
-import type { TestContext as BaseTestContext } from '@ember/test-helpers';
-import type { TestLink } from 'ember-link/test-support';
+import sinon from 'sinon';
 
-interface TestContext extends BaseTestContext {
-  link: TestLink;
-}
+import TrackingCommand from '<somewhere-in-your-module>';
+import YourComponnent from '<somewhere-in-your-module>';
 
-module('`setupLink` example', function (hooks) {
-  setupRenderingTest(hooks);
-  setupLink(hooks);
+module('Rendering | YourComponent', function (hooks) {
+  setupTest(hooks);
 
-  test('using link in render tests', async function (this: TestContext, assert) {
-    // arrange
-    this.link = linkFor('some.route');
-    this.link.onTransitionTo = () => assert.step('link clicked');
+  test('it triggers a @cmd', async function (this: TestContext, assert) {
+    const cmd = arrangeCommandInstance(new TrackingCommand());
+    const stub = sinon.stub(cmd, 'execute');
 
-    await render(hbs`
-      {{#let this.link as |l|}}
-        <a href={{l.url}} {{on "click" l.open}}>Click me</a>
-      {{/let}}
-    `);
+    await render(
+      <template>
+        <YourComponent @command={{cmd}}/>
+      </template>
+    );
 
-    // act
-    await click('a');
+    await click('button');
 
-    // assert
-    assert.verifySteps(['link clicked']);
+    assert.ok(stub.calledOnce);
   });
 });
 ```
