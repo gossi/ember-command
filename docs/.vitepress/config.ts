@@ -6,14 +6,14 @@ const apiSidebar = getSidebar('api');
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ember-command",
-  description: "Links as Primitives",
+  description: "Integrate your Business Logic with Ember",
   base: '/ember-command/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guides', link: '/getting-started' },
-      { text: 'API', link: '/api/modules'}
+      { text: 'Guides', link: '/getting-started' }
+      // { text: 'API', link: '/api/modules'}
     ],
 
     outline: [2, 3],
@@ -52,8 +52,8 @@ export default defineConfig({
             { text: 'Testing', link: '/testing' }
           ]
         }
-      ],
-      '/api/': apiSidebar
+      ]
+      // '/api/': apiSidebar
     },
 
     socialLinks: [
