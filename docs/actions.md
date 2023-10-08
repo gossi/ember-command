@@ -21,7 +21,7 @@ import { action } from 'ember-command';
 import { ability } from 'ember-ability';
 import { on } from '@ember/modifier';
 
-const inc = ability(({ services }) => () => {
+const inc = action(({ services }) => () => {
   services.counter.inc();
 });
 
@@ -118,7 +118,7 @@ interface RecommendationSignature {
 }
 
 const requestOffer = action(({ services }) => (recommendation: Expose) => {
-  upstreamRequestOffer(recommendatino, services.data);
+  upstreamRequestOffer(recommendation, services.data);
 });
 
 const Recomendation: TOC<RecommendationSignature> = <template>
@@ -130,7 +130,7 @@ export default Recommendation;
 
 ```ts [services/data.ts]
 import Service from '@ember/service';
-import { type DataClient } from 'your-businees-logic-package';
+import type { DataClient } from 'your-businees-logic-package';
 
 export default class DataService extends Service implements DataClient {
 
@@ -158,7 +158,7 @@ import { command, action } from 'ember-command';
 import { track } from 'your-tracking-package';
 import { on } from '@ember/modifier';
 
-const inc = ability(({ services }) => () => {
+const inc = action(({ services }) => () => {
   services.counter.inc();
 });
 

@@ -2,93 +2,59 @@
 
 ## Installation
 
-Install `ember-link` with:
+Install `ember-command` with:
 
 ```sh
-ember install ember-link
+ember install ember-command
 ```
 
 ## Usage
 
-You can use `ember-link` in a declarative form with a [`(link)`
-helper](helper.md) or imperatively with the [`LinkManager`
-Service](./service.md).
+The idea for `ember-command` is clearly to [separate your business logic from
+your UI](./why.md) by offering a couple of mechanics to do that.
 
-### `(link)` Helper Example
+### Actions
 
-Use the `(link)` helper to create a link primitive and attach it to an element.
+Write an action that invokes a service within a [single file
+component](https://rfcs.emberjs.com/id/0779-first-class-component-templates).
 
-```hbs
-{{#let (link "about") as |l|}}
-  <a href={{l.url}} {{on "click" l.open}}>
-    About us
-  </a>
-{{/let}}
-```
+```gts
+import { action } from 'ember-command';
+import { on } from '@ember/modifier';
 
-### `LinkManager` Service Example
-
-Use the `LinkManager.createLink()` method to create a link programmatically.
-
-```ts
-import Contoller from '@ember/controller';
-import { service } from '@ember/service';
-import type { LinkManagerService } from 'ember-link';
-
-export default class PageHeader extends Controller {
-  @service declare linkManager: LinkManagerService;
-
-  aboutUsLink = this.linkManager.createLink('about');
-}
-```
-
-### Working with Primitives
-
-The idea of `ember-link` is to be able to create link primitives, that you can
-pass around. Create links at route level and then pass them into components.
-
-A more in-depth guide is available at [using primitives](./using-primitives.md).
-
-## Testing
-
-[ember-link has testing support](./testing.md) on board, preparing the environment with
-`setupLink()` and `linkFor()` to create a link to a route on the fly:
-
-```ts
-import { click, render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-
-import { linkFor, setupLink } from 'ember-link/test-support';
-
-import type { TestContext as BaseTestContext } from '@ember/test-helpers';
-import type { TestLink } from 'ember-link/test-support';
-
-interface TestContext extends BaseTestContext {
-  link: TestLink;
-}
-
-module('`setupLink` example', function (hooks) {
-  setupRenderingTest(hooks);
-  setupLink(hooks);
-
-  test('using link in render tests', async function (this: TestContext, assert) {
-    // arrange
-    this.link = linkFor('some.route');
-    this.link.onTransitionTo = () => assert.step('link clicked');
-
-    await render(hbs`
-      {{#let this.link as |l|}}
-        <a href={{l.url}} {{on "click" l.open}}>Click me</a>
-      {{/let}}
-    `);
-
-    // act
-    await click('a');
-
-    // assert
-    assert.verifySteps(['link clicked']);
-  });
+const inc = action(({ services }) => () => {
+  services.counter.inc();
 });
+
+const Counter = <template>
+  <button type="button" {{(inc)}}>+</button>
+</template>
+
+export default Counter;
+```
+
+### Composing
+
+Compose various commands together to form a primitive that can be passed around.
+This works well in combination with
+[`ember-link`](https://github.com/buschtoens/ember-link).
+
+Let's make a link and add tracking to it:
+
+```gts
+import { command, action, CommandElement } from 'ember-command';
+import { link } from 'ember-link';
+
+const track = action(({ services }) => (event: string) => {
+  services.tracking.track(event);
+});
+
+const HomeLink = <template>
+  <CommandElement @command={{command 
+    (fn (track) "go home")
+    (link "application")
+  }}>Home</CommandElement>
+</template>
+
+export default HomeLink;
 ```

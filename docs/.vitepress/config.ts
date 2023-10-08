@@ -25,7 +25,14 @@ export default defineConfig({
           items: [
             { text: 'Why ember-command?', link: '/why' },
             { text: 'Getting Started', link: '/getting-started' },
-            { text: 'Installation', link: '/installation' }
+            { text: 'Installation', link: '/installation' },
+            { text: 'Intended Usage', link: '/usage' }
+          ]
+        },
+        {
+          text: 'Tutorial',
+          items: [
+            { text: 'Super Rentals Recommendations', link: '/super-rentals-recommendations' }
           ]
         },
         {
