@@ -2,7 +2,10 @@
   "name": "ember-command",
   "version": "1.0.0",
   "private": true,
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gossi/ember-command.git"
+  },
   "license": "MIT",
   "author": "",
   "type": "module",
