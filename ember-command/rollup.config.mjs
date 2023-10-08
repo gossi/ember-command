@@ -3,7 +3,6 @@ import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { defineConfig } from 'rollup';
-import copy from 'rollup-plugin-copy';
 import { glimmerTemplateTag } from 'rollup-plugin-glimmer-template-tag';
 
 const addon = new Addon({
@@ -58,14 +57,6 @@ export default defineConfig({
     // addon.keepAssets(['**/*.css']),
 
     // Remove leftover build artifacts when starting a new build.
-    addon.clean(),
-
-    // Copy Readme and License into published package
-    copy({
-      targets: [
-        { src: '../README.md', dest: '.' },
-        { src: '../LICENSE.md', dest: '.' }
-      ]
-    })
+    addon.clean()
   ]
 });
