@@ -5,6 +5,28 @@
 
 
 
+
+## v2.0.0 (2023-10-08)
+
+#### :boom: Breaking Change
+* [#22](https://github.com/gossi/ember-command/pull/22) Migrate to v2 addon ([@gossi](https://github.com/gossi))
+
+#### :rocket: Enhancement
+* [#28](https://github.com/gossi/ember-command/pull/28) `action()` Factory ([@gossi](https://github.com/gossi))
+* [#27](https://github.com/gossi/ember-command/pull/27) Update `ember-link` and `ember-element-helper` for better Types ([@gossi](https://github.com/gossi))
+* [#25](https://github.com/gossi/ember-command/pull/25) Glint Support ([@gossi](https://github.com/gossi))
+
+#### :memo: Documentation
+* [#31](https://github.com/gossi/ember-command/pull/31) Documentation Site ([@gossi](https://github.com/gossi))
+
+#### :house: Internal
+* [#33](https://github.com/gossi/ember-command/pull/33) Remove deprecated `prepare*()` test support ([@gossi](https://github.com/gossi))
+* [#30](https://github.com/gossi/ember-command/pull/30) Use volta to manage pnpm ([@gossi](https://github.com/gossi))
+* [#24](https://github.com/gossi/ember-command/pull/24) Fix CI with Test-Matrix for `ember >= 3.28` and `ember-link >= 1.3` ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v1.0.0 (2022-03-24)
 
 ## v0.3.1 (2021-10-21)
