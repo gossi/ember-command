@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
-import { getSidebar } from './sidebar-api';
+// import { getSidebar } from './sidebar-api';
 
-const apiSidebar = getSidebar('api');
+// const apiSidebar = getSidebar('api');
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
