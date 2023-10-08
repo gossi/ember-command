@@ -1,0 +1,19 @@
+{
+  "entryPoints": [
+    "declarations/index.d.ts",
+    "declarations/test-support/index.d.ts"
+    // "src/index.ts",
+    // "src/test-support/index.ts"
+  ],
+  "out": "../docs/api",
+  "json": "../docs/api/data.json",
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ],
+  "tsconfig": "tsconfig.typedoc.json",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  // typedoc-plugin-markdown
+  "hideBreadcrumbs": true
+}
