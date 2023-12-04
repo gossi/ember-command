@@ -6,6 +6,15 @@
 
 
 
+
+## v2.0.1 (2023-12-04)
+
+#### :bug: Bug Fix
+* [#35](https://github.com/gossi/ember-command/pull/35) Ship Missing Types ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v2.0.0 (2023-10-08)
 
 #### :boom: Breaking Change
