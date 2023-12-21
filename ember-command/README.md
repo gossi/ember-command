@@ -36,7 +36,7 @@ ember install ember-command
 ## Usage
 
 The idea for `ember-command` is clearly to [separate your business logic from
-your UI](./why.md) by offering a couple of mechanics to do that.
+your UI](../docs/why.md) by offering a couple of mechanics to do that.
 
 ### Actions
 
