@@ -14,7 +14,7 @@ import type { Link } from 'ember-link';
 interface CommandSignature<T extends string = 'span'> {
   Element: HTMLButtonElement | HTMLAnchorElement | ElementFromTagName<T>;
   Args: {
-    command: CommandAction;
+    command?: CommandAction;
     /**
      * Pass in a `(element)` as fallback when `@command` is empty. Anyway a `<span>`
      * is used.
