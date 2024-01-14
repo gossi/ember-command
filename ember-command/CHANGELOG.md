@@ -7,6 +7,20 @@
 
 
 
+
+## v2.0.2 (2024-01-14)
+
+#### :rocket: Enhancement
+* [#38](https://github.com/gossi/ember-command/pull/38) Make `@command` arg optional ([@gossi](https://github.com/gossi))
+
+#### :bug: Bug Fix
+* [#37](https://github.com/gossi/ember-command/pull/37) Fix why ember-command link on readme ([@gossi](https://github.com/gossi))
+* [#36](https://github.com/gossi/ember-command/pull/36) Update link to why.md in README.md ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 2
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v2.0.1 (2023-12-04)
 
 #### :bug: Bug Fix
