@@ -87,8 +87,8 @@ export default HomeLink;
 
 ## Contributing
 
-See the [Contributing](CONTRIBUTING.md) guide for details.
+See the [Contributing](https://github.com/gossi/ember-command/CONTRIBUTING.md) guide for details.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [MIT License](https://github.com/gossi/ember-command/LICENSE.md).
