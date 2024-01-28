@@ -40,7 +40,7 @@
     "./addon-main.js": "./addon-main.cjs"
   },
   "scripts": {
-    "api": "typedoc",
+    "api": "pnpm build && typedoc",
     "build": "concurrently -g 'npm:build:*'",
     "build:js": "rollup --config",
     "build:types": "glint --declaration",

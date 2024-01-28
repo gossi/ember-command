@@ -20,6 +20,14 @@ env:
   CI: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup
+        uses: wyvox/action@v1
+      - name: Build Docs
+        run: pnpm build:docs
+
   lint-js:
     name: lint:js
     runs-on: ubuntu-latest
