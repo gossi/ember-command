@@ -112,8 +112,9 @@
     "release-it": "^16.2.1",
     "rollup": "^3.26.3",
     "rollup-plugin-glimmer-template-tag": "^0.4.1",
-    "typedoc": "^0.24.8",
-    "typedoc-plugin-markdown": "^3.15.3",
+    "typedoc": "^0.25.7",
+    "typedoc-plugin-markdown": "^4.0.0-next.43",
+    "typedoc-vitepress-theme": "^1.0.0-next.7",
     "typescript": "^5.1.6",
     "webpack": "^5.88.2"
   },

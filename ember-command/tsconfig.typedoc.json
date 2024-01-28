@@ -3,12 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./"
   },
-  "typedocOptions": {
-    "entryPoints": [
-      "declarations/*.d.ts",
-      "declarations/components/**.d.ts"
-    ]
-  },
   "include": [
     "declarations/*.d.ts",
     "declarations/**/*.d.ts",
