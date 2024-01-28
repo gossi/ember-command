@@ -20,7 +20,8 @@ env:
   CI: true
 
 jobs:
-  build:
+  build-docs:
+    name: Build Docs
     runs-on: ubuntu-latest
     steps:
       - name: Setup
