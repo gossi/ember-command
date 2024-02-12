@@ -8,6 +8,22 @@
 
 
 
+
+## v2.0.3 (2024-02-12)
+
+#### :rocket: Enhancement
+* [#53](https://github.com/gossi/ember-command/pull/53) Update sweet owner ([@gossi](https://github.com/gossi))
+
+#### :memo: Documentation
+* [#39](https://github.com/gossi/ember-command/pull/39) Integrate typedoc into vitepress ([@gossi](https://github.com/gossi))
+
+#### :house: Internal
+* [#44](https://github.com/gossi/ember-command/pull/44) Fix docs ([@gossi](https://github.com/gossi))
+* [#40](https://github.com/gossi/ember-command/pull/40) Install renovate ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v2.0.2 (2024-01-14)
 
 #### :rocket: Enhancement
