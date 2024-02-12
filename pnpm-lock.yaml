@@ -230,31 +230,31 @@ importers:
         specifier: ^5.62.0
         version: 5.62.0(eslint@8.48.0)(typescript@5.1.6)
       broccoli-asset-rev:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0
       concurrently:
         specifier: ^8.2.0
         version: 8.2.0
       ember-auto-import:
-        specifier: ^2.6.3
+        specifier: 2.6.3
         version: 2.6.3(@glint/template@1.0.2)(webpack@5.88.2)
       ember-cli:
-        specifier: ~4.12.0
+        specifier: 4.12.0
         version: 4.12.0
       ember-cli-babel:
         specifier: ^7.26.11
         version: 7.26.11
       ember-cli-dependency-checker:
-        specifier: ^3.3.2
+        specifier: 3.3.2
         version: 3.3.2(ember-cli@4.12.0)
       ember-cli-htmlbars:
         specifier: ^6.2.0
         version: 6.2.0
       ember-cli-inject-live-reload:
-        specifier: ^2.1.0
+        specifier: 2.1.0
         version: 2.1.0
       ember-cli-sri:
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1
       ember-cli-typescript:
         specifier: ^5.2.1
@@ -1093,15 +1093,6 @@ packages:
       '@babel/core': 7.22.9
       '@babel/helper-plugin-utils': 7.22.5
 
-  /@babel/plugin-syntax-decorators@7.21.0(@babel/core@7.22.9):
-    resolution: {integrity: sha512-tIoPpGBR8UuM4++ccWN3gifhVvQu7ZizuR1fklhRJrd5ewgbkUS+0KVFeWWxELtn18NTLoW32XV7zyOgIAiz+w==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.22.9
-      '@babel/helper-plugin-utils': 7.22.5
-
   /@babel/plugin-syntax-decorators@7.22.5(@babel/core@7.22.9):
     resolution: {integrity: sha512-avpUOBS7IU6al8MmF1XpAyj9QYeLPuSDJI5D4pVMSMdL7xQokKqJPYQC67RCT0aCTashUXPiGwMJ0DEXXCEmMA==}
     engines: {node: '>=6.9.0'}
@@ -1237,7 +1228,6 @@ packages:
     dependencies:
       '@babel/core': 7.22.9
       '@babel/helper-plugin-utils': 7.22.5
-    dev: true
 
   /@babel/plugin-transform-arrow-functions@7.20.7(@babel/core@7.22.9):
     resolution: {integrity: sha512-3poA5E7dzDomxj9WXWwuD6A5F3kc7VXwIJO+E+J8qtDtS+pXPAhrgEyh+9GBwBgPq1Z+bB+/JD60lp5jsN7JPQ==}
@@ -1583,7 +1573,6 @@ packages:
       '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.22.9)
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@babel/plugin-transform-typescript@7.4.5(@babel/core@7.22.9):
     resolution: {integrity: sha512-RPB/YeGr4ZrFKNwfuQRlMf2lxoCUaU01MTw39/OFE/RiL8HDjtn68BwEPft1P7JN4akyEmjGWAMNldOV7o9V2g==}
@@ -2161,7 +2150,6 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@embroider/shared-internals@1.8.3:
     resolution: {integrity: sha512-N5Gho6Qk8z5u+mxLCcMYAoQMbN4MmH+z2jXwQHVs859bxuZTxwF6kKtsybDAASCtd2YGxEmzcc1Ja/wM28824w==}
@@ -2237,7 +2225,6 @@ packages:
       typescript-memoize: 1.1.1
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@embroider/test-setup@3.0.1(@embroider/compat@3.2.0)(@embroider/core@3.2.0)(@embroider/webpack@3.1.4):
     resolution: {integrity: sha512-t7R2f10iZDSNw3ovWAPM63GRQTu63uihpVh6CvHev5XkLt8B7tdxcxGyO6RbdF5Hu+pbsUu8sD0kAlR1gopmxg==}
@@ -2607,7 +2594,6 @@ packages:
     resolution: {integrity: sha512-dk32ykoNojt0mvEaIW6Vli5MGTbQo58uy3Epj7ahCgTHmWOKuw/0G83f2UmFprRwFx689YTXG38I/vbpltEjzg==}
     dependencies:
       '@simple-dom/interface': 1.4.0
-    dev: true
 
   /@glimmer/manager@0.84.3:
     resolution: {integrity: sha512-FtcwvrQ3HWlGRGChwlXiisMeKf9+XcCkMwVrrO0cxQavT01tIHx40OFtPOhXKGbgXGtRKcJI8XR41aK9t2kvyg==}
@@ -2638,7 +2624,6 @@ packages:
       '@glimmer/util': 0.84.3
       '@handlebars/parser': 2.0.0
       simple-html-tokenizer: 0.5.11
-    dev: true
 
   /@glimmer/tracking@1.1.2:
     resolution: {integrity: sha512-cyV32zsHh+CnftuRX84ALZpd2rpbDrhLhJnTXn9W//QpqdRZ5rdMsxSY9fOsj0CKEc706tmEU299oNnDc0d7tA==}
@@ -2655,7 +2640,6 @@ packages:
       '@glimmer/env': 0.1.7
       '@glimmer/interfaces': 0.84.3
       '@simple-dom/interface': 1.4.0
-    dev: true
 
   /@glimmer/validator@0.44.0:
     resolution: {integrity: sha512-i01plR0EgFVz69GDrEuFgq1NheIjZcyTy3c7q+w7d096ddPVeVcRzU3LKaqCfovvLJ+6lJx40j45ecycASUUyw==}
@@ -2838,7 +2822,6 @@ packages:
 
   /@handlebars/parser@2.0.0:
     resolution: {integrity: sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==}
-    dev: true
 
   /@humanwhocodes/config-array@0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
@@ -5053,19 +5036,12 @@ packages:
     dependencies:
       babel-import-util: 1.3.0
 
-  /babel-plugin-ember-template-compilation@2.0.3:
-    resolution: {integrity: sha512-SIetZD/uCLnzIBTJtzYGc2Q55TPqM5WyjuOgW+Is1W3SZVljlY3JD5Add29hDMs//OvXBWoXfOopQxkfG4/pIA==}
-    engines: {node: '>= 12.*'}
-    dependencies:
-      babel-import-util: 1.3.0
-
   /babel-plugin-ember-template-compilation@2.1.1:
     resolution: {integrity: sha512-vwEUw7qfwAgwUokQc5xMxrcJMhCu2dVvDDMIXFyOpXwxt+kqZ2FKvXFV+rJjYchIgHH5rBduEtt4Qk1qeZ6RDA==}
     engines: {node: '>= 12.*'}
     dependencies:
       '@glimmer/syntax': 0.84.3
       babel-import-util: 2.0.0
-    dev: true
 
   /babel-plugin-filter-imports@4.0.0:
     resolution: {integrity: sha512-jDLlxI8QnfKd7PtieH6pl4tZJzymzfCDCPGdTq/grgbiYAikwDPp/oL0IlFJn0HQjLpcLkyYhPKkUVneRESw5w==}
@@ -5593,7 +5569,7 @@ packages:
     resolution: {integrity: sha512-MVyyUk3d1S7d2cl6YISViwJBc2VXCkxF5AUFykvN0PQj5FsUiMNSgAYTso18oRFfyZ6XEtjrgg9MAaufHbOwNw==}
     engines: {node: '>=0.8.0'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       minimist: 0.2.4
       mout: 1.2.4
       osenv: 0.1.5
@@ -6734,7 +6710,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       dot-prop: 5.3.0
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       make-dir: 3.1.0
       unique-string: 2.0.0
       write-file-atomic: 3.0.3
@@ -7517,11 +7493,11 @@ packages:
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.22.9)
       '@babel/plugin-proposal-decorators': 7.22.7(@babel/core@7.22.9)
       '@babel/preset-env': 7.20.2(@babel/core@7.22.9)
-      '@embroider/macros': 1.13.0(@glint/template@1.0.2)
-      '@embroider/shared-internals': 2.3.0
+      '@embroider/macros': 1.13.5(@glint/template@1.0.2)
+      '@embroider/shared-internals': 2.5.2
       babel-loader: 8.3.0(@babel/core@7.22.9)(webpack@5.88.2)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
-      babel-plugin-ember-template-compilation: 2.0.3
+      babel-plugin-ember-template-compilation: 2.1.1
       babel-plugin-htmlbars-inline-precompile: 5.3.1
       babel-plugin-syntax-dynamic-import: 6.18.0
       broccoli-debug: 0.6.5
@@ -7538,7 +7514,7 @@ packages:
       lodash: 4.17.21
       mini-css-extract-plugin: 2.7.2(webpack@5.88.2)
       parse5: 6.0.1
-      resolve: 1.22.2
+      resolve: 1.22.3
       resolve-package-path: 4.0.3
       semver: 7.5.4
       style-loader: 2.0.0(webpack@5.88.2)
@@ -7600,7 +7576,7 @@ packages:
       ember-cli: 4.12.0
       find-yarn-workspace-root: 1.2.1
       is-git-url: 1.0.0
-      resolve: 1.22.1
+      resolve: 1.22.3
       semver: 5.7.1
     transitivePeerDependencies:
       - supports-color
@@ -7827,7 +7803,7 @@ packages:
       execa: 5.1.1
       exit: 0.1.2
       express: 4.18.2
-      filesize: 10.0.6
+      filesize: 10.0.7
       find-up: 5.0.0
       find-yarn-workspace-root: 2.0.0
       fixturify-project: 2.1.1
@@ -7862,11 +7838,11 @@ packages:
       promise.hash.helper: 1.0.8
       quick-temp: 0.1.8
       remove-types: 1.0.0
-      resolve: 1.22.1
+      resolve: 1.22.3
       resolve-package-path: 4.0.3
       safe-stable-stringify: 2.4.2
       sane: 5.0.1
-      semver: 7.3.8
+      semver: 7.5.4
       silent-error: 1.1.1
       sort-package-json: 1.57.0
       symlink-or-copy: 1.3.1
@@ -9266,11 +9242,6 @@ packages:
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       flat-cache: 3.0.4
-    dev: true
-
-  /filesize@10.0.6:
-    resolution: {integrity: sha512-rzpOZ4C9vMFDqOa6dNpog92CoLYjD79dnjLk2TYDDtImRIyLTOzqojCb05Opd1WuiWjs+fshhCgTd8cl7y5t+g==}
-    engines: {node: '>= 10.4.0'}
     dev: true
 
   /filesize@10.0.7:
@@ -12680,7 +12651,7 @@ packages:
     dependencies:
       chalk: 2.4.2
       cli-cursor: 2.1.0
-      cli-spinners: 2.7.0
+      cli-spinners: 2.9.1
       log-symbols: 2.2.0
       strip-ansi: 5.2.0
       wcwidth: 1.0.1
@@ -13717,8 +13688,8 @@ packages:
     resolution: {integrity: sha512-G7Hk1Q+UJ5DvlNAoJZObxANkBZGiGdp589rVcTW/tYqJWJ5rwfraSnKSQaETN8Epaytw8J40nS/zC7bcHGv36w==}
     dependencies:
       '@babel/core': 7.22.9
-      '@babel/plugin-syntax-decorators': 7.21.0(@babel/core@7.22.9)
-      '@babel/plugin-transform-typescript': 7.21.0(@babel/core@7.22.9)
+      '@babel/plugin-syntax-decorators': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-transform-typescript': 7.22.5(@babel/core@7.22.9)
       prettier: 2.8.8
     transitivePeerDependencies:
       - supports-color
@@ -14343,7 +14314,6 @@ packages:
 
   /simple-html-tokenizer@0.5.11:
     resolution: {integrity: sha512-C2WEK/Z3HoSFbYq8tI7ni3eOo/NneSPRoPpcM7WdLjFOArFuyXEjAoCdOC3DgMfRyziZQ1hCNR4mrNdWEvD0og==}
-    dev: true
 
   /sinon@15.2.0:
     resolution: {integrity: sha512-nPS85arNqwBXaIsFCkolHjGIkFo+Oxu9vbgmBJizLAhqe6P2o3Qmj3KCUoRkfhHtvgDhZdWD3risLHAUJ8npjw==}
