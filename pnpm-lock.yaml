@@ -145,7 +145,7 @@ importers:
         specifier: ^0.25.7
         version: 0.25.7(typescript@5.1.6)
       typedoc-plugin-markdown:
-        specifier: ^4.0.0-next.43
+        specifier: ^4.0.0-next
         version: 4.0.0-next.43(typedoc@0.25.7)
       typedoc-vitepress-theme:
         specifier: ^1.0.0-next.7
