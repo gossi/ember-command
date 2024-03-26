@@ -55,8 +55,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.22.9)
       '@glimmer/interfaces':
-        specifier: ^0.84.3
-        version: 0.84.3
+        specifier: ^0.91.0
+        version: 0.91.0
       '@glimmer/manager':
         specifier: ^0.84.3
         version: 0.84.3
@@ -2605,6 +2605,12 @@ packages:
 
   /@glimmer/interfaces@0.84.3:
     resolution: {integrity: sha512-dk32ykoNojt0mvEaIW6Vli5MGTbQo58uy3Epj7ahCgTHmWOKuw/0G83f2UmFprRwFx689YTXG38I/vbpltEjzg==}
+    dependencies:
+      '@simple-dom/interface': 1.4.0
+    dev: true
+
+  /@glimmer/interfaces@0.91.0:
+    resolution: {integrity: sha512-458jAHLrZg/taMZ9YIvl73uOSV/DiSV/YkpU1LbrKQu4N/I94KwWt6LKh/DJcNoOkvCcp/OnA6vCojU//m9oPg==}
     dependencies:
       '@simple-dom/interface': 1.4.0
     dev: true
