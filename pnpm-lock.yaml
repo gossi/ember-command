@@ -58,8 +58,8 @@ importers:
         specifier: ^0.84.3
         version: 0.84.3
       '@glimmer/manager':
-        specifier: ^0.84.3
-        version: 0.84.3
+        specifier: ^0.92.0
+        version: 0.92.0
       '@glint/core':
         specifier: ^1.0.2
         version: 1.0.2(typescript@5.1.6)
@@ -2751,13 +2751,21 @@ packages:
       - '@babel/core'
       - supports-color
 
-  /@glimmer/destroyable@0.84.3:
-    resolution: {integrity: sha512-4tUw5UR4ntuySPvbcWyCMRjqxMJMV1GewjU3zGq22XvuBVFfq2K9WmuYV9H9FHg8X0MgDwcus+LjxrVSel39Sw==}
+  /@glimmer/debug@0.92.0:
+    resolution: {integrity: sha512-asWN1hsKYDwfyCc6dZeIyrXs4EpQCwAfZi9I1/U/RweI7iNOME0baunDVCUB9jZpV5TBSeEx+J1fs1GsIYvqAg==}
+    dependencies:
+      '@glimmer/interfaces': 0.92.0
+      '@glimmer/util': 0.92.0
+      '@glimmer/vm': 0.92.0
+    dev: true
+
+  /@glimmer/destroyable@0.92.0:
+    resolution: {integrity: sha512-Y6IO0CTKdIvM24HvhcZBePDRG9Rc3nbRRqpYameNHmI/msEOVHk6BT217qkpGnma4OuT/AU6msoIOkTQI5kQPg==}
     dependencies:
       '@glimmer/env': 0.1.7
-      '@glimmer/global-context': 0.84.3
-      '@glimmer/interfaces': 0.84.3
-      '@glimmer/util': 0.84.3
+      '@glimmer/global-context': 0.92.0
+      '@glimmer/interfaces': 0.92.0
+      '@glimmer/util': 0.92.0
     dev: true
 
   /@glimmer/di@0.1.11:
@@ -2772,22 +2780,34 @@ packages:
       '@glimmer/env': 0.1.7
     dev: true
 
+  /@glimmer/global-context@0.92.0:
+    resolution: {integrity: sha512-XUPXIsz/F0YQz3vY9x+u3YQMibM3378gEPJObs3CHzAWJUl9Kz1CAb+jRigRrxIcmdzoonA49VMwGmmKRNoGag==}
+    dev: true
+
   /@glimmer/interfaces@0.84.3:
     resolution: {integrity: sha512-dk32ykoNojt0mvEaIW6Vli5MGTbQo58uy3Epj7ahCgTHmWOKuw/0G83f2UmFprRwFx689YTXG38I/vbpltEjzg==}
     dependencies:
       '@simple-dom/interface': 1.4.0
     dev: true
 
-  /@glimmer/manager@0.84.3:
-    resolution: {integrity: sha512-FtcwvrQ3HWlGRGChwlXiisMeKf9+XcCkMwVrrO0cxQavT01tIHx40OFtPOhXKGbgXGtRKcJI8XR41aK9t2kvyg==}
+  /@glimmer/interfaces@0.92.0:
+    resolution: {integrity: sha512-SKZvIs+ZPN8F3EH8kEzs7rGIUa+wuV+/3oWYyEiBrqd+VrZlmAxIELM6qZ6oxXT2tx6q1rh2EmA5rWezi6bmYQ==}
     dependencies:
-      '@glimmer/destroyable': 0.84.3
+      '@simple-dom/interface': 1.4.0
+    dev: true
+
+  /@glimmer/manager@0.92.0:
+    resolution: {integrity: sha512-vo5kpdyRq1YpP9FBcpSB9K8nGyz3C8k/vF3yd6g0u4zqVaaQrtvM+nw7pqOOQHf+FfQMr5nLYisvySWT7Eqwww==}
+    dependencies:
+      '@glimmer/debug': 0.92.0
+      '@glimmer/destroyable': 0.92.0
       '@glimmer/env': 0.1.7
-      '@glimmer/global-context': 0.84.3
-      '@glimmer/interfaces': 0.84.3
-      '@glimmer/reference': 0.84.3
-      '@glimmer/util': 0.84.3
-      '@glimmer/validator': 0.84.3
+      '@glimmer/global-context': 0.92.0
+      '@glimmer/interfaces': 0.92.0
+      '@glimmer/reference': 0.92.0
+      '@glimmer/util': 0.92.0
+      '@glimmer/validator': 0.92.0
+      '@glimmer/vm': 0.92.0
     dev: true
 
   /@glimmer/reference@0.84.3:
@@ -2798,6 +2818,16 @@ packages:
       '@glimmer/interfaces': 0.84.3
       '@glimmer/util': 0.84.3
       '@glimmer/validator': 0.84.3
+    dev: true
+
+  /@glimmer/reference@0.92.0:
+    resolution: {integrity: sha512-es2a3bh9nk8kYCacLfm5Ly3x5sFDf2f0/7Vj1Ca2BXXfAn8UhuaR9uCrEI1OtBBz1JBciCzpbKemsu8J6VulYg==}
+    dependencies:
+      '@glimmer/env': 0.1.7
+      '@glimmer/global-context': 0.92.0
+      '@glimmer/interfaces': 0.92.0
+      '@glimmer/util': 0.92.0
+      '@glimmer/validator': 0.92.0
     dev: true
 
   /@glimmer/syntax@0.84.3:
@@ -2826,6 +2856,13 @@ packages:
       '@simple-dom/interface': 1.4.0
     dev: true
 
+  /@glimmer/util@0.92.0:
+    resolution: {integrity: sha512-Fap52smLp8RkCgvozrZG7RysNJ2T6mk1SPoknMzmukbabFVBAzxl5iyY4OXUbmR09j6t2pupjF6sPabnLtL4vw==}
+    dependencies:
+      '@glimmer/env': 0.1.7
+      '@glimmer/interfaces': 0.92.0
+    dev: true
+
   /@glimmer/validator@0.44.0:
     resolution: {integrity: sha512-i01plR0EgFVz69GDrEuFgq1NheIjZcyTy3c7q+w7d096ddPVeVcRzU3LKaqCfovvLJ+6lJx40j45ecycASUUyw==}
 
@@ -2836,12 +2873,28 @@ packages:
       '@glimmer/global-context': 0.84.3
     dev: true
 
+  /@glimmer/validator@0.92.0:
+    resolution: {integrity: sha512-GFX54PD8BRi+lg/HJ8KJRcvnV4rbDzJooQnOpJ9PlgIQi4KP/ivdjsw3DaEuvqn4K584LR6VTgHmxfZlLkDh2g==}
+    dependencies:
+      '@glimmer/env': 0.1.7
+      '@glimmer/global-context': 0.92.0
+      '@glimmer/interfaces': 0.92.0
+      '@glimmer/util': 0.92.0
+    dev: true
+
   /@glimmer/vm-babel-plugins@0.84.2(@babel/core@7.24.8):
     resolution: {integrity: sha512-HS2dEbJ3CgXn56wk/5QdudM7rE3vtNMvPIoG7Rrg+GhkGMNxBCIRxOeEF2g520j9rwlA2LAZFpc7MCDMFbTjNA==}
     dependencies:
       babel-plugin-debug-macros: 0.3.4(@babel/core@7.24.8)
     transitivePeerDependencies:
       - '@babel/core'
+
+  /@glimmer/vm@0.92.0:
+    resolution: {integrity: sha512-y8HKYa0XrVZEKKJxfjVudpiC1ghe33lNKy0+/vxUBosQlH/+i1IJsHMaszQ5jhXZ3+RyTug4PMbs8BUeKDfzig==}
+    dependencies:
+      '@glimmer/interfaces': 0.92.0
+      '@glimmer/util': 0.92.0
+    dev: true
 
   /@glint/core@1.0.2(typescript@5.1.6):
     resolution: {integrity: sha512-0bVt/lT/NurpD8nBG9RTPKYlcpg51UDGCKgLoBEFOiTXv3aCSxAVKPud1IYaitGBKE0C+s5pl2PHkgptotVS+w==}
