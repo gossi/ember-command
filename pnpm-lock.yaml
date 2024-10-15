@@ -67,8 +67,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(ember-cli-htmlbars@6.2.0)
       '@glint/environment-ember-template-imports':
-        specifier: ^1.0.2
-        version: 1.0.2(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-template-imports@3.4.2)
+        specifier: ^1.5.0
+        version: 1.5.0(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
@@ -200,8 +200,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(ember-cli-htmlbars@6.2.0)
       '@glint/environment-ember-template-imports':
-        specifier: 1.0.2
-        version: 1.0.2(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-template-imports@3.4.2)
+        specifier: 1.5.0
+        version: 1.5.0(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
@@ -2896,16 +2896,15 @@ packages:
       ember-cli-htmlbars: 6.2.0
     dev: true
 
-  /@glint/environment-ember-template-imports@1.0.2(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-template-imports@3.4.2):
-    resolution: {integrity: sha512-PAH7obVGXPFU7gLb04JVlqiNtz/j7Q29BBTAyhS7EVy99Hc6CPe+nV6+xhUPKu/S5GOVn3MWehVt/6gXPJ+cnA==}
+  /@glint/environment-ember-template-imports@1.5.0(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2):
+    resolution: {integrity: sha512-SS+KNffLuNYcsT7iEmCr2jp2538E7KTMEAWY+KWNvUJ0ZMd6oe6xbIIF50+9BgCgGHWwj7oL/NdgCVkS3OqRdw==}
     peerDependencies:
-      '@glint/environment-ember-loose': ^1.0.2
-      '@glint/template': ^1.0.2
+      '@glint/environment-ember-loose': ^1.5.0
+      '@glint/template': ^1.5.0
       '@types/ember__component': ^4.0.10
       '@types/ember__helper': ^4.0.1
       '@types/ember__modifier': ^4.0.3
       '@types/ember__routing': ^4.0.12
-      ember-template-imports: ^3.0.0
     peerDependenciesMeta:
       '@types/ember__component':
         optional: true
@@ -2918,7 +2917,7 @@ packages:
     dependencies:
       '@glint/environment-ember-loose': 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(ember-cli-htmlbars@6.2.0)
       '@glint/template': 1.0.2
-      ember-template-imports: 3.4.2
+      content-tag: 2.0.2
     dev: true
 
   /@glint/template@1.0.2:
@@ -7158,6 +7157,10 @@ packages:
 
   /content-tag@1.0.1:
     resolution: {integrity: sha512-7NqA1EmPLgpahxyz8NdLwJVbBzjwHCOsvrKsl1ISfpNNd2Sy/nPSWj4+1HacDMMm8yYoM3Bj2EiCrC9F4ktifg==}
+    dev: true
+
+  /content-tag@2.0.2:
+    resolution: {integrity: sha512-qHRyTp02dgzRK2tsCFxZ1H289bZOuSLNpupr6prvnSFq4SFPmNlBKbbE5PCMb+8+Z1a1z+yCVtXvQIGUCCa3lQ==}
     dev: true
 
   /content-type@1.0.5:
