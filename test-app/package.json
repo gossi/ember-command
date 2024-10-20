@@ -52,7 +52,7 @@
     "@gossi/config-eslint": "^0.6.0",
     "@gossi/config-prettier": "^0.6.0",
     "@gossi/config-template-lint": "^0.6.0",
-    "@tsconfig/ember": "^3.0.0",
+    "@tsconfig/ember": "^3.0.8",
     "@types/qunit": "^2.19.6",
     "@types/sinon": "^10.0.15",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
