@@ -10,6 +10,7 @@
   "author": "",
   "type": "module",
   "scripts": {
+    "build": "pnpm --filter ember-command build",
     "build:docs": "pnpm docs:api && pnpm docs:build",
     "docs:api": "pnpm --filter ember-command api",
     "docs:dev": "vitepress dev docs",
@@ -20,8 +21,8 @@
     "concurrently": "^7.6.0",
     "vitepress": "^1.0.0-rc.20"
   },
-  "volta": {
-    "node": "18.17.1",
-    "pnpm": "8.8.0"
+  "packageManager": "pnpm@9.12.2",
+  "engines": {
+    "node": ">= 20.*"
   }
 }
