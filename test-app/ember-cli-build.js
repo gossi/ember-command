@@ -10,7 +10,8 @@ module.exports = function (defaults) {
       watchDependencies: Object.keys(packageJson.dependencies)
     },
     babel: {
-      sourceMaps: 'inline'
+      sourceMaps: 'inline',
+      plugins: [require.resolve('ember-concurrency/async-arrow-task-transform')]
     }
   });
 

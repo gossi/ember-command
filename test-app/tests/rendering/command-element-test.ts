@@ -29,7 +29,6 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
 
   test('it renders "blank"', async function (this: TestContext, assert) {
     await render<TestContext>(hbs`
-      {{!@glint-expect-error}}
       <CommandElement/>
     `);
 
