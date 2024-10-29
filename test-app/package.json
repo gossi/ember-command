@@ -13,7 +13,7 @@
   "author": "Thomas Gossmann",
   "scripts": {
     "dev": "concurrently 'npm:dev:*'",
-    "dev:test-app": "concurrently 'ember serve -e test -p 4300' 'pnpm _syncPnpm --watch'",
+    "dev:test-app": "ember serve -e test -p 4300",
     "dev:package": "pnpm run --filter='ember-command' start",
     "lint": "concurrently -g 'npm:lint:*(!fix)'",
     "lint:fix": "concurrently -g 'npm:lint:*:fix'",
@@ -23,7 +23,6 @@
     "lint:js:fix": "eslint . --fix",
     "_lint:types": "tsc --noEmit",
     "glint": "glint",
-    "_syncPnpm": "pnpm sync-dependencies-meta-injected",
     "test": "ember test -tp 0"
   },
   "dependencies": {
@@ -83,7 +82,6 @@
     "eslint": "^8.48.0",
     "eslint-plugin-ember": "^11.11.1",
     "loader.js": "^4.7.0",
-    "pnpm-sync-dependencies-meta-injected": "^0.0.9",
     "prettier": "^3.0.3",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
