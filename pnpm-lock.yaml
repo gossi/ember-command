@@ -22,7 +22,7 @@ importers:
         version: 1.8.9
       '@embroider/macros':
         specifier: ^1.11.1
-        version: 1.13.5(@glint/template@1.5.0)
+        version: 1.16.9(@glint/template@1.5.0)
       ember-sweet-owner:
         specifier: ^0.2.0
         version: 0.2.0(@glint/template@1.5.0)
@@ -158,7 +158,7 @@ importers:
     dependencies:
       ember-command:
         specifier: workspace:*
-        version: file:ember-command(@ember/test-helpers@3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0))(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(ember-element-helper@0.8.6(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0)))(ember-link@3.3.0(@ember/test-helpers@3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0))
+        version: link:../ember-command
     devDependencies:
       '@babel/core':
         specifier: ^7.26.0
@@ -1118,15 +1118,6 @@ packages:
       '@glint/template':
         optional: true
 
-  '@embroider/macros@1.13.5':
-    resolution: {integrity: sha512-OzYyM+bOcyV9IWma1qSraIyuBmGv6U8sCIHumHCe0oDDypvIvVA3csuDjoS3BGhUWV56VpzBSwVEDdIHXmqQ2w==}
-    engines: {node: 12.* || 14.* || >= 16}
-    peerDependencies:
-      '@glint/template': ^1.0.0
-    peerDependenciesMeta:
-      '@glint/template':
-        optional: true
-
   '@embroider/macros@1.16.9':
     resolution: {integrity: sha512-AUrmHQdixczIU3ouv/+HzWxwYVsw/NwssZxAQnXfBDJ3d3/CRtAvGRu3JhY6OT3AAPFwfa2WT66tB5jeAa7r5g==}
     engines: {node: 12.* || 14.* || >= 16}
@@ -1138,10 +1129,6 @@ packages:
 
   '@embroider/shared-internals@2.3.0':
     resolution: {integrity: sha512-5h7hUcci10ixXecJj/peqNQJO8kWe4b4tRx7mZjf7I6+P6zDcdVk3QxQZ+/gwrG6cbEfpLzEGKIEiLjZvPtqIA==}
-    engines: {node: 12.* || 14.* || >= 16}
-
-  '@embroider/shared-internals@2.5.2':
-    resolution: {integrity: sha512-jNDJ9YlV6Qp9Na9v17qirUewVuq6T0t32nn+bbnFlCRTvmllKluZdYPSC5RuRnEZKTloVYRSF0+f1rgkTIEvxQ==}
     engines: {node: 12.* || 14.* || >= 16}
 
   '@embroider/shared-internals@2.8.1':
@@ -3623,18 +3610,6 @@ packages:
     engines: {node: '>= 18'}
     hasBin: true
 
-  ember-command@file:ember-command:
-    resolution: {directory: ember-command, type: directory}
-    engines: {node: '>= 20.*'}
-    peerDependencies:
-      '@ember/test-helpers': '>=2.9.0'
-      '@glimmer/component': ^1.1.2
-      ember-element-helper: '>=0.8.2'
-      ember-link: '>=1.3.1'
-    peerDependenciesMeta:
-      '@ember/test-helpers':
-        optional: true
-
   ember-compatibility-helpers@1.2.6:
     resolution: {integrity: sha512-2UBUa5SAuPg8/kRVaiOfTwlXdeVweal1zdNPibwItrhR0IvPrXpaqwJDlEZnWKEoB+h33V0JIfiWleSG6hGkkA==}
     engines: {node: 10.* || >= 12.*}
@@ -4670,10 +4645,6 @@ packages:
     resolution: {integrity: sha512-k0zdNgqWTGA6aeIRVpvfVob4fL52dTfaehylg0Y4UvSySvOq/Y+BOyPrgpUrA7HylqvU8vIZGsRuXmspskV0Tg==}
     engines: {node: '>= 6'}
 
-  http-proxy-agent@7.0.0:
-    resolution: {integrity: sha512-+ZT+iBxVUQ1asugqnD6oWoRiS25AkjNfG085dKJGtGxkdwLQrMKU5wJr2bOOFAXzKcTuqq+7fZlTMgG3SRfIYQ==}
-    engines: {node: '>= 14'}
-
   http-proxy-agent@7.0.2:
     resolution: {integrity: sha512-T1gkAiYYDWYx3V5Bmyu7HcfcvL7mUrTWiM6yOfa3PIphViJ/gFPbvidQ+veqSOHci/PxBcDabeUNCzpOODJZig==}
     engines: {node: '>= 14'}
@@ -4689,10 +4660,6 @@ packages:
   https-proxy-agent@5.0.1:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
     engines: {node: '>= 6'}
-
-  https-proxy-agent@7.0.2:
-    resolution: {integrity: sha512-NmLNjm6ucYwtcUmL7JQC1ZQ57LmHP4lT15FQ8D61nak1rO6DH+fz5qNK2Ap5UN4ZapYICE3/0KodcLYSPsPbaA==}
-    engines: {node: '>= 14'}
 
   https-proxy-agent@7.0.5:
     resolution: {integrity: sha512-1e4Wqeblerz+tMKPIq2EMGiiWW1dIjZOksyHWSUm1rmuvw/how9hBHZ38lAGj5ID4Ik6EdkOw7NmWPy6LAwalw==}
@@ -5874,9 +5841,6 @@ packages:
   nwsapi@2.2.13:
     resolution: {integrity: sha512-cTGB9ptp9dY9A5VbMSe7fQBcl/tt22Vcqdq8+eN93rblOuE0aCFu4aZ2vMwct/2t+lFnosm8RkQW1I0Omb1UtQ==}
 
-  nwsapi@2.2.2:
-    resolution: {integrity: sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==}
-
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
@@ -6332,10 +6296,6 @@ packages:
 
   pump@3.0.0:
     resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==}
-
-  punycode@2.3.0:
-    resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}
-    engines: {node: '>=6'}
 
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -8797,7 +8757,7 @@ snapshots:
   '@ember/test-helpers@3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0)':
     dependencies:
       '@ember/test-waiters': 3.0.2
-      '@embroider/macros': 1.13.5(@glint/template@1.5.0)
+      '@embroider/macros': 1.16.9(@glint/template@1.5.0)
       '@simple-dom/interface': 1.4.0
       broccoli-debug: 0.6.5
       broccoli-funnel: 3.0.8
@@ -8963,21 +8923,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/macros@1.13.5(@glint/template@1.5.0)':
-    dependencies:
-      '@embroider/shared-internals': 2.5.2
-      assert-never: 1.2.1
-      babel-import-util: 2.1.1
-      ember-cli-babel: 7.26.11
-      find-up: 5.0.0
-      lodash: 4.17.21
-      resolve: 1.22.8
-      semver: 7.5.4
-    optionalDependencies:
-      '@glint/template': 1.5.0
-    transitivePeerDependencies:
-      - supports-color
-
   '@embroider/macros@1.16.9(@glint/template@1.5.0)':
     dependencies:
       '@embroider/shared-internals': 2.8.1(supports-color@8.1.1)
@@ -8994,20 +8939,6 @@ snapshots:
       - supports-color
 
   '@embroider/shared-internals@2.3.0':
-    dependencies:
-      babel-import-util: 2.1.1
-      debug: 4.3.4(supports-color@8.1.1)
-      ember-rfc176-data: 0.3.18
-      fs-extra: 9.1.0
-      js-string-escape: 1.0.1
-      lodash: 4.17.21
-      resolve-package-path: 4.0.3
-      semver: 7.5.4
-      typescript-memoize: 1.1.1
-    transitivePeerDependencies:
-      - supports-color
-
-  '@embroider/shared-internals@2.5.2':
     dependencies:
       babel-import-util: 2.1.1
       debug: 4.3.4(supports-color@8.1.1)
@@ -12128,21 +12059,6 @@ snapshots:
       - walrus
       - whiskers
 
-  ember-command@file:ember-command(@ember/test-helpers@3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0))(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(ember-element-helper@0.8.6(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0)))(ember-link@3.3.0(@ember/test-helpers@3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)):
-    dependencies:
-      '@embroider/addon-shim': 1.8.9
-      '@embroider/macros': 1.16.9(@glint/template@1.5.0)
-      '@glimmer/component': 1.1.2(@babel/core@7.26.0)
-      ember-element-helper: 0.8.6(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))
-      ember-link: 3.3.0(@ember/test-helpers@3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)
-      ember-sweet-owner: 0.2.0(@glint/template@1.5.0)
-    optionalDependencies:
-      '@ember/test-helpers': 3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0)
-    transitivePeerDependencies:
-      - '@glint/template'
-      - ember-polaris-service
-      - supports-color
-
   ember-compatibility-helpers@1.2.6(@babel/core@7.26.0):
     dependencies:
       babel-plugin-debug-macros: 0.2.0(@babel/core@7.26.0)
@@ -12183,7 +12099,7 @@ snapshots:
     dependencies:
       '@ember/test-helpers': 3.2.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))(webpack@5.95.0)
       '@embroider/addon-shim': 1.8.9
-      '@embroider/macros': 1.13.5(@glint/template@1.5.0)
+      '@embroider/macros': 1.16.9(@glint/template@1.5.0)
       '@glimmer/env': 0.1.7
       '@glimmer/tracking': 1.1.2
     transitivePeerDependencies:
@@ -12307,7 +12223,7 @@ snapshots:
   ember-sweet-owner@0.2.0(@glint/template@1.5.0):
     dependencies:
       '@embroider/addon-shim': 1.8.9
-      '@embroider/macros': 1.13.5(@glint/template@1.5.0)
+      '@embroider/macros': 1.16.9(@glint/template@1.5.0)
       inflection: 3.0.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -13728,13 +13644,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  http-proxy-agent@7.0.0:
-    dependencies:
-      agent-base: 7.1.0(supports-color@8.1.1)
-      debug: 4.3.4(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - supports-color
-
   http-proxy-agent@7.0.2(supports-color@8.1.1):
     dependencies:
       agent-base: 7.1.0(supports-color@8.1.1)
@@ -13758,13 +13667,6 @@ snapshots:
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.4(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - supports-color
-
-  https-proxy-agent@7.0.2:
-    dependencies:
-      agent-base: 7.1.0(supports-color@8.1.1)
       debug: 4.3.4(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
@@ -14182,7 +14084,7 @@ snapshots:
       http-proxy-agent: 4.0.1
       https-proxy-agent: 5.0.1
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.2
+      nwsapi: 2.2.13
       parse5: 6.0.1
       saxes: 5.0.1
       symbol-tree: 3.2.4
@@ -15029,8 +14931,6 @@ snapshots:
 
   nwsapi@2.2.13: {}
 
-  nwsapi@2.2.2: {}
-
   object-assign@4.1.1: {}
 
   object-copy@0.1.0:
@@ -15222,8 +15122,8 @@ snapshots:
       agent-base: 7.1.0(supports-color@8.1.1)
       debug: 4.3.4(supports-color@8.1.1)
       get-uri: 6.0.1
-      http-proxy-agent: 7.0.0
-      https-proxy-agent: 7.0.2
+      http-proxy-agent: 7.0.2(supports-color@8.1.1)
+      https-proxy-agent: 7.0.5(supports-color@8.1.1)
       pac-resolver: 7.0.0
       socks-proxy-agent: 8.0.2
     transitivePeerDependencies:
@@ -15466,8 +15366,8 @@ snapshots:
     dependencies:
       agent-base: 7.1.0(supports-color@8.1.1)
       debug: 4.3.4(supports-color@8.1.1)
-      http-proxy-agent: 7.0.0
-      https-proxy-agent: 7.0.2
+      http-proxy-agent: 7.0.2(supports-color@8.1.1)
+      https-proxy-agent: 7.0.5(supports-color@8.1.1)
       lru-cache: 7.17.0
       pac-proxy-agent: 7.0.1
       proxy-from-env: 1.1.0
@@ -15483,8 +15383,6 @@ snapshots:
     dependencies:
       end-of-stream: 1.4.4
       once: 1.4.0
-
-  punycode@2.3.0: {}
 
   punycode@2.3.1: {}
 
@@ -16570,7 +16468,7 @@ snapshots:
   tough-cookie@4.1.2:
     dependencies:
       psl: 1.9.0
-      punycode: 2.3.0
+      punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
 
@@ -16582,7 +16480,7 @@ snapshots:
 
   tr46@2.1.0:
     dependencies:
-      punycode: 2.3.0
+      punycode: 2.3.1
 
   tr46@5.0.0:
     dependencies:
@@ -16799,7 +16697,7 @@ snapshots:
 
   uri-js@4.4.1:
     dependencies:
-      punycode: 2.3.0
+      punycode: 2.3.1
 
   urix@0.1.0: {}
 
