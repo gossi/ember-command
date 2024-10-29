@@ -91,10 +91,10 @@
     "typescript": "^5.1.6",
     "webpack": "^5.88.2"
   },
+  "engines": {
+    "node": ">= 20.*"
+  },
   "ember": {
     "edition": "octane"
-  },
-  "volta": {
-    "extends": "../package.json"
   }
 }

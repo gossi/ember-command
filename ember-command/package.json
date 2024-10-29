@@ -118,6 +118,9 @@
     "typescript": "^5.1.6",
     "webpack": "^5.88.2"
   },
+  "engines": {
+    "node": ">= 20.*"
+  },
   "ember": {
     "edition": "octane"
   },
@@ -129,8 +132,5 @@
     "main": "addon-main.cjs",
     "type": "addon",
     "version": 2
-  },
-  "volta": {
-    "extends": "../package.json"
   }
 }

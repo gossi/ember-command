@@ -20,8 +20,8 @@
     "concurrently": "^7.6.0",
     "vitepress": "^1.0.0-rc.20"
   },
-  "volta": {
-    "node": "18.17.1",
-    "pnpm": "8.8.0"
+  "packageManager": "pnpm@9.12.2",
+  "engines": {
+    "node": ">= 20.*"
   }
 }
