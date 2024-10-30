@@ -166,6 +166,9 @@ importers:
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0(supports-color@8.1.1)
+      '@babel/plugin-transform-class-static-block':
+        specifier: ^7.26.0
+        version: 7.26.0(@babel/core@7.26.0)
       '@ember/optional-features':
         specifier: ^2.0.0
         version: 2.0.0

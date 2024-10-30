@@ -11,7 +11,10 @@ module.exports = function (defaults) {
     },
     babel: {
       sourceMaps: 'inline',
-      plugins: [require.resolve('ember-concurrency/async-arrow-task-transform')]
+      plugins: [
+        require.resolve('ember-concurrency/async-arrow-task-transform'),
+        '@babel/plugin-transform-class-static-block'
+      ]
     }
   });
 
