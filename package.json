@@ -12,6 +12,10 @@
   "scripts": {
     "build": "pnpm --filter ember-command build",
     "build:docs": "pnpm docs:api && pnpm docs:build",
+    "clean": "concurrently 'npm:clean:*'",
+    "clean:dist": "find . -not \\( -path './node_modules' -type d -prune \\) -name 'dist' -type d -exec rm -rf '{}' +",
+    "clean:declarations": "find . -not \\( -path './node_modules' -type d -prune \\) -name 'declarations' -type d -exec rm -rf '{}' +",
+    "clean:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "docs:api": "pnpm --filter ember-command api",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
