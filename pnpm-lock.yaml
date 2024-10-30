@@ -132,9 +132,6 @@ importers:
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
-      release-it:
-        specifier: ^16.2.1
-        version: 16.2.1(encoding@0.1.13)(typescript@5.1.6)
       rollup:
         specifier: ^3.26.3
         version: 3.29.0
