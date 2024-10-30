@@ -52,7 +52,6 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "prepack": "concurrently 'npm:build'",
-    "release": "release-it",
     "start": "concurrently 'npm:start:*'",
     "start:js": "rollup --config --watch --no-watch.clearScreen",
     "start:types": "glint --declaration --watch"
