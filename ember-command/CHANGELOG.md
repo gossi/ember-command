@@ -1,5 +1,22 @@
 # Changelog
 
+## Release (2024-10-30)
+
+ember-command 2.0.4 (patch)
+
+#### :house: Internal
+* `ember-command`
+  * [#66](https://github.com/gossi/ember-command/pull/66) Fix `release-plan` ([@gossi](https://github.com/gossi))
+  * [#64](https://github.com/gossi/ember-command/pull/64) Switch to `release-plan` ([@gossi](https://github.com/gossi))
+* `ember-command`, `test-app`
+  * [#63](https://github.com/gossi/ember-command/pull/63) Install ember@5.12 and required deps ([@gossi](https://github.com/gossi))
+  * [#62](https://github.com/gossi/ember-command/pull/62) Remove volta for corepack ([@gossi](https://github.com/gossi))
+* Other
+  * [#58](https://github.com/gossi/ember-command/pull/58) Use shared renovate config ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 
 
 
