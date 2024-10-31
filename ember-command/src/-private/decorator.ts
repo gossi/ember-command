@@ -24,7 +24,12 @@ export function decorate(
 
       if (!action) {
         assert(`Missing initializer for '${String(key)}'.`, typeof invoker === 'function');
-        action = createCommandInstance(getOwner(this) as Owner, invoker.call(this));
+
+        const composition = invoker.call(this);
+
+        action = composition
+          ? createCommandInstance(getOwner(this) as Owner, composition)
+          : undefined;
         actions.set(this, action);
       }
 
