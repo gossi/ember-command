@@ -14,6 +14,13 @@ class CommandAggregator {
   get dec() {
     return new CounterDecrementCommand();
   }
+
+  @command noop = undefined;
+
+  @command
+  get npe() {
+    return undefined;
+  }
 }
 
 module('Unit | @command decorator', function (hooks) {
@@ -35,5 +42,23 @@ module('Unit | @command decorator', function (hooks) {
     setOwner(aggregator, this.owner);
 
     assert.ok(aggregator.dec);
+  });
+
+  test('it works with undefined property', function (assert) {
+    const aggregator = new CommandAggregator();
+
+    // eslint-disable-next-line @typescript-eslint/no-invalid-this
+    setOwner(aggregator, this.owner);
+
+    assert.strictEqual(aggregator.noop, undefined);
+  });
+
+  test('it works with undefined getter', function (assert) {
+    const aggregator = new CommandAggregator();
+
+    // eslint-disable-next-line @typescript-eslint/no-invalid-this
+    setOwner(aggregator, this.owner);
+
+    assert.strictEqual(aggregator.npe, undefined);
   });
 });
