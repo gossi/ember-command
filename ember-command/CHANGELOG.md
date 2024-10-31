@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-10-31)
+
+ember-command 2.0.5 (patch)
+
+#### :bug: Bug Fix
+* `ember-command`, `test-app`
+  * [#68](https://github.com/gossi/ember-command/pull/68) Fix NPE with `@command` decorator ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## Release (2024-10-30)
 
 ember-command 2.0.4 (patch)
