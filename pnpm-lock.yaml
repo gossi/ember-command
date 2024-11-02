@@ -82,8 +82,8 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0(ember-template-lint@5.11.2)(prettier@3.0.3)
       '@release-it-plugins/lerna-changelog':
-        specifier: ^6.0.0
-        version: 6.0.0(release-it@16.2.1(encoding@0.1.13)(typescript@5.1.6))
+        specifier: ^6.1.0
+        version: 6.1.0(release-it@16.2.1(encoding@0.1.13)(typescript@5.1.6))
       '@rollup/plugin-babel':
         specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.26.0)(rollup@3.29.5)
@@ -1712,11 +1712,11 @@ packages:
     peerDependencies:
       prettier: ^3.0.0
 
-  '@release-it-plugins/lerna-changelog@6.0.0':
-    resolution: {integrity: sha512-/1xNLriHKKTdM+/LSQIng5V25gipw0brAXtWVQcOBR63NmW/Ftnd2IJpnM5WzFkOCcL9hoqc8rcIMMv1EOcaIg==}
+  '@release-it-plugins/lerna-changelog@6.1.0':
+    resolution: {integrity: sha512-zcgiUHiQkqAo1p5HN3xw6+0zmgRs1wzveRreC4CTNs2vErW8L5sCkEZQfSJLd918q+GR43L1/HudjlsiKQK8QA==}
     engines: {node: '>= 16'}
     peerDependencies:
-      release-it: ^14.0.0 || ^15.1.3 || ^16.0.0
+      release-it: ^14.0.0 || ^15.1.3 || ^16.0.0 || ^17.0.0
 
   '@rollup/plugin-babel@6.0.4':
     resolution: {integrity: sha512-YF7Y52kFdFT/xVSuVdjkV5ZdX/3YtmX0QulG+x0taQOtJdHYzVU61aSSkAgVJ7NOv6qPkIYiJSgSWWN/DM5sGw==}
@@ -9802,7 +9802,7 @@ snapshots:
     dependencies:
       prettier: 3.0.3
 
-  '@release-it-plugins/lerna-changelog@6.0.0(release-it@16.2.1(encoding@0.1.13)(typescript@5.1.6))':
+  '@release-it-plugins/lerna-changelog@6.1.0(release-it@16.2.1(encoding@0.1.13)(typescript@5.1.6))':
     dependencies:
       execa: 5.1.1
       lerna-changelog: 2.2.0
