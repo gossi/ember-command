@@ -107,7 +107,7 @@
     "eslint": "^8.48.0",
     "eslint-plugin-ember": "^11.11.1",
     "prettier": "^3.0.3",
-    "rollup": "^3.26.3",
+    "rollup": "^3.29.5",
     "rollup-plugin-glimmer-template-tag": "^0.4.1",
     "typedoc": "^0.25.7",
     "typedoc-plugin-markdown": "^4.0.0-next.43",
