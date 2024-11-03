@@ -24,7 +24,7 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "release-plan": "^0.10.0",
-    "vitepress": "^1.0.0-rc.20"
+    "vitepress": "^1.4.5"
   },
   "packageManager": "pnpm@9.12.2",
   "engines": {
