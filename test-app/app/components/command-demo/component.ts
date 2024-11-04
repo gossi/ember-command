@@ -31,7 +31,7 @@ export default class CommandDemo extends Component<CommandDemoSignature> {
   }
 
   get linkToC(): Link {
-    return this.linkManager.createLink({ route: 'route-c' }) as Link;
+    return this.linkManager.createLink({ route: 'route-c' });
   }
 
   // commands

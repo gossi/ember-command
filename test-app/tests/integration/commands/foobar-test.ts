@@ -11,7 +11,7 @@ import type { TestContext } from '@ember/test-helpers';
 module('Integration | Command | FooBar', function (hooks) {
   setupTest(hooks);
 
-  test('it logs "foobar"', async function (this: TestContext, assert) {
+  test('it logs "foobar"', function (this: TestContext, assert) {
     const stub = sinon.stub(console, 'log');
     const cmd = arrangeCommand(new FooBarLogCommand());
 

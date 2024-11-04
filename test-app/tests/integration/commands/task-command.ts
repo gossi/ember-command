@@ -13,12 +13,12 @@ export default class TaskCommand extends Command {
     this.bag = bag;
   }
 
-  async execute(): Promise<void> {
-    await this.changeBag.perform();
+  execute() {
+    void this.changeBag.perform();
   }
 
   changeBag = dropTask(async () => {
-    await timeout(500);
+    await timeout(250);
 
     this.bag.carry = true;
   });

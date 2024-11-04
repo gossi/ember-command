@@ -8,8 +8,6 @@ import { arrangeCommand, arrangeCommandInstance } from 'ember-command/test-suppo
 import { setupLink } from 'ember-link/test-support';
 
 import type { TestContext } from '@ember/test-helpers';
-import type { Link } from 'ember-link';
-import type LinkManagerService from 'ember-link/services/link-manager';
 
 module('Unit | Identify command instances', function (hooks) {
   setupTest(hooks);
@@ -18,11 +16,11 @@ module('Unit | Identify command instances', function (hooks) {
   test('a link is a link', function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
 
-    const linkService = this.owner.lookup('service:link-manager') as LinkManagerService;
+    const linkService = this.owner.lookup('service:link-manager');
 
     const link = linkService.createLink({
       route: 'test-route'
-    }) as Link;
+    });
 
     const command = arrangeCommandInstance(link);
 

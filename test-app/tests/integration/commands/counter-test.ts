@@ -12,10 +12,10 @@ import type { TestContext } from '@ember/test-helpers';
 module('Integration | Command | Counter', function (hooks) {
   setupTest(hooks);
 
-  test('it in- and decrements', async function (this: TestContext, assert) {
+  test('it in- and decrements', function (this: TestContext, assert) {
     this.owner.register('service:counter', CounterService);
 
-    const counterService = this.owner.lookup('service:counter') as CounterService;
+    const counterService = this.owner.lookup('service:counter');
 
     assert.strictEqual(counterService.counter, 0);
 

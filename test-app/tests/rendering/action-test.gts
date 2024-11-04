@@ -33,7 +33,7 @@ interface StepSignature {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Step: TOC<StepSignature> = <template>
   <button type="button" {{on "click" (fn @push @inc)}}>{{yield}}</button>
-</template>
+</template>;
 
 module('Rendering | action', function (hooks) {
   setupRenderingTest(hooks);
@@ -42,9 +42,11 @@ module('Rendering | action', function (hooks) {
     test('plain invocation', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <button type="button" {{on "click" (incOne)}}>Inc</button>
-      </template>);
+      await render(
+        <template>
+          <button type="button" {{on "click" (incOne)}}>Inc</button>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
@@ -56,9 +58,11 @@ module('Rendering | action', function (hooks) {
     test('with parameters', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <Step @inc={{10}} @push={{(inc)}}>Inc</Step>
-      </template>);
+      await render(
+        <template>
+          <Step @inc={{10}} @push={{(inc)}}>Inc</Step>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
@@ -72,9 +76,11 @@ module('Rendering | action', function (hooks) {
     test('plain invocation', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <button type="button" {{on "click" (fn (incOne))}}>Inc</button>
-      </template>);
+      await render(
+        <template>
+          <button type="button" {{on "click" (fn (incOne))}}>Inc</button>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
@@ -86,9 +92,11 @@ module('Rendering | action', function (hooks) {
     test('curried with (fn)', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <button type="button" {{on "click" (fn (inc) 10)}}>Inc</button>
-      </template>);
+      await render(
+        <template>
+          <button type="button" {{on "click" (fn (inc) 10)}}>Inc</button>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
@@ -100,9 +108,11 @@ module('Rendering | action', function (hooks) {
     test('with parameters', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <Step @inc={{10}} @push={{(inc)}}>Inc</Step>
-      </template>);
+      await render(
+        <template>
+          <Step @inc={{10}} @push={{(inc)}}>Inc</Step>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
@@ -116,9 +126,11 @@ module('Rendering | action', function (hooks) {
     test('plain invocation', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <button type="button" {{on "click" (command incOne)}}>Inc</button>
-      </template>);
+      await render(
+        <template>
+          <button type="button" {{on "click" (command incOne)}}>Inc</button>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
@@ -130,9 +142,11 @@ module('Rendering | action', function (hooks) {
     test('curried invocation', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <button type="button" {{on "click" (command (fn (inc) 10))}}>Inc</button>
-      </template>);
+      await render(
+        <template>
+          <button type="button" {{on "click" (command (fn (inc) 10))}}>Inc</button>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
@@ -144,9 +158,11 @@ module('Rendering | action', function (hooks) {
     test('with parameters', async function (this: TestContext, assert) {
       const counter = this.owner.lookup('service:counter') as CounterService;
 
-      await render(<template>
-        <Step @inc={{10}} @push={{command inc}}>Inc</Step>
-      </template>);
+      await render(
+        <template>
+          <Step @inc={{10}} @push={{command inc}}>Inc</Step>
+        </template>
+      );
 
       assert.equal(counter.counter, 0, 'Counter is 0');
 
