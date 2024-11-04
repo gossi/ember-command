@@ -34,6 +34,7 @@ class ActionFactoryManager<F extends AnyFunction> {
     return (...params: never[]) => {
       const parameters = [...args.positional, ...params] as unknown as Parameters<F>;
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return fn(...parameters);
     };
   }
@@ -46,6 +47,7 @@ export function action<F extends AnyFunction>(factory: ActionFactory<F>): Action
   const an =
     (owner: Owner) =>
     (...args: Parameters<F>) =>
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       factory(sweetenOwner(owner))(...args);
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

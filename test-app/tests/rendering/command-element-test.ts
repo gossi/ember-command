@@ -14,7 +14,6 @@ import { linkFor, setupLink } from 'ember-link/test-support';
 
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import type { CommandAction } from 'ember-command';
-import type LinkManagerService from 'ember-link/services/link-manager';
 import type { TestLink } from 'ember-link/test-support';
 import type { SinonSpy } from 'sinon';
 
@@ -58,7 +57,7 @@ module('Rendering | Component | <CommandElement>', function (hooks) {
   test('it renders for a link', async function (this: TestContext, assert) {
     this.owner.register('route:test-route', class extends Route {});
 
-    const linkService = this.owner.lookup('service:link-manager') as LinkManagerService;
+    const linkService = this.owner.lookup('service:link-manager');
 
     this.command = linkService.createLink({
       route: 'test-route'

@@ -1,11 +1,10 @@
+import { type TestContext, waitUntil } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
 import { arrangeCommand } from 'ember-command/test-support';
 
 import TaskCommand from './task-command';
-
-import type { TestContext } from '@ember/test-helpers';
 
 module('Integration | Command | Task', function (hooks) {
   setupTest(hooks);
@@ -19,7 +18,11 @@ module('Integration | Command | Task', function (hooks) {
 
     const cmd = arrangeCommand(new TaskCommand(bag));
 
-    await cmd.execute();
+    cmd.execute();
+
+    await waitUntil(() => {
+      return bag.carry;
+    });
 
     assert.ok(bag.carry);
   });

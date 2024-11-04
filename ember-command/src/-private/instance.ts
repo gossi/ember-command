@@ -9,7 +9,6 @@ import { LinkCommand } from './link-command';
 
 import type { Action, AnyFunction } from './action';
 import type Owner from '@ember/owner';
-import type { LinkManagerService } from 'ember-link';
 
 // see: https://github.com/gossi/ember-command/issues/23
 // const INVOCABLES = Symbol('INVOCABLES');
@@ -53,6 +52,7 @@ function getAllPropertyNames(obj: object) {
 
   do {
     names.push(...Object.getOwnPropertyNames(obj));
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     obj = Object.getPrototypeOf(obj);
   } while (obj !== Object.prototype);
 
@@ -78,6 +78,7 @@ function isCommandInstance(commandable: Commandable): commandable is CommandInst
 
 export function isCommand(commandable: unknown): commandable is Command {
   return (
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     (commandable as Command).execute !== undefined &&
     typeof (commandable as Command).execute === 'function'
   );
@@ -130,7 +131,9 @@ export function createCommandInstance(
   const potentialLink = commandables.find((commandable) => {
     return containsLink(commandable);
   });
-  const link = potentialLink ? getLink(potentialLink) ?? getLinkCommand(potentialLink) : undefined;
+  const link = potentialLink
+    ? (getLink(potentialLink) ?? getLinkCommand(potentialLink))
+    : undefined;
 
   // keep remaining invocables
   const invocables = commandables.filter(
@@ -157,7 +160,7 @@ export function createCommandInstance(
       if (isCommand(fn)) {
         fn.execute(...args);
       } else if (isAction(fn)) {
-        (fn as Action<AnyFunction>)(owner)(...args);
+        fn(owner)(...args);
       } else {
         fn(...args);
       }
@@ -167,7 +170,7 @@ export function createCommandInstance(
   (instance as CommandInstance)[INVOCABLES] = invocables;
 
   if (link && LinkCommand.isLinkCommand(link)) {
-    const linkManager = owner.lookup('service:link-manager') as LinkManagerService;
+    const linkManager = owner.lookup('service:link-manager');
 
     assert(`missing 'service:link-manager' for 'LinkCommand'`, linkManager);
     instance.link = linkManager.createLink(link.params);
@@ -190,13 +193,15 @@ function isCommandable(commandable: unknown): commandable is Commandable {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export function commandFor(commands: unknown | unknown[]): CommandInstance {
   assert(
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     `${commands} do not appear to be a command`,
     commands && Array.isArray(commands)
       ? commands.every((commandable) => isCommandable(commandable))
       : isCommandable(commands)
   );
 
-  return commands as unknown as CommandInstance;
+  return commands as CommandInstance;
 }

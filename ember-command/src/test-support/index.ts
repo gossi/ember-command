@@ -36,7 +36,7 @@ function getContext(): TestContext {
 export function arrangeCommandInstance(commandable: Commandable | Commandable[]): CommandInstance {
   const context = getContext();
 
-  return createCommandInstance((context as TestContext).owner, commandable);
+  return createCommandInstance(context.owner, commandable);
 }
 
 /**
