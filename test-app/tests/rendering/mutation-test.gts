@@ -20,7 +20,7 @@ module('Rendering | mutation', function (hooks) {
 
     await render(
       <template>
-        <button type='button' {{on 'click' (fn cmd obj changeset)}}>Inc</button>
+        <button type="button" {{on "click" (fn cmd obj changeset)}}>Inc</button>
       </template>
     );
 
