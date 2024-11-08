@@ -2,6 +2,17 @@
 
 ## Release (2024-11-08)
 
+ember-command 2.0.7 (patch)
+
+#### :bug: Bug Fix
+* `ember-command`, `test-app`
+  * [#97](https://github.com/gossi/ember-command/pull/97) Fix another promise bug ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
+## Release (2024-11-08)
+
 ember-command 2.0.6 (patch)
 
 #### :bug: Bug Fix
