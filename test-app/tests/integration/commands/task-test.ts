@@ -4,7 +4,7 @@ import { setupTest } from 'ember-qunit';
 
 import { arrangeCommand } from 'ember-command/test-support';
 
-import TaskCommand from './task-command';
+import TaskCommand from '../../commands/task-command';
 
 module('Integration | Command | Task', function (hooks) {
   setupTest(hooks);

@@ -155,7 +155,7 @@ export function createCommandInstance(
     return commandable;
   });
 
-  const instance = function (this: CommandInstance, ...args: never[]) {
+  const instance = async function (this: CommandInstance, ...args: never[]) {
     const invocations = [];
 
     for (const fn of invocables) {
@@ -168,7 +168,7 @@ export function createCommandInstance(
       }
     }
 
-    void Promise.all(invocations);
+    await Promise.all(invocations);
   };
 
   (instance as CommandInstance)[INVOCABLES] = invocables;
