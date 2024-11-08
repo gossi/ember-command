@@ -25,11 +25,11 @@ class CommandAggregator {
 
   @action
   runInc() {
-    this.inc();
+    void this.inc();
   }
 
   runDec = () => {
-    this.dec();
+    void this.dec();
   };
 }
 
