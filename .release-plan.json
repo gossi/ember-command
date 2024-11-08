@@ -2,16 +2,20 @@
   "solution": {
     "ember-command": {
       "impact": "patch",
-      "oldVersion": "2.0.4",
-      "newVersion": "2.0.5",
+      "oldVersion": "2.0.5",
+      "newVersion": "2.0.6",
       "constraints": [
         {
           "impact": "patch",
           "reason": "Appears in changelog section :bug: Bug Fix"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./ember-command/package.json"
     }
   },
-  "description": "## Release (2024-10-31)\n\nember-command 2.0.5 (patch)\n\n#### :bug: Bug Fix\n* `ember-command`, `test-app`\n  * [#68](https://github.com/gossi/ember-command/pull/68) Fix NPE with `@command` decorator ([@gossi](https://github.com/gossi))\n\n#### Committers: 1\n- Thomas Gossmann ([@gossi](https://github.com/gossi))\n"
+  "description": "## Release (2024-11-08)\n\nember-command 2.0.6 (patch)\n\n#### :bug: Bug Fix\n* `ember-command`, `test-app`\n  * [#96](https://github.com/gossi/ember-command/pull/96) Fix promise based commandables ([@gossi](https://github.com/gossi))\n\n#### :house: Internal\n* `test-app`\n  * [#95](https://github.com/gossi/ember-command/pull/95) More test cases ([@gossi](https://github.com/gossi))\n* `ember-command`, `test-app`\n  * [#94](https://github.com/gossi/ember-command/pull/94) Update lint deps + fixes ([@gossi](https://github.com/gossi))\n\n#### Committers: 1\n- Thomas Gossmann ([@gossi](https://github.com/gossi))\n"
 }
