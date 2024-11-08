@@ -56,7 +56,7 @@ export default class CommandDemo extends Component<CommandDemoSignature> {
   // calling a command from a regular ember action
   @action
   bananaCommander(): void {
-    this.push();
+    void this.push();
   }
 }
 
