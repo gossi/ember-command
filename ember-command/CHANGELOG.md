@@ -1,5 +1,22 @@
 # Changelog
 
+## Release (2024-11-08)
+
+ember-command 2.0.6 (patch)
+
+#### :bug: Bug Fix
+* `ember-command`, `test-app`
+  * [#96](https://github.com/gossi/ember-command/pull/96) Fix promise based commandables ([@gossi](https://github.com/gossi))
+
+#### :house: Internal
+* `test-app`
+  * [#95](https://github.com/gossi/ember-command/pull/95) More test cases ([@gossi](https://github.com/gossi))
+* `ember-command`, `test-app`
+  * [#94](https://github.com/gossi/ember-command/pull/94) Update lint deps + fixes ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## Release (2024-10-31)
 
 ember-command 2.0.5 (patch)
