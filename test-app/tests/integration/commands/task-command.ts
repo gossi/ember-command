@@ -13,8 +13,8 @@ export default class TaskCommand extends Command {
     this.bag = bag;
   }
 
-  execute() {
-    void this.changeBag.perform();
+  async execute() {
+    await this.changeBag.perform();
   }
 
   changeBag = dropTask(async () => {

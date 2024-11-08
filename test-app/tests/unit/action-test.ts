@@ -59,4 +59,16 @@ module('Unit | action()', function (hooks) {
 
     assert.equal(addOne(5), 6);
   });
+
+  test('Async', async function (this: TestContext, assert) {
+    const gimmePie = action(({ services }) => async () => {
+      await new Promise((resolve) => window.setTimeout(resolve, 0));
+
+      return services.math.PI;
+    })(this.owner);
+
+    const pi = await gimmePie();
+
+    assert.equal(pi, Math.PI);
+  });
 });

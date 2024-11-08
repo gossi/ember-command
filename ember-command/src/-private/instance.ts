@@ -14,11 +14,11 @@ import type Owner from '@ember/owner';
 // const INVOCABLES = Symbol('INVOCABLES');
 const INVOCABLES = '__INVOCABLES__';
 
-export type Function = (...args: never[]) => void;
+export type Function = (...args: never[]) => void | Promise<void>;
 type Invocable = Command | Function;
 
 export interface CommandInstance {
-  (...args: unknown[]): void;
+  (...args: unknown[]): void | Promise<void>;
   link?: Link;
   [INVOCABLES]: Invocable[];
 }
@@ -156,15 +156,19 @@ export function createCommandInstance(
   });
 
   const instance = function (this: CommandInstance, ...args: never[]) {
+    const invocations = [];
+
     for (const fn of invocables) {
       if (isCommand(fn)) {
-        fn.execute(...args);
+        invocations.push(fn.execute(...args));
       } else if (isAction(fn)) {
-        fn(owner)(...args);
+        invocations.push(fn(owner)(...args));
       } else {
-        fn(...args);
+        invocations.push(fn(...args));
       }
     }
+
+    void Promise.all(invocations);
   };
 
   (instance as CommandInstance)[INVOCABLES] = invocables;
