@@ -92,7 +92,7 @@
     "@gossi/config-template-lint": "^0.8.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-typescript": "^12.1.1",
     "@release-it-plugins/lerna-changelog": "^7.0.0",
     "@tsconfig/ember": "^3.0.8",
     "@types/rsvp": "^4.0.9",
