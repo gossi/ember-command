@@ -242,8 +242,8 @@ importers:
         specifier: ~5.12.0
         version: 5.12.0(handlebars@4.7.7)(underscore@1.13.6)
       ember-cli-babel:
-        specifier: ^7.26.11
-        version: 7.26.11
+        specifier: ^8.2.0
+        version: 8.2.0(@babel/core@7.26.0)
       ember-cli-dependency-checker:
         specifier: ^3.3.2
         version: 3.3.2(ember-cli@5.12.0(handlebars@4.7.7)(underscore@1.13.6))
