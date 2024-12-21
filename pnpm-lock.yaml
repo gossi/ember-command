@@ -12,8 +12,8 @@ importers:
         specifier: ^7.6.0
         version: 7.6.0
       release-plan:
-        specifier: ^0.10.0
-        version: 0.10.0(encoding@0.1.13)
+        specifier: ^0.11.0
+        version: 0.11.0(encoding@0.1.13)
       vitepress:
         specifier: ^1.5.0
         version: 1.5.0(@algolia/client-search@5.12.0)(@types/node@18.14.2)(fuse.js@7.0.0)(postcss@8.4.47)(search-insights@2.8.2)(terser@5.36.0)(typescript@5.6.3)
@@ -6852,8 +6852,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  release-plan@0.10.0:
-    resolution: {integrity: sha512-q5aZ/ED/VB2udzIFVaj9Kfsj/wLZluw7kZV7eiYp5zHX/LJrofFl7bOX7u6nQV14O9UjHDYcdQEE/NRXVK68ZA==}
+  release-plan@0.11.0:
+    resolution: {integrity: sha512-241SKOFD87J4mAE8mbXR6xDaqTYIvB8O1itH1bTWvY6q5X/xP4wNlhmx7NGXrzq3z9tCP3OcjzoOi19RC9yTsA==}
     hasBin: true
 
   remote-git-tags@3.0.0:
@@ -16536,7 +16536,7 @@ snapshots:
       - supports-color
       - typescript
 
-  release-plan@0.10.0(encoding@0.1.13):
+  release-plan@0.11.0(encoding@0.1.13):
     dependencies:
       '@manypkg/get-packages': 2.2.2
       '@npmcli/package-json': 5.2.1
