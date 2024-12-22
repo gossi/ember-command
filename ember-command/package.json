@@ -113,7 +113,7 @@
     "typedoc-plugin-markdown": "^4.0.0-next.43",
     "typedoc-vitepress-theme": "^1.1.1",
     "typescript": "^5.7.2",
-    "webpack": "^5.96.1"
+    "webpack": "^5.97.1"
   },
   "engines": {
     "node": ">= 20.*"
