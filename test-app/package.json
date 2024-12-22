@@ -88,7 +88,7 @@
     "qunit-dom": "^2.0.0",
     "sinon": "^19.0.2",
     "typescript": "^5.7.2",
-    "webpack": "^5.96.1"
+    "webpack": "^5.97.1"
   },
   "engines": {
     "node": ">= 20.*"
