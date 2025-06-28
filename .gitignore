@@ -2,6 +2,7 @@
 
 # compiled output
 /dist/
+/dist-tests
 /tmp/
 declarations/
 
@@ -10,7 +11,7 @@ declarations/
 /node_modules/
 
 # misc
-/.env*
+/.env*.local
 /.pnp*
 /.sass-cache
 /.eslintcache
