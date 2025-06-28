@@ -14,13 +14,11 @@ export default class TaskCommand extends Command {
   }
 
   async execute() {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     await this.changeBagTask.perform();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, unicorn/consistent-function-scoping
+  // eslint-disable-next-line unicorn/consistent-function-scoping
   changeBagTask = dropTask(async () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await timeout(250);
 
     this.bag.carry = true;
