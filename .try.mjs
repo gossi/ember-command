@@ -11,23 +11,24 @@ function scenarios() {
       compatEmberScenario('ember-lts-6.4', '~6.4.0'),
       latestEmberScenario('latest'),
       latestEmberScenario('beta'),
-      latestEmberScenario('alpha'),
-      emberLink('v1', '^1.3.1'),
-      emberLink('v2', '^2.1.0')
+      latestEmberScenario('alpha')
+      // https://github.com/gossi/ember-command/issues/140
+      // emberLink('v1', '^1.3.1'),
+      // emberLink('v2', '^2.1.0')
     ]
   };
 }
 
-function emberLink(name, emberLinkVersion) {
-  return {
-    name: `ember-link-${name}`,
-    npm: {
-      devDependencies: {
-        'ember-link': emberLinkVersion
-      }
-    }
-  };
-}
+// function emberLink(name, emberLinkVersion) {
+//   return {
+//     name: `ember-link-${name}`,
+//     npm: {
+//       devDependencies: {
+//         'ember-link': emberLinkVersion
+//       }
+//     }
+//   };
+// }
 
 function latestEmberScenario(tag) {
   return {
