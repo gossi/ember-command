@@ -52,9 +52,17 @@ module.exports = async function (defaults) {
 
 function compatEmberScenario(name, emberVersion) {
   let cliVersion = '^5.12.0';
+  let deps = {};
 
   if (emberVersion.includes('3.28')) {
     cliVersion = '^4.12.0';
+  }
+
+  if (emberVersion.includes('3.28') || emberVersion.includes('4.4')) {
+    cliVersion = '^4.12.0';
+    deps = {
+      '@glimmer/component': '^1.1.2'
+    };
   }
 
   return {
@@ -65,7 +73,8 @@ function compatEmberScenario(name, emberVersion) {
         '@embroider/compat': '^4.0.3',
         'ember-cli': cliVersion,
         'ember-auto-import': '^2.10.0',
-        '@ember/optional-features': '^2.2.0'
+        '@ember/optional-features': '^2.2.0',
+        ...deps
       }
     },
     env: {
