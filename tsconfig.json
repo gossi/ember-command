@@ -4,6 +4,8 @@
     "environment": ["ember-loose", "ember-template-imports"]
   },
   "include": ["src", "tests", "types"],
+  // https://github.com/gossi/ember-command/issues/139
+  "exclude": ["tests/rendering/command-element-test.gts"],
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
