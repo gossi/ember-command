@@ -1,0 +1,10 @@
+{
+  "extends": "@ember/library-tsconfig",
+  "compilerOptions": {
+    "baseUrl": "./"
+  },
+  "include": [
+    "declarations/*.d.ts",
+    "declarations/**/*.d.ts"
+  ]
+}

@@ -10,7 +10,7 @@ import type { CommandAction, Function } from '../-private/instance.ts';
 import type { ElementFromTagName, ElementSignature } from 'ember-element-helper';
 import type { Link } from 'ember-link';
 
-interface CommandSignature<T extends string = 'span'> {
+export interface CommandSignature<T extends string = 'span'> {
   Element: HTMLButtonElement | HTMLAnchorElement | ElementFromTagName<T>;
   Args: {
     command?: CommandAction;

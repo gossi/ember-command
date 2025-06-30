@@ -1,3 +1,10 @@
+/**
+ * Test support for `ember-command` containing:
+ *
+ * @see https://gossi.github.io/ember-command/testing.html
+ * @module ember-command/test-support
+ */
+
 import { assert } from '@ember/debug';
 import { getContext as upstreamGetContext } from '@ember/test-helpers';
 import { isTestContext } from '@ember/test-helpers/setup-context';

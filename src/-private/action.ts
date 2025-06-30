@@ -17,6 +17,9 @@ interface Args {
 export type AnyFunction = (...args: any[]) => any;
 type ActionFactory<F extends AnyFunction> = (owner: SweetOwner) => F;
 
+/**
+ * Representing an action build with the `action()` factory
+ */
 export type Action<F extends AnyFunction> = ((owner: Owner) => F) & (() => F);
 
 class ActionFactoryManager<F extends AnyFunction> {

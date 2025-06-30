@@ -1,7 +1,8 @@
 {
+  "tsconfig": "tsconfig.docs.json",
   "entryPoints": [
-    "./src/index.ts",
-    "./src/test-support/index.ts"
+    "./declarations/index.d.ts",
+    "./declarations/test-support/index.d.ts"
   ],
   "out": "./docs/api",
   "plugin": [
@@ -15,6 +16,7 @@
   "useCodeBlocks": true,
   "parametersFormat": "table",
   "typeDeclarationFormat": "table",
+  "disableSources": true,
   "navigation": {
     "includeCategories": false,
     "includeGroups": false,
