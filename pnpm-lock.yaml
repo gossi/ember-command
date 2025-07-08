@@ -148,7 +148,7 @@ importers:
         specifier: ^3.16.0
         version: 3.16.0(handlebars@4.7.8)(underscore@1.13.7)
       typedoc:
-        specifier: ^0.28.5
+        specifier: ^0.28.7
         version: 0.28.7(typescript@5.8.3)
       typedoc-plugin-markdown:
         specifier: ^4.7.0
