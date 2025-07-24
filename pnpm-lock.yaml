@@ -77,13 +77,13 @@ importers:
         version: 1.6.0-alpha.2
       '@gossi/config-eslint':
         specifier: ^1.1.2
-        version: 1.1.2(@babel/eslint-parser@7.28.0(@babel/core@7.28.0)(eslint@9.30.1))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.28.0))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint-plugin-ember@12.5.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1))(eslint-plugin-qunit@8.2.2(eslint@9.30.1))(eslint@9.30.1)(prettier@3.6.2)(typescript@5.8.3)
+        version: 1.3.0(@babel/eslint-parser@7.28.0(@babel/core@7.28.0)(eslint@9.30.1))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.28.0))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint-plugin-ember@12.7.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1))(eslint-plugin-qunit@8.2.4(eslint@9.30.1))(eslint@9.30.1)(prettier@3.6.2)(typescript@5.8.3)
       '@gossi/config-prettier':
         specifier: ^1.0.1
-        version: 1.0.1(prettier@3.6.2)
+        version: 1.1.0(prettier@3.6.2)
       '@gossi/config-template-lint':
         specifier: ^1.0.1
-        version: 1.0.1(ember-template-lint@7.9.1)(prettier@3.6.2)
+        version: 1.1.0(ember-template-lint@7.9.1)(prettier@3.6.2)
       '@rollup/plugin-babel':
         specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.28.0)(rollup@4.45.1)
@@ -122,10 +122,10 @@ importers:
         version: 9.30.1
       eslint-plugin-ember:
         specifier: ^12.5.0
-        version: 12.5.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1)
+        version: 12.7.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1)
       eslint-plugin-qunit:
         specifier: ^8.2.2
-        version: 8.2.2(eslint@9.30.1)
+        version: 8.2.4(eslint@9.30.1)
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
@@ -1465,8 +1465,8 @@ packages:
   '@glint/template@1.6.0-alpha.2':
     resolution: {integrity: sha512-T1jnkJ4g9kj4CQFdax6/AE8rdd8S5+1/88l63w1xPjfSByhKt3ES6Noko3fPx9WhV7gZxalgg6sjBoZlhPZabg==}
 
-  '@gossi/config-eslint@1.1.2':
-    resolution: {integrity: sha512-GEwO2Z7pzXCngXWmM3abb6Ltzo5G+1WwAv0DuCB0clUou7hJ9x8vJb//25puv+0sTKijKtnWyV04fXLEyMJOeg==}
+  '@gossi/config-eslint@1.3.0':
+    resolution: {integrity: sha512-vgoKG9hlESF1lc64iIo0T/4FKPaNYrZppSXqMVpB0m30lZzMqItxqqH3RtRnfv6fWNFi/3HCzra29lqGGK/cng==}
     engines: {node: ^20.11.0 || >=22}
     peerDependencies:
       '@babel/eslint-parser': ^7.22.5
@@ -1484,14 +1484,14 @@ packages:
       eslint-plugin-qunit:
         optional: true
 
-  '@gossi/config-prettier@1.0.1':
-    resolution: {integrity: sha512-B+mU29QPTome6KBDXA4dT7OVTmtuDebMh/PIZqOPo1e8joGVYxIdMTCjNUF/2O3NPvkGQadnExDJeE1dE6P0VQ==}
+  '@gossi/config-prettier@1.1.0':
+    resolution: {integrity: sha512-mJqbwdd88d5PUS7ntzjNkaON2TyPOgpqMJbbblID7uSJeXALaX6zz/aaplhyfSIqD6ybgHAJOKsMedRkFlIRSw==}
     engines: {node: ^20.11.0 || >=22}
     peerDependencies:
       prettier: ^3.0.0
 
-  '@gossi/config-template-lint@1.0.1':
-    resolution: {integrity: sha512-VqSGF7v6TwFnxBqDZoOk5LI/f2fRiM7Oe4ABVZyXC7egtO8dxf3veL5191C/ez3QqrZcqTkKvZv2JeBorVjcsQ==}
+  '@gossi/config-template-lint@1.1.0':
+    resolution: {integrity: sha512-Lsade3EteFuiW+GBLhnV0Tf5722/pK3tw+Owiv7WpqhTsTfYKqTwHXTIDZi8BX8PjJXePF+Tgb3YfvXDxxpIRA==}
     engines: {node: ^20.11.0 || >=22}
     peerDependencies:
       ember-template-lint: ^7.0.0
@@ -1873,8 +1873,8 @@ packages:
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
 
-  '@stylistic/eslint-plugin@4.4.1':
-    resolution: {integrity: sha512-CEigAk7eOLyHvdgmpZsKFwtiqS2wFwI1fn4j09IU9GmD4euFM4jEBAViWeCqaNLlbX2k2+A/Fq9cje4HQBXuJQ==}
+  '@stylistic/eslint-plugin@5.2.2':
+    resolution: {integrity: sha512-bE2DUjruqXlHYP3Q2Gpqiuj2bHq7/88FnuaS0FjeGGLCy+X6a07bGVuwtiOYnPSLHR6jmx5Bwdv+j7l8H+G97A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=9.0.0'
@@ -2032,6 +2032,10 @@ packages:
 
   '@typescript-eslint/types@8.36.0':
     resolution: {integrity: sha512-xGms6l5cTJKQPZOKM75Dl9yBfNdGeLRsIyufewnxT4vZTrjC0ImQT4fj8QmtJK84F58uSh5HVBSANwcfiXxABQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript-eslint/types@8.38.0':
+    resolution: {integrity: sha512-wzkUfX3plUqij4YwWaJyqhiPE5UCRVlFpKn1oCRn2O1bJ592XxWJj8ROQ3JD5MYXLORW84063z3tZTb/cs4Tyw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typescript-eslint/typescript-estree@8.36.0':
@@ -3648,8 +3652,8 @@ packages:
       '@babel/eslint-parser':
         optional: true
 
-  eslint-plugin-ember@12.5.0:
-    resolution: {integrity: sha512-DBUzsaKWDVXsujAZPpRir0O7owdlCoVzZmtaJm7g7iQeSrNtcRWI7AItsTqKSsws1XeAySH0sPsQItMdDCb9Fg==}
+  eslint-plugin-ember@12.7.0:
+    resolution: {integrity: sha512-QkKzUzmWjSjscJLNYlkPv1ug5B5/Ec/7/MEEjDZxthzHO9VhnyMZ0shwvCztLTvB5D7LO67E7Zmpwb4YyBoFMA==}
     engines: {node: 18.* || 20.* || >= 21}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -3701,8 +3705,8 @@ packages:
       eslint-config-prettier:
         optional: true
 
-  eslint-plugin-qunit@8.2.2:
-    resolution: {integrity: sha512-C56SpGPyUOgXWaTiQbwKaDQHEF7MbKUmWtKkIybK5vL3Dqk+4U3ng0wARIUxsk2YNPFzPvlQcMMP6jlQz2NlvQ==}
+  eslint-plugin-qunit@8.2.4:
+    resolution: {integrity: sha512-rKlLQ/AIKFBNd9Ga8Cg058+iS0xqx2SE5rByyhAga2/ORDAHArfvc3tatAxUvaHzqUsDL0gIez3l2zcFQ9x7Vg==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
 
   eslint-plugin-simple-import-sort@12.1.1:
@@ -8675,10 +8679,10 @@ snapshots:
 
   '@glint/template@1.6.0-alpha.2': {}
 
-  '@gossi/config-eslint@1.1.2(@babel/eslint-parser@7.28.0(@babel/core@7.28.0)(eslint@9.30.1))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.28.0))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint-plugin-ember@12.5.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1))(eslint-plugin-qunit@8.2.2(eslint@9.30.1))(eslint@9.30.1)(prettier@3.6.2)(typescript@5.8.3)':
+  '@gossi/config-eslint@1.3.0(@babel/eslint-parser@7.28.0(@babel/core@7.28.0)(eslint@9.30.1))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.28.0))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint-plugin-ember@12.7.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1))(eslint-plugin-qunit@8.2.4(eslint@9.30.1))(eslint@9.30.1)(prettier@3.6.2)(typescript@5.8.3)':
     dependencies:
       '@eslint/js': 9.30.1
-      '@stylistic/eslint-plugin': 4.4.1(eslint@9.30.1)(typescript@5.8.3)
+      '@stylistic/eslint-plugin': 5.2.2(eslint@9.30.1)
       eslint: 9.30.1
       eslint-config-prettier: 10.1.5(eslint@9.30.1)
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1))(eslint@9.30.1)
@@ -8694,8 +8698,8 @@ snapshots:
     optionalDependencies:
       '@babel/eslint-parser': 7.28.0(@babel/core@7.28.0)(eslint@9.30.1)
       '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.28.0)
-      eslint-plugin-ember: 12.5.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1)
-      eslint-plugin-qunit: 8.2.2(eslint@9.30.1)
+      eslint-plugin-ember: 12.7.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1)
+      eslint-plugin-qunit: 8.2.4(eslint@9.30.1)
     transitivePeerDependencies:
       - '@types/eslint'
       - '@typescript-eslint/utils'
@@ -8705,14 +8709,14 @@ snapshots:
       - supports-color
       - typescript
 
-  '@gossi/config-prettier@1.0.1(prettier@3.6.2)':
+  '@gossi/config-prettier@1.1.0(prettier@3.6.2)':
     dependencies:
       prettier: 3.6.2
       prettier-plugin-ember-template-tag: 2.0.6(prettier@3.6.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@gossi/config-template-lint@1.0.1(ember-template-lint@7.9.1)(prettier@3.6.2)':
+  '@gossi/config-template-lint@1.1.0(ember-template-lint@7.9.1)(prettier@3.6.2)':
     dependencies:
       ember-template-lint: 7.9.1
       ember-template-lint-plugin-prettier: 5.0.0(ember-template-lint@7.9.1)(prettier@3.6.2)
@@ -9108,17 +9112,15 @@ snapshots:
 
   '@socket.io/component-emitter@3.1.2': {}
 
-  '@stylistic/eslint-plugin@4.4.1(eslint@9.30.1)(typescript@5.8.3)':
+  '@stylistic/eslint-plugin@5.2.2(eslint@9.30.1)':
     dependencies:
-      '@typescript-eslint/utils': 8.36.0(eslint@9.30.1)(typescript@5.8.3)
+      '@eslint-community/eslint-utils': 4.7.0(eslint@9.30.1)
+      '@typescript-eslint/types': 8.38.0
       eslint: 9.30.1
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
       estraverse: 5.3.0
       picomatch: 4.0.3
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
 
   '@tootallnate/once@1.1.2': {}
 
@@ -9282,7 +9284,7 @@ snapshots:
   '@typescript-eslint/project-service@8.36.0(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.36.0(typescript@5.8.3)
-      '@typescript-eslint/types': 8.36.0
+      '@typescript-eslint/types': 8.38.0
       debug: 4.4.1
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -9309,6 +9311,8 @@ snapshots:
       - supports-color
 
   '@typescript-eslint/types@8.36.0': {}
+
+  '@typescript-eslint/types@8.38.0': {}
 
   '@typescript-eslint/typescript-estree@8.36.0(typescript@5.8.3)':
     dependencies:
@@ -11303,7 +11307,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-ember@12.5.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1):
+  eslint-plugin-ember@12.7.0(@babel/core@7.28.0)(@typescript-eslint/parser@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1):
     dependencies:
       '@ember-data/rfc395-data': 0.0.4
       css-tree: 3.1.0
@@ -11330,7 +11334,7 @@ snapshots:
 
   eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.36.0(eslint@9.30.1)(typescript@5.8.3))(eslint@9.30.1):
     dependencies:
-      '@typescript-eslint/types': 8.36.0
+      '@typescript-eslint/types': 8.38.0
       comment-parser: 1.4.1
       debug: 4.4.1
       eslint: 9.30.1
@@ -11375,7 +11379,7 @@ snapshots:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 10.1.5(eslint@9.30.1)
 
-  eslint-plugin-qunit@8.2.2(eslint@9.30.1):
+  eslint-plugin-qunit@8.2.4(eslint@9.30.1):
     dependencies:
       eslint-utils: 3.0.0(eslint@9.30.1)
       requireindex: 1.2.0
