@@ -126,9 +126,9 @@
     "rollup": "^4.46.0",
     "sinon": "^21.0.0",
     "testem": "^3.16.0",
-    "typedoc-plugin-markdown": "^4.7.1",
+    "typedoc-plugin-markdown": "^4.8.0",
     "typedoc-vitepress-theme": "^1.1.2",
-    "typedoc": "^0.28.7",
+    "typedoc": "^0.28.9",
     "typescript": "^5.8.3",
     "vitepress": "^1.6.3",
     "vite": "^7.0.6"
