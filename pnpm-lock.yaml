@@ -100,8 +100,8 @@ importers:
         specifier: ^0.8.8
         version: 0.8.8
       ember-link:
-        specifier: ^3.4.1
-        version: 3.4.1(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.6.0-alpha.2))(@glint/template@1.6.0-alpha.2)
+        specifier: ^3.5.0
+        version: 3.5.0(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.6.0-alpha.2))(@glint/template@1.6.0-alpha.2)
       ember-qunit:
         specifier: ^9.0.3
         version: 9.0.3(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.6.0-alpha.2))(@glint/template@1.6.0-alpha.2)(qunit@2.24.1)
@@ -3432,8 +3432,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  ember-link@3.4.1:
-    resolution: {integrity: sha512-13x5Y9ME2OEB6yAKypQVzNqgFycoRtVjKZB8EfSbx2ECxzxOwHEJdj15aYXm7QEhkgEZWUTkHtuch5A/ltFx9A==}
+  ember-link@3.5.0:
+    resolution: {integrity: sha512-V/jYGpONgXk/Xxr/RzqQuBXTajIF3H6enXDxcf+5ZBPxsnzLmQvTyVPsAC2ra8v7gdV6ungUvPg2la18946Dsg==}
     engines: {node: ^20.11.0 || >=22}
     peerDependencies:
       '@ember/test-helpers': ^2.9.3 || ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -10893,7 +10893,7 @@ snapshots:
     transitivePeerDependencies:
       - eslint
 
-  ember-link@3.4.1(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.6.0-alpha.2))(@glint/template@1.6.0-alpha.2):
+  ember-link@3.5.0(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.6.0-alpha.2))(@glint/template@1.6.0-alpha.2):
     dependencies:
       '@ember/test-helpers': 5.2.2(@babel/core@7.28.0)(@glint/template@1.6.0-alpha.2)
       '@embroider/addon-shim': 1.10.0
