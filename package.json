@@ -106,7 +106,7 @@
     "@gossi/config-prettier": "^1.0.1",
     "@gossi/config-template-lint": "^1.0.1",
     "@rollup/plugin-babel": "^6.0.4",
-    "@types/qunit": "^2.19.12",
+    "@types/qunit": "^2.19.13",
     "@types/sinon": "^17.0.4",
     "ember-concurrency": "^4.0.6",
     "ember-element-helper": "^0.8.8",
