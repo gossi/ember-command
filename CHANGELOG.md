@@ -1,5 +1,21 @@
 # Changelog
 
+## Release (2025-10-14)
+
+* ember-command 2.0.8 (patch)
+
+#### :bug: Bug Fix
+* `ember-command`
+  * [#141](https://github.com/gossi/ember-command/pull/141) fix docs build command ([@gossi](https://github.com/gossi))
+
+#### :house: Internal
+* `ember-command`
+  * [#142](https://github.com/gossi/ember-command/pull/142) Update `release-plan` CI setup ([@gossi](https://github.com/gossi))
+  * [#138](https://github.com/gossi/ember-command/pull/138) Go vite ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## Release (2024-11-08)
 
 ember-command 2.0.7 (patch)
