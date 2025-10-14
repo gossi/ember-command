@@ -1,6 +1,6 @@
 {
   "name": "ember-command",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Commands for Ember",
   "keywords": [
     "ember-addon",
