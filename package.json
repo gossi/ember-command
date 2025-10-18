@@ -105,7 +105,7 @@
     "@gossi/config-eslint": "^1.1.2",
     "@gossi/config-prettier": "^1.0.1",
     "@gossi/config-template-lint": "^1.0.1",
-    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-babel": "^6.1.0",
     "@types/qunit": "^2.19.13",
     "@types/sinon": "^17.0.4",
     "ember-concurrency": "^5.1.0",
