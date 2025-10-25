@@ -95,7 +95,7 @@
     "@embroider/addon-dev": "^8.1.0",
     "@embroider/compat": "^4.1.8",
     "@embroider/core": "^4.2.5",
-    "@embroider/vite": "^1.3.5",
+    "@embroider/vite": "^1.3.6",
     "@glimmer/component": "^2.0.0",
     "@glimmer/interfaces": "^0.94.6",
     "@glint/core": "^2.0.0-alpha.4",
