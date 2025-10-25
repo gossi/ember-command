@@ -56,7 +56,7 @@ importers:
         version: 4.2.5(@glint/template@1.6.2)
       '@embroider/vite':
         specifier: ^1.3.5
-        version: 1.3.5(@embroider/core@4.2.5(@glint/template@1.6.2))(@glint/template@1.6.2)(rollup@4.52.5)(vite@7.1.11(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1))
+        version: 1.3.5(@embroider/core@4.2.5(@glint/template@1.6.2))(@glint/template@1.6.2)(rollup@4.52.5)(vite@7.1.12(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1))
       '@glimmer/component':
         specifier: ^2.0.0
         version: 2.0.0
@@ -160,8 +160,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^7.1.11
-        version: 7.1.11(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1)
+        specifier: ^7.1.12
+        version: 7.1.12(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1)
       vitepress:
         specifier: ^1.6.4
         version: 1.6.4(@algolia/client-search@5.32.0)(@types/node@24.0.12)(postcss@8.5.6)(search-insights@2.17.3)(terser@5.43.1)(typescript@5.9.3)
@@ -6139,8 +6139,8 @@ packages:
       terser:
         optional: true
 
-  vite@7.1.11:
-    resolution: {integrity: sha512-uzcxnSDVjAopEUjljkWh8EIrg6tlzrjFUfMcR1EVsRDGwf/ccef0qQPRyOrROwhrTDaApueq+ja+KLPlzR/zdg==}
+  vite@7.1.12:
+    resolution: {integrity: sha512-ZWyE8YXEXqJrrSLvYgrRP7p62OziLW7xI5HYGWFzOvupfAlrLvURSzv/FyGyy0eidogEM3ujU+kUG1zuHgb6Ug==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -6191,16 +6191,16 @@ packages:
       postcss:
         optional: true
 
-  volar-service-html@0.0.64:
-    resolution: {integrity: sha512-5xknMYKmZBFzp2399RlsnGce25PfNu9ViXa1s63Q8NP6xeXcF3lInFsV+1o2DWBoXZdnXcuRvWOA+K+JIZLEcA==}
+  volar-service-html@0.0.66:
+    resolution: {integrity: sha512-MKKD2qM8qVZvBKBIugt00+Bm8j1ehgeX7Cm5XwgeEgdW/3PhUEEe/aeTxQGon1WJIGf2MM/cHPjZxPJOQN4WfQ==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
       '@volar/language-service':
         optional: true
 
-  volar-service-typescript@0.0.65:
-    resolution: {integrity: sha512-zPJuLIMs7lkQCvL+Rza8+3/EIoXEIkX8+DL7bNNfPgnbalbvRDhqWLVMJ6Zk3pINjLJafDqyhSbw8srfkUv97w==}
+  volar-service-typescript@0.0.66:
+    resolution: {integrity: sha512-8irsfCEf86R1RqPijrU6p5NCqKDNzyJNWKM6ZXmCcJqhebtl7Hr/a0bnlr59AzqkS3Ym4PbbJZs1K/92CXTDsw==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
@@ -7516,7 +7516,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/vite@1.3.5(@embroider/core@4.2.5(@glint/template@1.6.2))(@glint/template@1.6.2)(rollup@4.52.5)(vite@7.1.11(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1))':
+  '@embroider/vite@1.3.5(@embroider/core@4.2.5(@glint/template@1.6.2))(@glint/template@1.6.2)(rollup@4.52.5)(vite@7.1.12(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1))':
     dependencies:
       '@babel/core': 7.28.4
       '@embroider/core': 4.2.5(@glint/template@1.6.2)
@@ -7535,7 +7535,7 @@ snapshots:
       send: 0.18.0
       source-map-url: 0.4.1
       terser: 5.43.1
-      vite: 7.1.11(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1)
     transitivePeerDependencies:
       - '@glint/template'
       - bufferutil
@@ -7933,8 +7933,8 @@ snapshots:
       silent-error: 1.1.1
       typescript: 5.9.3
       uuid: 8.3.2
-      volar-service-html: 0.0.64(@volar/language-service@2.4.12)
-      volar-service-typescript: 0.0.65(@volar/language-service@2.4.12)
+      volar-service-html: 0.0.66(@volar/language-service@2.4.12)
+      volar-service-typescript: 0.0.66(@volar/language-service@2.4.12)
       vscode-languageserver-protocol: 3.17.5
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
@@ -13342,7 +13342,7 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.43.1
 
-  vite@7.1.11(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1):
+  vite@7.1.12(@types/node@24.0.12)(terser@5.43.1)(yaml@2.8.1):
     dependencies:
       esbuild: 0.25.6
       fdir: 6.5.0(picomatch@4.0.3)
@@ -13405,7 +13405,7 @@ snapshots:
       - typescript
       - universal-cookie
 
-  volar-service-html@0.0.64(@volar/language-service@2.4.12):
+  volar-service-html@0.0.66(@volar/language-service@2.4.12):
     dependencies:
       vscode-html-languageservice: 5.5.1
       vscode-languageserver-textdocument: 1.0.12
@@ -13413,7 +13413,7 @@ snapshots:
     optionalDependencies:
       '@volar/language-service': 2.4.12
 
-  volar-service-typescript@0.0.65(@volar/language-service@2.4.12):
+  volar-service-typescript@0.0.66(@volar/language-service@2.4.12):
     dependencies:
       path-browserify: 1.0.1
       semver: 7.7.2
