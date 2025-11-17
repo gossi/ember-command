@@ -91,8 +91,8 @@ importers:
         specifier: ^2.19.13
         version: 2.19.13
       '@types/sinon':
-        specifier: ^17.0.4
-        version: 17.0.4
+        specifier: ^21.0.0
+        version: 21.0.0
       ember-concurrency:
         specifier: ^5.1.0
         version: 5.1.0(@babel/core@7.28.5)(@glint/template@1.7.2)
@@ -1938,6 +1938,9 @@ packages:
 
   '@types/sinon@17.0.4':
     resolution: {integrity: sha512-RHnIrhfPO3+tJT0s7cFaXGZvsL4bbR3/k7z3P312qMS4JaS2Tk+KiwiLx1S0rQ56ERj00u1/BtdyVd0FY+Pdew==}
+
+  '@types/sinon@21.0.0':
+    resolution: {integrity: sha512-+oHKZ0lTI+WVLxx1IbJDNmReQaIsQJjN2e7UUrJHEeByG7bFeKJYsv1E75JxTQ9QKJDp21bAa/0W2Xo4srsDnw==}
 
   '@types/sinonjs__fake-timers@8.1.5':
     resolution: {integrity: sha512-mQkU2jY8jJEF7YHjHvsQO8+3ughTL1mcnn96igfhONmR+fUPSKIkefQYpSe8bsly2Ep7oQbn/6VG5/9/0qcArQ==}
@@ -8530,6 +8533,10 @@ snapshots:
       '@types/send': 0.17.5
 
   '@types/sinon@17.0.4':
+    dependencies:
+      '@types/sinonjs__fake-timers': 8.1.5
+
+  '@types/sinon@21.0.0':
     dependencies:
       '@types/sinonjs__fake-timers': 8.1.5
 
