@@ -60,7 +60,7 @@ export default defineConfig({
     addon.gjs(),
 
     // Emit .d.ts declaration files
-    addon.declarations('declarations', `glint --declaration --project ${configs.ts}`),
+    addon.declarations('declarations', `ember-tsc --declaration --project ${configs.ts}`),
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
