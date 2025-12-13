@@ -14,8 +14,7 @@ import type Owner from '@ember/owner';
 // const INVOCABLES = Symbol('INVOCABLES');
 const INVOCABLES = '__INVOCABLES__';
 
-export type Function = (...args: never[]) => void | Promise<void>;
-type Invocable = Command | Function;
+type Invocable = Command | AnyFunction;
 
 export interface CommandInstance {
   (...args: unknown[]): void | Promise<void>;
@@ -24,13 +23,13 @@ export interface CommandInstance {
 }
 
 export type Commandable =
-  | Function
+  | AnyFunction
   | Command
   | LinkCommand
   | Link
   | CommandInstance
   | Action<AnyFunction>;
-export type CommandAction = Function | Command | LinkCommand | Link | CommandInstance;
+export type CommandAction = AnyFunction | Command | LinkCommand | Link | CommandInstance;
 
 const LINK_PROPERTIES = [
   'active',

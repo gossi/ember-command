@@ -6,7 +6,8 @@ import { element } from 'ember-element-helper';
 
 import { getLink } from '../-private/instance.ts';
 
-import type { CommandAction, Function } from '../-private/instance.ts';
+import type { AnyFunction } from '../-private/action.ts';
+import type { CommandAction } from '../-private/instance.ts';
 import type { ElementFromTagName, ElementSignature } from 'ember-element-helper';
 import type { Link } from 'ember-link';
 
@@ -38,7 +39,7 @@ export default class CommandElement extends Component<CommandSignature> {
     return undefined;
   }
 
-  get command(): Function | undefined {
+  get command(): AnyFunction | undefined {
     if (typeof this.args.command === 'function') {
       return this.args.command;
     }
