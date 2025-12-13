@@ -1,5 +1,28 @@
 # Changelog
 
+## Release (2025-12-13)
+
+* ember-command 2.0.8 (patch)
+
+#### :bug: Bug Fix
+* `ember-command`
+  * [#260](https://github.com/gossi/ember-command/pull/260) Accept more of your `Function` on `CommandAction` (was too restrictive) ([@gossi](https://github.com/gossi))
+  * [#141](https://github.com/gossi/ember-command/pull/141) fix docs build command ([@gossi](https://github.com/gossi))
+
+#### :memo: Documentation
+* `ember-command`
+  * [#261](https://github.com/gossi/ember-command/pull/261) Use `glimmer-ts` language for code in Readme ([@gossi](https://github.com/gossi))
+
+#### :house: Internal
+* `ember-command`
+  * [#259](https://github.com/gossi/ember-command/pull/259) Use Trusted Publishing ([@gossi](https://github.com/gossi))
+  * [#258](https://github.com/gossi/ember-command/pull/258) Use glint v2 ([@gossi](https://github.com/gossi))
+  * [#142](https://github.com/gossi/ember-command/pull/142) Update `release-plan` CI setup ([@gossi](https://github.com/gossi))
+  * [#138](https://github.com/gossi/ember-command/pull/138) Go vite ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## Release (2024-11-08)
 
 ember-command 2.0.7 (patch)

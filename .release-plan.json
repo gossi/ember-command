@@ -2,16 +2,25 @@
   "solution": {
     "ember-command": {
       "impact": "patch",
-      "oldVersion": "2.0.6",
-      "newVersion": "2.0.7",
+      "oldVersion": "2.0.7",
+      "newVersion": "2.0.8",
+      "tagName": "latest",
       "constraints": [
         {
           "impact": "patch",
           "reason": "Appears in changelog section :bug: Bug Fix"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :memo: Documentation"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2024-11-08)\n\nember-command 2.0.7 (patch)\n\n#### :bug: Bug Fix\n* `ember-command`, `test-app`\n  * [#97](https://github.com/gossi/ember-command/pull/97) Fix another promise bug ([@gossi](https://github.com/gossi))\n\n#### Committers: 1\n- Thomas Gossmann ([@gossi](https://github.com/gossi))\n"
+  "description": "## Release (2025-12-13)\n\n* ember-command 2.0.8 (patch)\n\n#### :bug: Bug Fix\n* `ember-command`\n  * [#260](https://github.com/gossi/ember-command/pull/260) Accept more of your `Function` on `CommandAction` (was too restrictive) ([@gossi](https://github.com/gossi))\n  * [#141](https://github.com/gossi/ember-command/pull/141) fix docs build command ([@gossi](https://github.com/gossi))\n\n#### :memo: Documentation\n* `ember-command`\n  * [#261](https://github.com/gossi/ember-command/pull/261) Use `glimmer-ts` language for code in Readme ([@gossi](https://github.com/gossi))\n\n#### :house: Internal\n* `ember-command`\n  * [#259](https://github.com/gossi/ember-command/pull/259) Use Trusted Publishing ([@gossi](https://github.com/gossi))\n  * [#258](https://github.com/gossi/ember-command/pull/258) Use glint v2 ([@gossi](https://github.com/gossi))\n  * [#142](https://github.com/gossi/ember-command/pull/142) Update `release-plan` CI setup ([@gossi](https://github.com/gossi))\n  * [#138](https://github.com/gossi/ember-command/pull/138) Go vite ([@gossi](https://github.com/gossi))\n\n#### Committers: 1\n- Thomas Gossmann ([@gossi](https://github.com/gossi))\n"
 }
