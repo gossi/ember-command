@@ -44,7 +44,7 @@ mechanics to do that.
 Write an action that invokes a service within a [single file
 component](https://rfcs.emberjs.com/id/0779-first-class-component-templates).
 
-```gts
+```glimmer-ts
 import { action } from 'ember-command';
 import { on } from '@ember/modifier';
 
@@ -67,7 +67,7 @@ This works well in combination with
 
 Let's make a link and add tracking to it:
 
-```gts
+```glimmer-ts
 import { command, action, CommandElement } from 'ember-command';
 import { link } from 'ember-link';
 
