@@ -1,4 +1,5 @@
-name: "Setup"
+name: Setup
+description: Install toolchain for this repo CI tasks
 inputs:
   install-args:
     description: "Args to pass to pnpm install"
