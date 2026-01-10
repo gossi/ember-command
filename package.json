@@ -121,7 +121,7 @@
     "qunit": "^2.24.3",
     "qunit-dom": "^3.5.0",
     "release-plan": "^0.17.2",
-    "rollup": "^4.54.0",
+    "rollup": "^4.55.1",
     "sinon": "^21.0.1",
     "testem": "^3.17.0",
     "typedoc-plugin-markdown": "^4.9.0",
