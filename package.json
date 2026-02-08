@@ -98,7 +98,7 @@
     "@embroider/vite": "^1.5.2",
     "@glimmer/component": "^2.0.0",
     "@glimmer/interfaces": "^0.94.6",
-    "@glint/ember-tsc": "^1.1.0",
+    "@glint/ember-tsc": "^1.1.1",
     "@glint/template": "^1.7.4",
     "@gossi/config-eslint": "^1.1.2",
     "@gossi/config-prettier": "^1.0.1",
