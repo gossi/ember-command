@@ -105,7 +105,7 @@
     "@gossi/config-template-lint": "^1.0.1",
     "@rollup/plugin-babel": "^7.0.0",
     "@types/qunit": "^2.19.13",
-    "@types/sinon": "^21.0.0",
+    "@types/sinon": "^21.0.1",
     "ember-concurrency": "^5.2.0",
     "ember-element-helper": "^0.8.8",
     "ember-link": "^3.5.0",
