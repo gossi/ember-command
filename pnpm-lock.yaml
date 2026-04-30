@@ -64,8 +64,8 @@ importers:
         specifier: ^0.94.6
         version: 0.94.6
       '@glint/ember-tsc':
-        specifier: ^1.4.0
-        version: 1.4.0(typescript@6.0.3)
+        specifier: ^1.5.0
+        version: 1.5.0(typescript@6.0.3)
       '@glint/template':
         specifier: ^1.7.7
         version: 1.7.7
@@ -1371,8 +1371,8 @@ packages:
   '@glimmer/wire-format@0.94.8':
     resolution: {integrity: sha512-A+Cp5m6vZMAEu0Kg/YwU2dJZXyYxVJs2zI57d3CP6NctmX7FsT8WjViiRUmt5abVmMmRH5b8BUovqY6GSMAdrw==}
 
-  '@glint/ember-tsc@1.4.0':
-    resolution: {integrity: sha512-r9Yu1R7bcsIa/Y3W3riYU8cWHDTVflACmJyy4bxEpT4aSgKowcaGhy1FOneA3j/5R5VNdO9opCs7KfQ+KmwzAA==}
+  '@glint/ember-tsc@1.5.0':
+    resolution: {integrity: sha512-mMAG91QyzKQvklnoQFy5orNA4gYU2LPQlPHUbJnuAHJ0c5pwyUO/rjseudFXAWRA5F8cQmNLqtximnLTvHSMzw==}
     hasBin: true
     peerDependencies:
       typescript: '>=5.6.0'
@@ -7701,7 +7701,7 @@ snapshots:
     dependencies:
       '@glimmer/interfaces': 0.94.6
 
-  '@glint/ember-tsc@1.4.0(typescript@6.0.3)':
+  '@glint/ember-tsc@1.5.0(typescript@6.0.3)':
     dependencies:
       '@glimmer/syntax': 0.95.0
       '@glint/template': 1.7.7
