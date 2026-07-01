@@ -123,7 +123,7 @@
     "release-plan": "^0.18.0",
     "rollup": "^4.60.4",
     "sinon": "^22.0.0",
-    "testem": "^3.20.0",
+    "testem": "^3.20.1",
     "typedoc-plugin-markdown": "^4.11.0",
     "typedoc-vitepress-theme": "^1.1.2",
     "typedoc": "^0.28.19",
