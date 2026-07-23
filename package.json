@@ -131,7 +131,7 @@
     "vitepress": "^1.6.4",
     "vite": "^8.1.4"
   },
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@11.13.1",
   "engines": {
     "node": "^20.11.0 || >=22"
   },
