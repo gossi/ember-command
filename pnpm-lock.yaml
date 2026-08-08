@@ -104,7 +104,7 @@ importers:
         version: 13.2.0
       ember-sinon-qunit:
         specifier: ^7.5.0
-        version: 7.5.0(@babel/core@7.29.7)(ember-source@7.1.0(@glimmer/component@2.0.0))(qunit@2.26.0)(sinon@22.0.0)
+        version: 7.5.0(@babel/core@7.29.7)(ember-source@7.1.0(@glimmer/component@2.0.0))(qunit@2.26.0)(sinon@22.1.0)
       ember-source:
         specifier: ~7.1.0
         version: 7.1.0(@glimmer/component@2.0.0)
@@ -136,8 +136,8 @@ importers:
         specifier: ^4.62.4
         version: 4.62.4
       sinon:
-        specifier: ^22.0.0
-        version: 22.0.0
+        specifier: ^22.1.0
+        version: 22.1.0
       testem:
         specifier: ^3.20.1
         version: 3.20.1(@babel/core@7.29.7)(handlebars@4.7.8)(underscore@1.13.7)
@@ -5178,8 +5178,8 @@ packages:
   simple-html-tokenizer@0.5.11:
     resolution: {integrity: sha512-C2WEK/Z3HoSFbYq8tI7ni3eOo/NneSPRoPpcM7WdLjFOArFuyXEjAoCdOC3DgMfRyziZQ1hCNR4mrNdWEvD0og==}
 
-  sinon@22.0.0:
-    resolution: {integrity: sha512-sq/6DpdXOrLyfbKlXLg/Usc7xu8YXPeLkOFZRvA3bNUSA2lhbrZ06yuXbH1fkzBPCbz9O10+7hznzUsjaYNm0Q==}
+  sinon@22.1.0:
+    resolution: {integrity: sha512-n1ajF2rBWMTtEwbKcw4UdFg4nCnDdq/U6RDoxtOd7oapOlRoJ5ynwFx60owROyhDpA9QhMZi0pCO/xtmwFjG7w==}
 
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
@@ -9155,14 +9155,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-sinon-qunit@7.5.0(@babel/core@7.29.7)(ember-source@7.1.0(@glimmer/component@2.0.0))(qunit@2.26.0)(sinon@22.0.0):
+  ember-sinon-qunit@7.5.0(@babel/core@7.29.7)(ember-source@7.1.0(@glimmer/component@2.0.0))(qunit@2.26.0)(sinon@22.1.0):
     dependencies:
       '@embroider/addon-shim': 1.10.2
       '@types/sinon': 17.0.4
       decorator-transforms: 2.3.0(@babel/core@7.29.7)
       ember-source: 7.1.0(@glimmer/component@2.0.0)
       qunit: 2.26.0
-      sinon: 22.0.0
+      sinon: 22.1.0
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -11521,7 +11521,7 @@ snapshots:
 
   simple-html-tokenizer@0.5.11: {}
 
-  sinon@22.0.0:
+  sinon@22.1.0:
     dependencies:
       '@sinonjs/commons': 3.0.1
       '@sinonjs/fake-timers': 15.4.0
