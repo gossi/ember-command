@@ -133,7 +133,7 @@ importers:
         specifier: ^0.20.0
         version: 0.20.0
       rollup:
-        specifier: ^4.63.0
+        specifier: ^4.63.1
         version: 4.63.1
       sinon:
         specifier: ^22.1.0
@@ -2592,6 +2592,7 @@ packages:
 
   charm@1.0.2:
     resolution: {integrity: sha512-wqW3VdPnlSWT4eRiYX+hcs+C6ViBPUWk1qTCd+37qw9kEm/a5n2qcyQDMBWvSYKN/ctqZzeXNQaeBjOetJJUkw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   chokidar@5.0.0:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
