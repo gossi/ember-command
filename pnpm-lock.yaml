@@ -25,11 +25,11 @@ importers:
         specifier: ^7.29.7
         version: 7.29.7
       '@babel/eslint-parser':
-        specifier: ^7.29.7
-        version: 7.29.7(@babel/core@7.29.7)(eslint@9.39.4)
+        specifier: ^7.29.9
+        version: 7.29.9(@babel/core@7.29.7)(eslint@9.39.4)
       '@babel/plugin-transform-typescript':
-        specifier: ^7.29.7
-        version: 7.29.7(@babel/core@7.29.7)
+        specifier: ^7.29.9
+        version: 7.29.9(@babel/core@7.29.7)
       '@babel/preset-typescript':
         specifier: ^7.29.7
         version: 7.29.7(@babel/core@7.29.7)
@@ -71,7 +71,7 @@ importers:
         version: 1.7.7
       '@gossi/config-eslint':
         specifier: ^1.1.2
-        version: 1.1.2(@babel/eslint-parser@7.29.7(@babel/core@7.29.7)(eslint@9.39.4))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.29.7))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint-plugin-ember@12.5.0(@babel/core@7.29.7)(@typescript-eslint/parser@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4))(eslint-plugin-qunit@8.2.2(eslint@9.39.4))(eslint@9.39.4)(prettier@3.6.2)(typescript@6.0.3)
+        version: 1.1.2(@babel/eslint-parser@7.29.9(@babel/core@7.29.7)(eslint@9.39.4))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.29.7))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint-plugin-ember@12.5.0(@babel/core@7.29.7)(@typescript-eslint/parser@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4))(eslint-plugin-qunit@8.2.2(eslint@9.39.4))(eslint@9.39.4)(prettier@3.6.2)(typescript@6.0.3)
       '@gossi/config-prettier':
         specifier: ^1.0.1
         version: 1.0.1(prettier@3.6.2)
@@ -249,8 +249,8 @@ packages:
     resolution: {integrity: sha512-RgHBCvtjbOK2gXSNBNIkNoEc9qoVEtau3hj8gEqKQuL3HZAibKarWFEI3Lfm6EYKkLalOh8eSrj9b+ch9H/VBA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.29.7':
-    resolution: {integrity: sha512-zxt+UJTOMKvUt3yOg+D58MLuz334pHp93qifMFcjIIO+9hN6t+ufw2gi7vDPMpxvfnHRR+3VVXvIjineCcgyXw==}
+  '@babel/eslint-parser@7.29.9':
+    resolution: {integrity: sha512-GmrJTAtiRbNip+eKFqeuSvoHMJhKlH36j8U0yE3Gqn45B+SIO7NvsEiHtsmzkBqV1hLSMqYr41dI1aZLTkJ37g==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -723,8 +723,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/plugin-transform-typescript@7.29.7':
-    resolution: {integrity: sha512-jK52h8LaLc7JarhQV2ofeFMts4H7vnOXnqZNA6fYglBTZewRBE51KWt3BUltW1P+KoPsYkHoJeXePuz4zo2LMw==}
+  '@babel/plugin-transform-typescript@7.29.9':
+    resolution: {integrity: sha512-FFwIwzU+7SCOuxxV4YtJql6T9981ZVTm+FHO5GhVsRqCTdy0WwrEZh3l42ARpXruJUDGOptdduHW6Zr7pNPLNg==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -6004,7 +6004,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.29.7(@babel/core@7.29.7)(eslint@9.39.4)':
+  '@babel/eslint-parser@7.29.9(@babel/core@7.29.7)(eslint@9.39.4)':
     dependencies:
       '@babel/core': 7.29.7
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
@@ -6548,7 +6548,7 @@ snapshots:
       '@babel/core': 7.29.7
       '@babel/helper-plugin-utils': 7.29.7
 
-  '@babel/plugin-transform-typescript@7.29.7(@babel/core@7.29.7)':
+  '@babel/plugin-transform-typescript@7.29.9(@babel/core@7.29.7)':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/helper-annotate-as-pure': 7.29.7
@@ -6672,7 +6672,7 @@ snapshots:
       '@babel/helper-validator-option': 7.29.7
       '@babel/plugin-syntax-jsx': 7.29.7(@babel/core@7.29.7)
       '@babel/plugin-transform-modules-commonjs': 7.29.7(@babel/core@7.29.7)
-      '@babel/plugin-transform-typescript': 7.29.7(@babel/core@7.29.7)
+      '@babel/plugin-transform-typescript': 7.29.9(@babel/core@7.29.7)
     transitivePeerDependencies:
       - supports-color
 
@@ -7269,14 +7269,14 @@ snapshots:
 
   '@glint/template@1.7.7': {}
 
-  '@gossi/config-eslint@1.1.2(@babel/eslint-parser@7.29.7(@babel/core@7.29.7)(eslint@9.39.4))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.29.7))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint-plugin-ember@12.5.0(@babel/core@7.29.7)(@typescript-eslint/parser@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4))(eslint-plugin-qunit@8.2.2(eslint@9.39.4))(eslint@9.39.4)(prettier@3.6.2)(typescript@6.0.3)':
+  '@gossi/config-eslint@1.1.2(@babel/eslint-parser@7.29.9(@babel/core@7.29.7)(eslint@9.39.4))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.29.7))(@types/eslint@9.6.1)(@typescript-eslint/utils@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint-plugin-ember@12.5.0(@babel/core@7.29.7)(@typescript-eslint/parser@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4))(eslint-plugin-qunit@8.2.2(eslint@9.39.4))(eslint@9.39.4)(prettier@3.6.2)(typescript@6.0.3)':
     dependencies:
       '@eslint/js': 9.39.4
       '@stylistic/eslint-plugin': 4.4.1(eslint@9.39.4)(typescript@6.0.3)
       eslint: 9.39.4
       eslint-config-prettier: 10.1.5(eslint@9.39.4)
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4))(eslint@9.39.4)
-      eslint-plugin-decorator-position: 6.0.0(@babel/eslint-parser@7.29.7(@babel/core@7.29.7)(eslint@9.39.4))(eslint@9.39.4)
+      eslint-plugin-decorator-position: 6.0.0(@babel/eslint-parser@7.29.9(@babel/core@7.29.7)(eslint@9.39.4))(eslint@9.39.4)
       eslint-plugin-import-x: 4.16.1(@typescript-eslint/utils@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4)
       eslint-plugin-json: 4.0.1
       eslint-plugin-n: 17.21.0(eslint@9.39.4)(typescript@6.0.3)
@@ -7286,7 +7286,7 @@ snapshots:
       globals: 16.3.0
       typescript-eslint: 8.36.0(eslint@9.39.4)(typescript@6.0.3)
     optionalDependencies:
-      '@babel/eslint-parser': 7.29.7(@babel/core@7.29.7)(eslint@9.39.4)
+      '@babel/eslint-parser': 7.29.9(@babel/core@7.29.7)(eslint@9.39.4)
       '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.29.7)
       eslint-plugin-ember: 12.5.0(@babel/core@7.29.7)(@typescript-eslint/parser@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4)
       eslint-plugin-qunit: 8.2.2(eslint@9.39.4)
@@ -8916,7 +8916,7 @@ snapshots:
       '@babel/plugin-transform-private-methods': 7.27.1(@babel/core@7.29.7)
       '@babel/plugin-transform-private-property-in-object': 7.27.1(@babel/core@7.29.7)
       '@babel/plugin-transform-runtime': 7.28.0(@babel/core@7.29.7)
-      '@babel/plugin-transform-typescript': 7.29.7(@babel/core@7.29.7)
+      '@babel/plugin-transform-typescript': 7.29.9(@babel/core@7.29.7)
       '@babel/preset-env': 7.28.0(@babel/core@7.29.7)
       '@babel/runtime': 7.12.18
       amd-name-resolver: 1.3.1
@@ -8987,7 +8987,7 @@ snapshots:
   ember-eslint-parser@0.5.9(@babel/core@7.29.7)(@typescript-eslint/parser@8.36.0(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4):
     dependencies:
       '@babel/core': 7.29.7
-      '@babel/eslint-parser': 7.29.7(@babel/core@7.29.7)(eslint@9.39.4)
+      '@babel/eslint-parser': 7.29.9(@babel/core@7.29.7)(eslint@9.39.4)
       '@glimmer/syntax': 0.92.3
       content-tag: 2.0.3
       eslint-scope: 7.2.2
@@ -9242,7 +9242,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-decorator-position@6.0.0(@babel/eslint-parser@7.29.7(@babel/core@7.29.7)(eslint@9.39.4))(eslint@9.39.4):
+  eslint-plugin-decorator-position@6.0.0(@babel/eslint-parser@7.29.9(@babel/core@7.29.7)(eslint@9.39.4))(eslint@9.39.4):
     dependencies:
       '@babel/core': 7.29.7
       '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.29.7)
@@ -9251,7 +9251,7 @@ snapshots:
       eslint: 9.39.4
       snake-case: 3.0.4
     optionalDependencies:
-      '@babel/eslint-parser': 7.29.7(@babel/core@7.29.7)(eslint@9.39.4)
+      '@babel/eslint-parser': 7.29.9(@babel/core@7.29.7)(eslint@9.39.4)
     transitivePeerDependencies:
       - supports-color
 
@@ -10999,7 +10999,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.29.7
       '@babel/plugin-syntax-decorators': 7.27.1(@babel/core@7.29.7)
-      '@babel/plugin-transform-typescript': 7.29.7(@babel/core@7.29.7)
+      '@babel/plugin-transform-typescript': 7.29.9(@babel/core@7.29.7)
       prettier: 2.8.8
     transitivePeerDependencies:
       - supports-color
