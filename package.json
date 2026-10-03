@@ -106,7 +106,7 @@
     "@rollup/plugin-babel": "^7.1.0",
     "@types/qunit": "^2.19.14",
     "@types/sinon": "^22.0.0",
-    "ember-concurrency": "^5.2.1",
+    "ember-concurrency": "^5.3.0",
     "ember-element-helper": "^0.8.8",
     "ember-link": "^3.5.0",
     "ember-qunit": "^9.1.0",
