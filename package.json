@@ -120,7 +120,7 @@
     "prettier": "^3.6.2",
     "qunit": "^2.26.0",
     "qunit-dom": "^3.6.0",
-    "release-plan": "^0.20.0",
+    "release-plan": "^0.20.1",
     "rollup": "^4.63.4",
     "sinon": "^22.1.0",
     "testem": "^3.21.0",
