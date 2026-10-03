@@ -130,8 +130,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       release-plan:
-        specifier: ^0.20.0
-        version: 0.20.0
+        specifier: ^0.20.1
+        version: 0.20.1
       rollup:
         specifier: ^4.63.4
         version: 4.63.5
@@ -4861,8 +4861,8 @@ packages:
     resolution: {integrity: sha512-cnE+y8bz4NhMjISKbgeVJtqNbtf5QpjZP+Bslo+UqkIt9QPnX9q095eiRRASJG1/tz6dlNr6Z5NsBiWYokp6EQ==}
     hasBin: true
 
-  release-plan@0.20.0:
-    resolution: {integrity: sha512-BeFOBspvKTS4Sxq0/OnAS2aZ2pOWxiu19vkobGJtM8rDN9m/WM1IVvzRYbGloQTFwbyUxedd6+PgI7Cc/dPGQg==}
+  release-plan@0.20.1:
+    resolution: {integrity: sha512-KUKsRfekPJL+A80dLXp1+BtMurM7e75uhLa2LHaTgrJuXxyPujVPt8Xd3es2I2K6WeNz7YSkv3mZDX6ComPdsw==}
     engines: {node: 22.* || 24.* || >= 26}
     hasBin: true
 
@@ -10978,7 +10978,7 @@ snapshots:
     dependencies:
       jsesc: 3.0.2
 
-  release-plan@0.20.0:
+  release-plan@0.20.1:
     dependencies:
       '@manypkg/get-packages': 3.1.0
       '@npmcli/package-json': 8.0.0
